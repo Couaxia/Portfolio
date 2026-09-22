@@ -10,52 +10,89 @@ const closeMenu = () => {
 
 <template>
   <header class="header">
+
     <nav class="navbar container">
 
-      <!-- Logo -->
-      <a href="#home" class="navbar-logo" @click="closeMenu">
+      <!-- =========================
+           LOGO
+      ========================== -->
+
+      <RouterLink
+        to="/"
+        class="navbar-logo"
+        @click="closeMenu"
+      >
         COUAXIA
-      </a>
+      </RouterLink>
 
-      <!-- Navigation -->
-      <ul class="navbar-links" :class="{ active: menuOpen }">
+
+      <!-- =========================
+           NAVIGATION
+      ========================== -->
+
+      <ul
+        class="navbar-links"
+        :class="{ active: menuOpen }"
+      >
+
         <li>
-          <a href="#home" @click="closeMenu">
+          <RouterLink
+            to="/"
+            @click="closeMenu"
+          >
             Accueil
-          </a>
+          </RouterLink>
         </li>
 
         <li>
-          <a href="#about" @click="closeMenu">
+          <RouterLink
+            to="/about"
+            @click="closeMenu"
+          >
             À propos
-          </a>
+          </RouterLink>
         </li>
 
         <li>
-          <a href="#projects" @click="closeMenu">
+          <RouterLink
+            to="/projects"
+            @click="closeMenu"
+          >
             Projets Web
-          </a>
+          </RouterLink>
         </li>
 
         <li>
-          <a href="#creations" @click="closeMenu">
+          <RouterLink
+            to="/creations"
+            @click="closeMenu"
+          >
             Créations
-          </a>
+          </RouterLink>
         </li>
 
         <li>
-          <a href="#contact" @click="closeMenu">
+          <RouterLink
+            to="/contact"
+            @click="closeMenu"
+          >
             Contact
-          </a>
+          </RouterLink>
         </li>
+
       </ul>
 
-      <!-- Burger mobile -->
+
+      <!-- =========================
+           MENU MOBILE
+      ========================== -->
+
       <button
         class="navbar-toggle"
         :class="{ active: menuOpen }"
         type="button"
         aria-label="Ouvrir le menu"
+        :aria-expanded="menuOpen"
         @click="menuOpen = !menuOpen"
       >
         <span></span>
@@ -64,24 +101,39 @@ const closeMenu = () => {
       </button>
 
     </nav>
+
   </header>
 </template>
 
+
 <style scoped>
+
+/* =========================
+   HEADER
+========================= */
+
 .header {
   position: fixed;
+
   top: 0;
   left: 0;
+
   z-index: 1000;
 
   width: 100%;
 
   background: rgba(15, 9, 20, 0.8);
+
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 
   border-bottom: 1px solid var(--color-border);
 }
+
+
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar {
   height: 80px;
@@ -90,6 +142,7 @@ const closeMenu = () => {
   align-items: center;
   justify-content: space-between;
 }
+
 
 /* =========================
    LOGO
@@ -110,6 +163,7 @@ const closeMenu = () => {
     text-shadow var(--transition-normal);
 }
 
+
 .navbar-logo:hover {
   color: var(--color-pink-soft);
 
@@ -117,6 +171,7 @@ const closeMenu = () => {
     0 0 10px rgba(255, 79, 184, 0.4),
     0 0 25px rgba(143, 76, 255, 0.3);
 }
+
 
 /* =========================
    LINKS
@@ -131,26 +186,29 @@ const closeMenu = () => {
   list-style: none;
 }
 
+
 .navbar-links a {
   position: relative;
 
   padding: 10px 0;
+
+  color: var(--color-text-muted);
 
   font-size: 0.9rem;
   font-weight: 500;
 
   letter-spacing: 0.05em;
 
-  color: var(--color-text-muted);
-
   transition: color var(--transition-fast);
 }
+
 
 .navbar-links a:hover {
   color: var(--color-white);
 }
 
-/* Trait animé */
+
+/* Trait sous le lien */
 
 .navbar-links a::after {
   content: '';
@@ -176,9 +234,25 @@ const closeMenu = () => {
   transition: width var(--transition-normal);
 }
 
+
 .navbar-links a:hover::after {
   width: 100%;
 }
+
+
+/* =========================
+   PAGE ACTIVE
+========================= */
+
+.navbar-links a.router-link-exact-active {
+  color: var(--color-white);
+}
+
+
+.navbar-links a.router-link-exact-active::after {
+  width: 100%;
+}
+
 
 /* =========================
    BURGER
@@ -197,6 +271,7 @@ const closeMenu = () => {
   gap: 6px;
 }
 
+
 .navbar-toggle span {
   display: block;
 
@@ -212,19 +287,23 @@ const closeMenu = () => {
     opacity var(--transition-normal);
 }
 
-/* Transformation en X */
+
+/* Burger → X */
 
 .navbar-toggle.active span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
 
+
 .navbar-toggle.active span:nth-child(2) {
   opacity: 0;
 }
 
+
 .navbar-toggle.active span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
+
 
 /* =========================
    MOBILE
@@ -236,9 +315,11 @@ const closeMenu = () => {
     height: 70px;
   }
 
+
   .navbar-toggle {
     display: flex;
   }
+
 
   .navbar-links {
     position: absolute;
@@ -269,6 +350,7 @@ const closeMenu = () => {
       transform var(--transition-normal);
   }
 
+
   .navbar-links.active {
     opacity: 1;
     visibility: visible;
@@ -276,8 +358,11 @@ const closeMenu = () => {
     transform: translateY(0);
   }
 
+
   .navbar-links a {
     font-size: 1rem;
   }
+
 }
+
 </style>

@@ -1,6 +1,6 @@
 <script setup>
-import projects from '../../data/projects'
-import ProjectCard from '../ui/ProjectCard.vue'
+import projects from '../../data/projects.js'
+import ProjectCard from './ProjectCard.vue'
 </script>
 
 
