@@ -5,12 +5,13 @@ const projects = [
     title: 'Couaxia',
 
     description:
-      'Mon site personnel regroupant mon univers, mon histoire et mes différents contenus.',
+      'Mon site personnel dédié à mon univers de VTubing. Il regroupe ma présentation, mon histoire, mes réseaux ainsi que les artistes ayant participé à la création de mon univers.',
 
     images: [
-      '/projects/couaxia/couaxia-1.png',
-      '/projects/couaxia/couaxia-2.png',
-      '/projects/couaxia/couaxia-3.png'
+      '/projects/couaxia/home.webp',
+      '/projects/couaxia/about.webp',
+      '/projects/couaxia/story.webp',
+      '/projects/couaxia/credits.webp'
     ],
 
     technologies: [
@@ -29,12 +30,12 @@ const projects = [
     title: 'Myo Faunette',
 
     description:
-      'Une page de liens personnalisée créée autour de l’univers forestier et magique de Myo.',
+      'Une page de liens personnalisée imaginée autour de l’univers forestier et magique de Myo, regroupant ses réseaux et ses différentes plateformes.',
 
     images: [
-      '/projects/myo/myo-1.png',
-      '/projects/myo/myo-2.png',
-      '/projects/myo/myo-3.png'
+      '/projects/myo/home.webp',
+      '/projects/myo/links.webp',
+      '/projects/myo/mobile.webp'
     ],
 
     technologies: [
@@ -53,18 +54,20 @@ const projects = [
     title: 'Twitch Create',
 
     description:
-      'Une application permettant de créer et organiser des événements entre streamers Twitch.',
+      'Une application web permettant aux streamers de créer et organiser des événements Twitch, gérer les participants et retrouver facilement les informations liées aux événements.',
 
     images: [
-      '/projects/twitch-create/twitch-create-1.png',
-      '/projects/twitch-create/twitch-create-2.png',
-      '/projects/twitch-create/twitch-create-3.png'
+      '/projects/twitch-create/home.webp',
+      '/projects/twitch-create/events.webp',
+      '/projects/twitch-create/create-event.webp'
     ],
 
     technologies: [
       'Vue.js',
       'Node.js',
-      'Twitch API'
+      'Express',
+      'Twitch API',
+      'Discord.js'
     ],
 
     demo: '',
