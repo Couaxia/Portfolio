@@ -36,6 +36,13 @@ const celanyaImages = import.meta.glob(
     import: 'default'
   }
 )
+const nymyaImages = import.meta.glob(
+  '../assets/projects/Nymya/*.{png,jpg,jpeg,webp}',
+  {
+    eager: true,
+    import: 'default'
+  }
+)
 
 
 /* =========================
@@ -188,6 +195,36 @@ const projects = [
     ],
 
     demo: 'https://celanya.onrender.com/',
+
+    github: ''
+  },
+/* =========================
+     Nymya
+  ========================== */
+
+  {
+    id: 5,
+
+    title: 'Nymya',
+
+    description:
+      'Une page de liens personnalisée créée autour de l’univers de la capitaine Nymya. Elle regroupe ses réseaux et ses différentes plateformes dans une interface entièrement personnalisée.',
+
+    /*
+      Pour l'instant, toutes les images présentes
+      dans le dossier Celanya seront automatiquement
+      ajoutées au carrousel.
+    */
+
+    images: Object.values(nymyaImages),
+
+    technologies: [
+      'HTML',
+      'CSS',
+      'JavaScript'
+    ],
+
+    demo: 'https://nymya.onrender.com/',
 
     github: ''
   },
