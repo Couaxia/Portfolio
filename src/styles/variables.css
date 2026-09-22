@@ -1,0 +1,33 @@
+:root {
+  /* Backgrounds */
+  --color-background: #0f0914;
+  --color-background-soft: #191020;
+  --color-background-card: #21152b;
+
+  /* Brand */
+  --color-purple: #8f4cff;
+  --color-purple-dark: #6d00a3;
+  --color-pink: #ff4fb8;
+  --color-pink-soft: #ff9bd7;
+  --color-gold: #e9c46a;
+
+  /* Text */
+  --color-white: #ffffff;
+  --color-text: #f5eff8;
+  --color-text-muted: #b9aebf;
+
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.12);
+
+  /* Layout */
+  --max-width: 1200px;
+
+  /* Radius */
+  --radius-small: 10px;
+  --radius-medium: 18px;
+  --radius-large: 30px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s ease;
+}
