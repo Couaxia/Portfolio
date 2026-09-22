@@ -3,37 +3,34 @@ import projects from '../../data/projects.js'
 import ProjectCard from './ProjectCard.vue'
 </script>
 
-
 <template>
   <section
     id="projects"
     class="projects"
   >
-
     <div class="projects-container container">
 
       <!-- =========================
            HEADER
       ========================== -->
 
-      <div class="projects-header">
+      <header class="projects-header">
 
         <p class="section-label">
           Portfolio
         </p>
 
-        <h2>
+        <h1>
           Mes projets
           <span>web.</span>
-        </h2>
+        </h1>
 
         <p class="projects-introduction">
           Quelques projets que j'ai imaginés et développés,
           de la conception de l'interface jusqu'à leur mise en ligne.
         </p>
 
-      </div>
-
+      </header>
 
       <!-- =========================
            PROJECTS
@@ -51,10 +48,8 @@ import ProjectCard from './ProjectCard.vue'
       </div>
 
     </div>
-
   </section>
 </template>
-
 
 <style scoped>
 
@@ -65,9 +60,47 @@ import ProjectCard from './ProjectCard.vue'
 .projects {
   position: relative;
 
-  padding: 140px 0;
+  min-height: 100vh;
+
+  padding: 160px 0 140px;
 
   background: var(--color-background);
+
+  overflow: hidden;
+}
+
+
+/* Petite lumière décorative */
+
+.projects::before {
+  content: '';
+
+  position: absolute;
+
+  top: 100px;
+  right: -250px;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background: rgba(143, 76, 255, 0.1);
+
+  filter: blur(130px);
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.projects-container {
+  position: relative;
+
+  z-index: 2;
 }
 
 
@@ -96,7 +129,7 @@ import ProjectCard from './ProjectCard.vue'
 }
 
 
-.projects-header h2 {
+.projects-header h1 {
   margin-bottom: 25px;
 
   color: var(--color-white);
@@ -110,7 +143,7 @@ import ProjectCard from './ProjectCard.vue'
 }
 
 
-.projects-header h2 span {
+.projects-header h1 span {
   color: var(--color-pink-soft);
 }
 
@@ -127,7 +160,7 @@ import ProjectCard from './ProjectCard.vue'
 
 
 /* =========================
-   LIST
+   PROJECTS LIST
 ========================= */
 
 .projects-list {
@@ -146,7 +179,7 @@ import ProjectCard from './ProjectCard.vue'
 @media (max-width: 900px) {
 
   .projects {
-    padding: 100px 0;
+    padding: 130px 0 100px;
   }
 
 
@@ -165,7 +198,7 @@ import ProjectCard from './ProjectCard.vue'
 @media (max-width: 500px) {
 
   .projects {
-    padding: 80px 0;
+    padding: 110px 0 80px;
   }
 
 
@@ -174,7 +207,7 @@ import ProjectCard from './ProjectCard.vue'
   }
 
 
-  .projects-header h2 {
+  .projects-header h1 {
     font-size: 3rem;
   }
 
