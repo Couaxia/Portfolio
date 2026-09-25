@@ -1,6 +1,15 @@
 <script setup>
+
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import emailjs from '@emailjs/browser'
+
+
+/* ==================================================
+   I18N
+================================================== */
+
+const { t } = useI18n()
 
 
 /* ==================================================
@@ -29,7 +38,9 @@ const form = ref({
 ================================================== */
 
 const isSending = ref(false)
+
 const status = ref('')
+
 const statusMessage = ref('')
 
 
@@ -69,7 +80,7 @@ const submitForm = async () => {
     status.value = 'success'
 
     statusMessage.value =
-      'Ton message a bien été envoyé ! Je te répondrai dès que possible. ✨'
+      t('contact.form.messages.success')
 
     form.value = {
       name: '',
@@ -80,19 +91,21 @@ const submitForm = async () => {
 
   } catch (error) {
 
-    console.error('Erreur EmailJS :', error)
+    console.error('EmailJS error:', error)
 
     status.value = 'error'
 
     statusMessage.value =
-      "Une erreur est survenue pendant l'envoi. Tu peux aussi me contacter directement par e-mail."
+      t('contact.form.messages.error')
 
   } finally {
 
     isSending.value = false
 
   }
+
 }
+
 </script>
 
 
@@ -147,16 +160,16 @@ const submitForm = async () => {
       <div class="contact-content">
 
         <p class="section-label">
-          Contact
+          {{ $t('contact.label') }}
         </p>
 
 
         <h1 class="contact-title">
 
-          Une idée,
+          {{ $t('contact.title.first') }}
 
           <span>
-            un projet ?
+            {{ $t('contact.title.second') }}
           </span>
 
         </h1>
@@ -164,12 +177,11 @@ const submitForm = async () => {
 
         <p class="contact-description">
 
-          Une question, une collaboration ou simplement envie
-          de discuter d'un projet ?
+          {{ $t('contact.description.first') }}
 
           <br>
 
-          N'hésite pas à me contacter.
+          {{ $t('contact.description.second') }}
 
         </p>
 
@@ -181,7 +193,7 @@ const submitForm = async () => {
         <div class="contact-method">
 
           <span class="contact-small">
-            E-mail
+            {{ $t('contact.email.label') }}
           </span>
 
           <a
@@ -198,7 +210,7 @@ const submitForm = async () => {
           </a>
 
           <p class="method-description">
-            Pour une collaboration, un projet ou une demande professionnelle.
+            {{ $t('contact.email.description') }}
           </p>
 
         </div>
@@ -221,7 +233,7 @@ const submitForm = async () => {
             rel="noopener noreferrer"
           >
 
-            Me contacter sur Discord
+            {{ $t('contact.discord.link') }}
 
             <span>
               ↗
@@ -230,7 +242,7 @@ const submitForm = async () => {
           </a>
 
           <p class="method-description">
-            Pour discuter avec moi plus simplement ou rejoindre mon univers.
+            {{ $t('contact.discord.description') }}
           </p>
 
         </div>
@@ -243,11 +255,11 @@ const submitForm = async () => {
         <div class="contact-socials">
 
           <p>
-            Me retrouver ailleurs
+            {{ $t('contact.socials.title') }}
           </p>
 
-
           <div class="social-list">
+
 
             <!-- TWITCH -->
 
@@ -273,7 +285,7 @@ const submitForm = async () => {
             </a>
 
 
-            <!-- GITHUB -->
+            <!-- INSTAGRAM -->
 
             <a
               href="https://www.instagram.com/couaxia/"
@@ -297,7 +309,7 @@ const submitForm = async () => {
             </a>
 
 
-            <!-- LINKEDIN -->
+            <!-- X / TWITTER -->
 
             <a
               href="https://x.com/couaxia"
@@ -311,7 +323,7 @@ const submitForm = async () => {
               </span>
 
               <span>
-                Sur X/Tiwter
+                X / Twitter
               </span>
 
               <span class="social-arrow">
@@ -357,12 +369,11 @@ const submitForm = async () => {
               01
             </span>
 
-
             <span class="form-status">
 
               <span class="status-dot"></span>
 
-              Disponible
+              {{ $t('contact.form.available') }}
 
             </span>
 
@@ -376,7 +387,7 @@ const submitForm = async () => {
           <div class="form-group">
 
             <label for="name">
-              Ton nom / pseudo
+              {{ $t('contact.form.name.label') }}
             </label>
 
             <input
@@ -384,7 +395,7 @@ const submitForm = async () => {
               v-model.trim="form.name"
               type="text"
               name="name"
-              placeholder="Comment dois-je t'appeler ?"
+              :placeholder="$t('contact.form.name.placeholder')"
               autocomplete="name"
               maxlength="80"
               required
@@ -400,7 +411,7 @@ const submitForm = async () => {
           <div class="form-group">
 
             <label for="email">
-              Ton e-mail
+              {{ $t('contact.form.email.label') }}
             </label>
 
             <input
@@ -424,7 +435,7 @@ const submitForm = async () => {
           <div class="form-group">
 
             <label for="subject">
-              Sujet
+              {{ $t('contact.form.subject.label') }}
             </label>
 
             <input
@@ -432,7 +443,7 @@ const submitForm = async () => {
               v-model.trim="form.subject"
               type="text"
               name="subject"
-              placeholder="Parle-moi de ton projet..."
+              :placeholder="$t('contact.form.subject.placeholder')"
               maxlength="150"
               required
             >
@@ -447,7 +458,7 @@ const submitForm = async () => {
           <div class="form-group">
 
             <label for="message">
-              Ton message
+              {{ $t('contact.form.message.label') }}
             </label>
 
             <textarea
@@ -455,7 +466,7 @@ const submitForm = async () => {
               v-model.trim="form.message"
               name="message"
               rows="5"
-              placeholder="Écris ton message ici..."
+              :placeholder="$t('contact.form.message.placeholder')"
               maxlength="3000"
               required
             ></textarea>
@@ -487,14 +498,12 @@ const submitForm = async () => {
                 ✓
               </span>
 
-
               <span
                 v-else
                 class="message-icon"
               >
                 !
               </span>
-
 
               <span>
                 {{ statusMessage }}
@@ -520,12 +529,11 @@ const submitForm = async () => {
 
               {{
                 isSending
-                  ? 'Envoi en cours...'
-                  : 'Envoyer mon message'
+                  ? $t('contact.form.submit.sending')
+                  : $t('contact.form.submit.send')
               }}
 
             </span>
-
 
             <span
               v-if="!isSending"
@@ -533,7 +541,6 @@ const submitForm = async () => {
             >
               →
             </span>
-
 
             <span
               v-else
@@ -560,6 +567,7 @@ const submitForm = async () => {
 ================================================== */
 
 .contact {
+
   position: relative;
 
   width: 100%;
@@ -579,6 +587,7 @@ const submitForm = async () => {
     var(--color-background);
 
   overflow: hidden;
+
 }
 
 
@@ -587,6 +596,7 @@ const submitForm = async () => {
 ================================================== */
 
 .contact-container {
+
   position: relative;
 
   z-index: 5;
@@ -613,6 +623,7 @@ const submitForm = async () => {
       8vw,
       150px
     );
+
 }
 
 
@@ -621,11 +632,13 @@ const submitForm = async () => {
 ================================================== */
 
 .contact-content {
+
   position: relative;
 
   z-index: 5;
 
   max-width: 650px;
+
 }
 
 
@@ -634,6 +647,7 @@ const submitForm = async () => {
 ================================================== */
 
 .section-label {
+
   position: relative;
 
   display: inline-flex;
@@ -654,10 +668,12 @@ const submitForm = async () => {
   letter-spacing: 0.3em;
 
   text-transform: uppercase;
+
 }
 
 
 .section-label::before {
+
   content: '';
 
   width: 48px;
@@ -670,6 +686,7 @@ const submitForm = async () => {
       var(--color-purple),
       var(--color-pink)
     );
+
 }
 
 
@@ -678,6 +695,7 @@ const submitForm = async () => {
 ================================================== */
 
 .contact-title {
+
   display: flex;
 
   flex-direction: column;
@@ -699,10 +717,12 @@ const submitForm = async () => {
   line-height: 0.9;
 
   letter-spacing: -0.05em;
+
 }
 
 
 .contact-title span {
+
   width: fit-content;
 
   margin-top: 12px;
@@ -720,6 +740,7 @@ const submitForm = async () => {
   -webkit-background-clip: text;
 
   color: transparent;
+
 }
 
 
@@ -728,6 +749,7 @@ const submitForm = async () => {
 ================================================== */
 
 .contact-description {
+
   max-width: 530px;
 
   margin-bottom: 45px;
@@ -738,6 +760,7 @@ const submitForm = async () => {
   font-size: 1.05rem;
 
   line-height: 1.9;
+
 }
 
 
@@ -746,6 +769,7 @@ const submitForm = async () => {
 ================================================== */
 
 .contact-method {
+
   display: flex;
 
   flex-direction: column;
@@ -755,10 +779,12 @@ const submitForm = async () => {
   gap: 8px;
 
   margin-bottom: 32px;
+
 }
 
 
 .contact-small {
+
   color:
     var(--color-pink-soft);
 
@@ -769,10 +795,12 @@ const submitForm = async () => {
   letter-spacing: 0.2em;
 
   text-transform: uppercase;
+
 }
 
 
 .contact-main-link {
+
   position: relative;
 
   display: inline-flex;
@@ -794,10 +822,12 @@ const submitForm = async () => {
     );
 
   font-weight: 600;
+
 }
 
 
 .contact-main-link::after {
+
   content: '';
 
   position: absolute;
@@ -820,15 +850,19 @@ const submitForm = async () => {
   transition:
     width
     var(--transition-normal);
+
 }
 
 
 .contact-main-link:hover::after {
+
   width: 100%;
+
 }
 
 
 .contact-main-link > span {
+
   color:
     var(--color-pink);
 
@@ -837,19 +871,23 @@ const submitForm = async () => {
   transition:
     transform
     var(--transition-normal);
+
 }
 
 
 .contact-main-link:hover > span {
+
   transform:
     translate(
       4px,
       -4px
     );
+
 }
 
 
 .method-description {
+
   max-width: 470px;
 
   color:
@@ -858,6 +896,7 @@ const submitForm = async () => {
   font-size: 0.82rem;
 
   line-height: 1.6;
+
 }
 
 
@@ -866,11 +905,14 @@ const submitForm = async () => {
 ================================================== */
 
 .contact-socials {
+
   margin-top: 45px;
+
 }
 
 
 .contact-socials > p {
+
   margin-bottom: 18px;
 
   color:
@@ -881,19 +923,23 @@ const submitForm = async () => {
   letter-spacing: 0.15em;
 
   text-transform: uppercase;
+
 }
 
 
 .social-list {
+
   max-width: 480px;
 
   border-top:
     1px solid
     var(--color-border);
+
 }
 
 
 .social-link {
+
   display: grid;
 
   grid-template-columns:
@@ -921,10 +967,12 @@ const submitForm = async () => {
     var(--transition-normal),
     background
     var(--transition-normal);
+
 }
 
 
 .social-link:hover {
+
   padding-left: 15px;
 
   background:
@@ -934,33 +982,40 @@ const submitForm = async () => {
       255,
       0.025
     );
+
 }
 
 
 .social-number {
+
   color:
     var(--color-pink);
 
   font-size: 0.7rem;
+
 }
 
 
 .social-arrow {
+
   color:
     var(--color-pink-soft);
 
   transition:
     transform
     var(--transition-normal);
+
 }
 
 
 .social-link:hover .social-arrow {
+
   transform:
     translate(
       4px,
       -4px
     );
+
 }
 
 
@@ -969,6 +1024,7 @@ const submitForm = async () => {
 ================================================== */
 
 .contact-form-wrapper {
+
   position: relative;
 
   width: 100%;
@@ -976,6 +1032,7 @@ const submitForm = async () => {
   max-width: 580px;
 
   margin-left: auto;
+
 }
 
 
@@ -984,6 +1041,7 @@ const submitForm = async () => {
 ================================================== */
 
 .form-frame {
+
   position: absolute;
 
   inset: 0;
@@ -991,10 +1049,12 @@ const submitForm = async () => {
   border-radius: 32px;
 
   pointer-events: none;
+
 }
 
 
 .form-frame-one {
+
   z-index: -1;
 
   border:
@@ -1012,10 +1072,12 @@ const submitForm = async () => {
       15px
     )
     rotate(-2deg);
+
 }
 
 
 .form-frame-two {
+
   z-index: -2;
 
   border:
@@ -1033,6 +1095,7 @@ const submitForm = async () => {
       -12px
     )
     rotate(2deg);
+
 }
 
 
@@ -1041,6 +1104,7 @@ const submitForm = async () => {
 ================================================== */
 
 .contact-form {
+
   position: relative;
 
   padding:
@@ -1092,6 +1156,7 @@ const submitForm = async () => {
       0,
       0.3
     );
+
 }
 
 
@@ -1100,6 +1165,7 @@ const submitForm = async () => {
 ================================================== */
 
 .form-header {
+
   display: flex;
 
   align-items: center;
@@ -1107,10 +1173,12 @@ const submitForm = async () => {
   justify-content: space-between;
 
   margin-bottom: 38px;
+
 }
 
 
 .form-number {
+
   color:
     rgba(
       255,
@@ -1122,10 +1190,12 @@ const submitForm = async () => {
   font-size: 0.75rem;
 
   letter-spacing: 0.15em;
+
 }
 
 
 .form-status {
+
   display: flex;
 
   align-items: center;
@@ -1140,10 +1210,12 @@ const submitForm = async () => {
   letter-spacing: 0.12em;
 
   text-transform: uppercase;
+
 }
 
 
 .status-dot {
+
   width: 7px;
 
   height: 7px;
@@ -1164,6 +1236,7 @@ const submitForm = async () => {
     2s
     ease-in-out
     infinite;
+
 }
 
 
@@ -1171,18 +1244,22 @@ const submitForm = async () => {
 
   0%,
   100% {
+
     opacity: 0.5;
 
     transform:
       scale(0.8);
+
   }
 
 
   50% {
+
     opacity: 1;
 
     transform:
       scale(1.2);
+
   }
 
 }
@@ -1193,6 +1270,7 @@ const submitForm = async () => {
 ================================================== */
 
 .form-group {
+
   position: relative;
 
   display: flex;
@@ -1202,10 +1280,12 @@ const submitForm = async () => {
   gap: 10px;
 
   margin-bottom: 27px;
+
 }
 
 
 .form-group label {
+
   color:
     var(--color-pink-soft);
 
@@ -1216,6 +1296,7 @@ const submitForm = async () => {
   letter-spacing: 0.15em;
 
   text-transform: uppercase;
+
 }
 
 
@@ -1225,6 +1306,7 @@ const submitForm = async () => {
 
 .form-group input,
 .form-group textarea {
+
   width: 100%;
 
   padding:
@@ -1256,20 +1338,24 @@ const submitForm = async () => {
   transition:
     border-color
     var(--transition-normal);
+
 }
 
 
 .form-group textarea {
+
   min-height: 110px;
 
   resize: vertical;
 
   line-height: 1.6;
+
 }
 
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
+
   color:
     rgba(
       185,
@@ -1277,13 +1363,16 @@ const submitForm = async () => {
       191,
       0.45
     );
+
 }
 
 
 .form-group input:focus,
 .form-group textarea:focus {
+
   border-color:
     var(--color-pink);
+
 }
 
 
@@ -1292,6 +1381,7 @@ const submitForm = async () => {
 ================================================== */
 
 .form-message {
+
   display: flex;
 
   align-items: flex-start;
@@ -1312,10 +1402,12 @@ const submitForm = async () => {
   font-size: 0.82rem;
 
   line-height: 1.55;
+
 }
 
 
 .form-message.success {
+
   border:
     1px solid
     rgba(
@@ -1335,10 +1427,12 @@ const submitForm = async () => {
 
   color:
     var(--color-white);
+
 }
 
 
 .form-message.error {
+
   border:
     1px solid
     rgba(
@@ -1358,16 +1452,19 @@ const submitForm = async () => {
 
   color:
     var(--color-white);
+
 }
 
 
 .message-icon {
+
   flex-shrink: 0;
 
   color:
     var(--color-pink-soft);
 
   font-weight: 700;
+
 }
 
 
@@ -1377,20 +1474,24 @@ const submitForm = async () => {
 
 .status-enter-active,
 .status-leave-active {
+
   transition:
     opacity
     0.3s ease,
     transform
     0.3s ease;
+
 }
 
 
 .status-enter-from,
 .status-leave-to {
+
   opacity: 0;
 
   transform:
     translateY(-6px);
+
 }
 
 
@@ -1399,6 +1500,7 @@ const submitForm = async () => {
 ================================================== */
 
 .submit-button {
+
   position: relative;
 
   width: 100%;
@@ -1416,6 +1518,8 @@ const submitForm = async () => {
   padding:
     0
     25px;
+
+  border: none;
 
   border-radius: 50px;
 
@@ -1435,6 +1539,8 @@ const submitForm = async () => {
 
   font-weight: 600;
 
+  cursor: pointer;
+
   box-shadow:
     0
     15px
@@ -1453,10 +1559,12 @@ const submitForm = async () => {
     var(--transition-normal),
     opacity
     var(--transition-normal);
+
 }
 
 
 .submit-button:hover:not(:disabled) {
+
   transform:
     translateY(-3px);
 
@@ -1470,29 +1578,36 @@ const submitForm = async () => {
       184,
       0.25
     );
+
 }
 
 
 .submit-button:disabled {
+
   cursor: not-allowed;
 
   opacity: 0.75;
+
 }
 
 
 .button-arrow {
+
   font-size: 1.3rem;
 
   transition:
     transform
     var(--transition-normal);
+
 }
 
 
 .submit-button:hover:not(:disabled)
 .button-arrow {
+
   transform:
     translateX(6px);
+
 }
 
 
@@ -1501,6 +1616,7 @@ const submitForm = async () => {
 ================================================== */
 
 .button-loader {
+
   width: 19px;
 
   height: 19px;
@@ -1524,14 +1640,17 @@ const submitForm = async () => {
     0.7s
     linear
     infinite;
+
 }
 
 
 @keyframes button-loading {
 
   to {
+
     transform:
       rotate(360deg);
+
   }
 
 }
@@ -1542,6 +1661,7 @@ const submitForm = async () => {
 ================================================== */
 
 .contact-glow {
+
   position: absolute;
 
   border-radius: 50%;
@@ -1550,10 +1670,12 @@ const submitForm = async () => {
 
   filter:
     blur(130px);
+
 }
 
 
 .contact-glow-left {
+
   width: 600px;
 
   height: 600px;
@@ -1569,10 +1691,12 @@ const submitForm = async () => {
       255,
       0.16
     );
+
 }
 
 
 .contact-glow-right {
+
   width: 650px;
 
   height: 650px;
@@ -1588,6 +1712,7 @@ const submitForm = async () => {
       184,
       0.12
     );
+
 }
 
 
@@ -1596,15 +1721,18 @@ const submitForm = async () => {
 ================================================== */
 
 .orbit {
+
   position: absolute;
 
   border-radius: 50%;
 
   pointer-events: none;
+
 }
 
 
 .orbit-one {
+
   width: 850px;
 
   height: 500px;
@@ -1624,10 +1752,12 @@ const submitForm = async () => {
 
   transform:
     rotate(-15deg);
+
 }
 
 
 .orbit-two {
+
   width: 900px;
 
   height: 900px;
@@ -1644,6 +1774,7 @@ const submitForm = async () => {
       255,
       0.08
     );
+
 }
 
 
@@ -1652,6 +1783,7 @@ const submitForm = async () => {
 ================================================== */
 
 .star {
+
   position: absolute;
 
   z-index: 2;
@@ -1663,10 +1795,12 @@ const submitForm = async () => {
     4s
     ease-in-out
     infinite;
+
 }
 
 
 .star-one {
+
   left: 5%;
 
   top: 18%;
@@ -1675,10 +1809,12 @@ const submitForm = async () => {
     var(--color-pink-soft);
 
   font-size: 2.5rem;
+
 }
 
 
 .star-two {
+
   left: 47%;
 
   bottom: 15%;
@@ -1689,10 +1825,12 @@ const submitForm = async () => {
   font-size: 1.3rem;
 
   animation-delay: -1.2s;
+
 }
 
 
 .star-three {
+
   right: 5%;
 
   top: 15%;
@@ -1703,10 +1841,12 @@ const submitForm = async () => {
   font-size: 2rem;
 
   animation-delay: -2s;
+
 }
 
 
 .star-four {
+
   right: 40%;
 
   top: 9%;
@@ -1717,6 +1857,7 @@ const submitForm = async () => {
   font-size: 0.9rem;
 
   animation-delay: -0.7s;
+
 }
 
 
@@ -1724,20 +1865,24 @@ const submitForm = async () => {
 
   0%,
   100% {
+
     opacity: 0.4;
 
     transform:
       translateY(0)
       scale(0.8);
+
   }
 
 
   50% {
+
     opacity: 1;
 
     transform:
       translateY(-10px)
       scale(1.1);
+
   }
 
 }
@@ -1750,14 +1895,17 @@ const submitForm = async () => {
 @media (max-width: 1050px) {
 
   .contact {
+
     padding:
       120px
       0
       90px;
+
   }
 
 
   .contact-container {
+
     width:
       min(
         calc(100% - 50px),
@@ -1767,58 +1915,75 @@ const submitForm = async () => {
     grid-template-columns: 1fr;
 
     gap: 80px;
+
   }
 
 
   .contact-content {
+
     max-width: 650px;
 
     margin-inline: auto;
 
     text-align: center;
+
   }
 
 
   .section-label {
+
     justify-content: center;
+
   }
 
 
   .contact-title {
+
     align-items: center;
+
   }
 
 
   .contact-description {
+
     margin-inline: auto;
 
     margin-bottom: 45px;
+
   }
 
 
   .contact-method {
+
     align-items: center;
+
   }
 
 
   .method-description {
+
     margin-inline: auto;
+
   }
 
 
   .contact-socials {
+
     max-width: 500px;
 
     margin-inline: auto;
 
     margin-top: 45px;
+
   }
 
 
   .contact-form-wrapper {
+
     max-width: 580px;
 
     margin-inline: auto;
+
   }
 
 }
@@ -1831,14 +1996,17 @@ const submitForm = async () => {
 @media (max-width: 600px) {
 
   .contact {
+
     padding:
       105px
       0
       70px;
+
   }
 
 
   .contact-container {
+
     width:
       min(
         calc(100% - 32px),
@@ -1846,69 +2014,86 @@ const submitForm = async () => {
       );
 
     gap: 65px;
+
   }
 
 
   .contact-title {
+
     font-size:
       clamp(
         3.2rem,
         16vw,
         5rem
       );
+
   }
 
 
   .contact-description {
+
     font-size: 0.95rem;
+
   }
 
 
   .contact-main-link {
+
     font-size: 1.05rem;
+
   }
 
 
   .contact-form {
+
     padding:
       32px
       24px
       28px;
 
     border-radius: 25px;
+
   }
 
 
   .form-frame {
+
     border-radius: 25px;
+
   }
 
 
   .form-frame-one {
+
     transform:
       translate(
         -8px,
         9px
       )
       rotate(-1deg);
+
   }
 
 
   .form-frame-two {
+
     transform:
       translate(
         8px,
         -7px
       )
       rotate(1deg);
+
   }
 
 
   .social-link {
+
     grid-template-columns:
       35px
       1fr
       auto;
+
   }
 
 }
@@ -1921,26 +2106,34 @@ const submitForm = async () => {
 @media (max-width: 400px) {
 
   .contact-container {
+
     width:
       calc(100% - 24px);
+
   }
 
 
   .contact-title {
+
     font-size: 3rem;
+
   }
 
 
   .contact-form {
+
     padding:
       28px
       20px
       25px;
+
   }
 
 
   .contact-main-link {
+
     font-size: 0.95rem;
+
   }
 
 }

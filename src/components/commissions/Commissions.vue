@@ -1,45 +1,84 @@
 <script setup>
-import commissions from '../../data/commissions.js'
+
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+import { getCommissions } from '../../data/commissions.js'
 import CommissionCard from './CommissionCard.vue'
 
 
-/* =========================
+/* ==================================================
+   I18N
+================================================== */
+
+const { t } = useI18n()
+
+
+/* ==================================================
+   COMMISSIONS
+================================================== */
+
+const commissions = computed(() =>
+  getCommissions(t)
+)
+
+
+/* ==================================================
    KO-FI
-========================= */
+================================================== */
 
-const kofiUrl = 'https://ko-fi.com/couaxia/commissions'
+const kofiUrl =
+  'https://ko-fi.com/couaxia/commissions'
 
 
-/* =========================
+/* ==================================================
    PROCESS
-========================= */
+================================================== */
 
-const steps = [
+const steps = computed(() => [
+
   {
     number: '01',
-    title: 'Choisissez',
+
+    title:
+      t('commissions.process.steps.choose.title'),
+
     description:
-      'Découvrez les commissions disponibles et choisissez celle qui correspond à votre projet.'
+      t('commissions.process.steps.choose.description')
   },
+
   {
     number: '02',
-    title: 'Contactez-moi',
+
+    title:
+      t('commissions.process.steps.contact.title'),
+
     description:
-      'Pour les commissions qui le demandent, contactez-moi avant votre commande afin que nous puissions vérifier ensemble votre projet.'
+      t('commissions.process.steps.contact.description')
   },
+
   {
     number: '03',
-    title: 'Commandez',
+
+    title:
+      t('commissions.process.steps.order.title'),
+
     description:
-      'Passez ensuite votre commande directement depuis Ko-fi et transmettez-moi les informations nécessaires.'
+      t('commissions.process.steps.order.description')
   },
+
   {
     number: '04',
-    title: 'Création',
+
+    title:
+      t('commissions.process.steps.creation.title'),
+
     description:
-      'Je commence votre création et vous tiens informé(e) de son avancée jusqu’au rendu final.'
+      t('commissions.process.steps.creation.description')
   }
-]
+
+])
+
 </script>
 
 
@@ -65,6 +104,10 @@ const steps = [
     <span class="star star-four">✧</span>
 
 
+    <!-- =========================
+         CONTAINER
+    ========================== -->
+
     <div class="commissions-container">
 
 
@@ -75,20 +118,23 @@ const steps = [
       <header class="commissions-header">
 
         <span class="section-label">
-          ✦ COMMISSIONS ✦
+          ✦ {{ $t('commissions.hero.label') }} ✦
         </span>
 
 
         <h1>
-          Donnons vie à
-          <span>vos idées.</span>
+
+          {{ $t('commissions.hero.title.first') }}
+
+          <span>
+            {{ $t('commissions.hero.title.second') }}
+          </span>
+
         </h1>
 
 
         <p class="header-description">
-          Emotes personnalisées, créations pour votre univers
-          ou encore site de liens sur mesure : découvrez les
-          commissions actuellement disponibles.
+          {{ $t('commissions.hero.description') }}
         </p>
 
 
@@ -97,7 +143,7 @@ const steps = [
           <span class="status-dot"></span>
 
           <span>
-            Commissions ouvertes
+            {{ $t('commissions.hero.status') }}
           </span>
 
         </div>
@@ -109,11 +155,13 @@ const steps = [
           rel="noopener noreferrer"
           class="kofi-button"
         >
-          Voir toutes mes commissions sur Ko-fi
+
+          {{ $t('commissions.hero.kofi') }}
 
           <span aria-hidden="true">
             ↗
           </span>
+
         </a>
 
       </header>
@@ -129,21 +177,31 @@ const steps = [
         <div class="section-heading">
 
           <span class="small-label">
-            MES COMMISSIONS
+            {{ $t('commissions.services.label') }}
           </span>
 
 
           <h2>
-            Que puis-je créer
-            <span>pour vous ?</span>
+
+            {{ $t('commissions.services.title.first') }}
+
+            <span>
+              {{ $t('commissions.services.title.second') }}
+            </span>
+
           </h2>
 
 
           <p>
-            Chaque commission est personnalisée selon votre
-            demande et votre univers. Cliquez sur
-            <strong>Commander</strong> pour retrouver toutes
-            les informations directement sur Ko-fi.
+
+            {{ $t('commissions.services.description.before') }}
+
+            <strong>
+              {{ $t('commissions.services.description.order') }}
+            </strong>
+
+            {{ $t('commissions.services.description.after') }}
+
           </p>
 
         </div>
@@ -177,12 +235,14 @@ const steps = [
             ◇
           </span>
 
+
           <h3>
-            Aucune commission disponible
+            {{ $t('commissions.empty.title') }}
           </h3>
 
+
           <p>
-            Les commissions reviendront prochainement.
+            {{ $t('commissions.empty.description') }}
           </p>
 
         </div>
@@ -199,13 +259,18 @@ const steps = [
         <div class="section-heading">
 
           <span class="small-label">
-            COMMENT ÇA MARCHE ?
+            {{ $t('commissions.process.label') }}
           </span>
 
 
           <h2>
-            De votre idée à
-            <span>la création.</span>
+
+            {{ $t('commissions.process.title.first') }}
+
+            <span>
+              {{ $t('commissions.process.title.second') }}
+            </span>
+
           </h2>
 
         </div>
@@ -270,20 +335,25 @@ const steps = [
         <div class="information-content">
 
           <span class="small-label">
-            À SAVOIR
+            {{ $t('commissions.information.label') }}
           </span>
 
 
           <h2>
-            Avant de
-            <span>commander.</span>
+
+            {{ $t('commissions.information.title.first') }}
+
+            <span>
+              {{ $t('commissions.information.title.second') }}
+            </span>
+
           </h2>
 
 
           <div class="information-list">
 
 
-            <!-- ITEM -->
+            <!-- DETAILS -->
 
             <div class="information-item">
 
@@ -291,16 +361,16 @@ const steps = [
                 ✦
               </span>
 
+
               <div>
 
                 <h3>
-                  Consultez les détails
+                  {{ $t('commissions.information.details.title') }}
                 </h3>
 
+
                 <p>
-                  Chaque commission possède ses propres tarifs,
-                  options et conditions. Pensez à consulter sa
-                  page Ko-fi avant de commander.
+                  {{ $t('commissions.information.details.description') }}
                 </p>
 
               </div>
@@ -308,7 +378,7 @@ const steps = [
             </div>
 
 
-            <!-- ITEM -->
+            <!-- REFERENCES -->
 
             <div class="information-item">
 
@@ -316,17 +386,16 @@ const steps = [
                 ✦
               </span>
 
+
               <div>
 
                 <h3>
-                  Préparez vos références
+                  {{ $t('commissions.information.references.title') }}
                 </h3>
 
+
                 <p>
-                  Selon votre commande, je pourrai avoir besoin
-                  de votre modèle, de vos couleurs, de vos
-                  visuels ou de références correspondant à
-                  votre univers.
+                  {{ $t('commissions.information.references.description') }}
                 </p>
 
               </div>
@@ -334,7 +403,7 @@ const steps = [
             </div>
 
 
-            <!-- ITEM -->
+            <!-- CONTACT -->
 
             <div class="information-item">
 
@@ -342,16 +411,16 @@ const steps = [
                 ✦
               </span>
 
+
               <div>
 
                 <h3>
-                  Restons en contact
+                  {{ $t('commissions.information.contact.title') }}
                 </h3>
 
+
                 <p>
-                  Les échanges peuvent se faire via les moyens
-                  de contact indiqués dans la commission afin
-                  de suivre l’avancement de votre projet.
+                  {{ $t('commissions.information.contact.description') }}
                 </p>
 
               </div>
@@ -359,7 +428,7 @@ const steps = [
             </div>
 
 
-            <!-- ITEM -->
+            <!-- MERCHANDISING -->
 
             <div class="information-item">
 
@@ -367,18 +436,24 @@ const steps = [
                 ✦
               </span>
 
+
               <div>
 
                 <h3>
-                  Licence Merchandising
+                  {{ $t('commissions.information.merchandising.title') }}
                 </h3>
 
+
                 <p>
-                  Vous souhaitez utiliser une emote sur des
-                  produits destinés à la vente ? Une licence
-                  Merchandising est disponible avec un
-                  supplément de <strong>+20 %</strong> du prix
-                  de la commission concernée.
+
+                  {{ $t('commissions.information.merchandising.before') }}
+
+                  <strong>
+                    +20 %
+                  </strong>
+
+                  {{ $t('commissions.information.merchandising.after') }}
+
                 </p>
 
               </div>
@@ -394,11 +469,13 @@ const steps = [
             rel="noopener noreferrer"
             class="text-link"
           >
-            Consulter mes commissions sur Ko-fi
+
+            {{ $t('commissions.information.kofi') }}
 
             <span aria-hidden="true">
               →
             </span>
+
           </a>
 
         </div>
@@ -425,22 +502,23 @@ const steps = [
         <div class="terms-preview-content">
 
           <span class="small-label">
-            TERMS OF SERVICE
+            {{ $t('commissions.terms.label') }}
           </span>
 
 
           <h2>
-            Conditions de
-            <span>commission.</span>
+
+            {{ $t('commissions.terms.title.first') }}
+
+            <span>
+              {{ $t('commissions.terms.title.second') }}
+            </span>
+
           </h2>
 
 
           <p>
-            Avant de passer commande, prenez quelques minutes
-            pour consulter mes conditions concernant les
-            paiements, les modifications, les droits
-            d'utilisation, les commissions YCH et la licence
-            Merchandising.
+            {{ $t('commissions.terms.description') }}
           </p>
 
 
@@ -449,15 +527,15 @@ const steps = [
           <div class="terms-tags">
 
             <span>
-              Paiements
+              {{ $t('commissions.terms.tags.payments') }}
             </span>
 
             <span>
-              Modifications
+              {{ $t('commissions.terms.tags.modifications') }}
             </span>
 
             <span>
-              Droits d'utilisation
+              {{ $t('commissions.terms.tags.rights') }}
             </span>
 
             <span>
@@ -465,7 +543,7 @@ const steps = [
             </span>
 
             <span class="merch-tag">
-              Merch +20 %
+              {{ $t('commissions.terms.tags.merch') }}
             </span>
 
           </div>
@@ -475,11 +553,13 @@ const steps = [
             to="/commissions/terms"
             class="terms-button"
           >
-            Lire les conditions
+
+            {{ $t('commissions.terms.button') }}
 
             <span aria-hidden="true">
               →
             </span>
+
           </RouterLink>
 
         </div>
@@ -512,14 +592,17 @@ const steps = [
           ✦
         </span>
 
+
         <p>
-          En passant commande, vous reconnaissez avoir pris
-          connaissance des
+
+          {{ $t('commissions.orderNotice.before') }}
+
           <RouterLink to="/commissions/terms">
-            conditions de commission
+            {{ $t('commissions.orderNotice.link') }}
           </RouterLink>
-          ainsi que des informations propres à la prestation
-          choisie.
+
+          {{ $t('commissions.orderNotice.after') }}
+
         </p>
 
       </div>
@@ -537,20 +620,23 @@ const steps = [
 
 
         <span class="small-label">
-          UNE IDÉE EN TÊTE ?
+          {{ $t('commissions.cta.label') }}
         </span>
 
 
         <h2>
-          Créons quelque chose
-          <span>ensemble.</span>
+
+          {{ $t('commissions.cta.title.first') }}
+
+          <span>
+            {{ $t('commissions.cta.title.second') }}
+          </span>
+
         </h2>
 
 
         <p>
-          Choisissez la commission qui correspond à votre
-          projet et retrouvez toutes les informations
-          nécessaires directement sur Ko-fi.
+          {{ $t('commissions.cta.description') }}
         </p>
 
 
@@ -562,11 +648,13 @@ const steps = [
             rel="noopener noreferrer"
             class="cta-button"
           >
-            Commander sur Ko-fi
+
+            {{ $t('commissions.cta.order') }}
 
             <span aria-hidden="true">
               ↗
             </span>
+
           </a>
 
 
@@ -574,7 +662,7 @@ const steps = [
             to="/commissions/terms"
             class="cta-terms"
           >
-            Conditions de commission
+            {{ $t('commissions.cta.terms') }}
           </RouterLink>
 
         </div>
@@ -590,11 +678,12 @@ const steps = [
 
 <style scoped>
 
-/* =========================
+/* ==================================================
    PAGE
-========================= */
+================================================== */
 
 .commissions-page {
+
   position: relative;
 
   min-height: 100vh;
@@ -608,10 +697,12 @@ const steps = [
 
   background:
     var(--color-background);
+
 }
 
 
 .commissions-container {
+
   position: relative;
 
   z-index: 5;
@@ -623,14 +714,16 @@ const steps = [
     );
 
   margin-inline: auto;
+
 }
 
 
-/* =========================
+/* ==================================================
    BACKGROUND
-========================= */
+================================================== */
 
 .background-glow {
+
   position: absolute;
 
   border-radius: 50%;
@@ -639,50 +732,64 @@ const steps = [
 
   filter:
     blur(90px);
+
 }
 
 
 .glow-one {
+
   width: 500px;
+
   height: 500px;
 
   top: 100px;
+
   right: -200px;
 
   background:
     rgba(255, 79, 184, 0.08);
+
 }
 
 
 .glow-two {
+
   width: 550px;
+
   height: 550px;
 
   left: -250px;
+
   top: 1000px;
 
   background:
     rgba(143, 76, 255, 0.08);
+
 }
 
 
 .glow-three {
+
   width: 450px;
+
   height: 450px;
 
   right: -180px;
+
   bottom: 300px;
 
   background:
     rgba(255, 79, 184, 0.05);
+
 }
 
 
-/* =========================
+/* ==================================================
    ORBITS
-========================= */
+================================================== */
 
 .orbit {
+
   position: absolute;
 
   border:
@@ -692,40 +799,50 @@ const steps = [
   border-radius: 50%;
 
   pointer-events: none;
+
 }
 
 
 .orbit-one {
+
   width: 600px;
+
   height: 320px;
 
   right: -260px;
+
   top: 270px;
 
   transform:
     rotate(-25deg);
+
 }
 
 
 .orbit-two {
+
   width: 500px;
+
   height: 500px;
 
   left: -330px;
+
   top: 1500px;
 
   border-style: dashed;
 
   transform:
     rotate(35deg);
+
 }
 
 
-/* =========================
+/* ==================================================
    STARS
-========================= */
+================================================== */
 
 .star {
+
   position: absolute;
 
   color:
@@ -742,54 +859,68 @@ const steps = [
     3s
     ease-in-out
     infinite;
+
 }
 
 
 .star-one {
+
   top: 190px;
+
   left: 8%;
 
   font-size: 1.4rem;
+
 }
 
 
 .star-two {
+
   top: 430px;
+
   right: 10%;
 
   font-size: 0.9rem;
 
   animation-delay: -1s;
+
 }
 
 
 .star-three {
+
   top: 1300px;
+
   left: 5%;
 
   color:
     var(--color-purple);
 
   animation-delay: -2s;
+
 }
 
 
 .star-four {
+
   bottom: 500px;
+
   right: 7%;
 
   font-size: 1.2rem;
 
   animation-delay: -0.5s;
+
 }
 
 
-/* =========================
+/* ==================================================
    LABELS
-========================= */
+================================================== */
 
 .section-label,
 .small-label {
+
   display: inline-block;
 
   color:
@@ -802,14 +933,16 @@ const steps = [
   letter-spacing: 0.22em;
 
   text-transform: uppercase;
+
 }
 
 
-/* =========================
+/* ==================================================
    HEADER
-========================= */
+================================================== */
 
 .commissions-header {
+
   max-width: 850px;
 
   margin:
@@ -818,15 +951,19 @@ const steps = [
     160px;
 
   text-align: center;
+
 }
 
 
 .section-label {
+
   margin-bottom: 25px;
+
 }
 
 
 .commissions-header h1 {
+
   margin: 0;
 
   color:
@@ -849,10 +986,12 @@ const steps = [
   line-height: 0.95;
 
   letter-spacing: -0.055em;
+
 }
 
 
 .commissions-header h1 span {
+
   display: block;
 
   margin-top: 10px;
@@ -865,14 +1004,16 @@ const steps = [
   text-shadow:
     0 0 35px
     rgba(255, 79, 184, 0.18);
+
 }
 
 
-/* =========================
+/* ==================================================
    HEADER DESCRIPTION
-========================= */
+================================================== */
 
 .header-description {
+
   max-width: 680px;
 
   margin:
@@ -886,17 +1027,20 @@ const steps = [
   font-size: 1.05rem;
 
   line-height: 1.85;
+
 }
 
 
-/* =========================
+/* ==================================================
    STATUS
-========================= */
+================================================== */
 
 .commission-status {
+
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 10px;
@@ -931,11 +1075,14 @@ const steps = [
   letter-spacing: 0.09em;
 
   text-transform: uppercase;
+
 }
 
 
 .status-dot {
+
   width: 7px;
+
   height: 7px;
 
   border-radius: 50%;
@@ -952,18 +1099,21 @@ const steps = [
     2s
     ease-in-out
     infinite;
+
 }
 
 
-/* =========================
+/* ==================================================
    MAIN BUTTONS
-========================= */
+================================================== */
 
 .kofi-button,
 .cta-button {
+
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 10px;
@@ -1001,11 +1151,13 @@ const steps = [
     border-color 0.3s ease,
     background 0.3s ease,
     box-shadow 0.3s ease;
+
 }
 
 
 .kofi-button:hover,
 .cta-button:hover {
+
   transform:
     translateY(-3px);
 
@@ -1022,11 +1174,13 @@ const steps = [
   box-shadow:
     0 15px 35px
     rgba(255, 79, 184, 0.12);
+
 }
 
 
 .kofi-button span,
 .cta-button span {
+
   color:
     var(--color-pink-soft);
 
@@ -1034,33 +1188,39 @@ const steps = [
 
   transition:
     transform 0.3s ease;
+
 }
 
 
 .kofi-button:hover span,
 .cta-button:hover span {
+
   transform:
     translate(
       3px,
       -3px
     );
+
 }
 
 
-/* =========================
+/* ==================================================
    SECTION HEADINGS
-========================= */
+================================================== */
 
 .section-heading {
+
   max-width: 700px;
 
   margin-bottom: 65px;
+
 }
 
 
 .section-heading h2,
 .information-content h2,
 .final-cta h2 {
+
   margin:
     15px
     0
@@ -1086,20 +1246,24 @@ const steps = [
   line-height: 1.05;
 
   letter-spacing: -0.045em;
+
 }
 
 
 .section-heading h2 span,
 .information-content h2 span,
 .final-cta h2 span {
+
   color:
     var(--color-pink);
 
   font-style: italic;
+
 }
 
 
 .section-heading p {
+
   max-width: 620px;
 
   margin-top: 22px;
@@ -1108,41 +1272,49 @@ const steps = [
     var(--color-text-muted);
 
   line-height: 1.8;
+
 }
 
 
 .section-heading strong,
 .information-item strong {
+
   color:
     var(--color-pink-soft);
 
   font-weight: 600;
+
 }
 
 
-/* =========================
+/* ==================================================
    SERVICES
-========================= */
+================================================== */
 
 .services-section {
+
   margin-bottom: 190px;
+
 }
 
 
 .commissions-list {
+
   display: flex;
 
   flex-direction: column;
 
   gap: 70px;
+
 }
 
 
-/* =========================
+/* ==================================================
    EMPTY
-========================= */
+================================================== */
 
 .commissions-empty {
+
   padding:
     80px
     30px;
@@ -1158,10 +1330,12 @@ const steps = [
     rgba(255, 255, 255, 0.02);
 
   text-align: center;
+
 }
 
 
 .empty-diamond {
+
   display: block;
 
   margin-bottom: 20px;
@@ -1172,10 +1346,12 @@ const steps = [
   font-size: 5rem;
 
   line-height: 1;
+
 }
 
 
 .commissions-empty h3 {
+
   color:
     var(--color-white);
 
@@ -1186,27 +1362,33 @@ const steps = [
   font-size: 2rem;
 
   font-weight: 400;
+
 }
 
 
 .commissions-empty p {
+
   margin-top: 12px;
 
   color:
     var(--color-text-muted);
+
 }
 
 
-/* =========================
+/* ==================================================
    PROCESS
-========================= */
+================================================== */
 
 .process-section {
+
   margin-bottom: 190px;
+
 }
 
 
 .process-grid {
+
   display: grid;
 
   grid-template-columns:
@@ -1216,10 +1398,12 @@ const steps = [
     );
 
   gap: 20px;
+
 }
 
 
 .process-card {
+
   position: relative;
 
   min-height: 290px;
@@ -1242,19 +1426,23 @@ const steps = [
   transition:
     transform 0.35s ease,
     border-color 0.35s ease;
+
 }
 
 
 .process-card:hover {
+
   transform:
     translateY(-7px);
 
   border-color:
     var(--color-pink);
+
 }
 
 
 .process-number {
+
   color:
     var(--color-pink);
 
@@ -1265,11 +1453,14 @@ const steps = [
   font-size: 1rem;
 
   font-style: italic;
+
 }
 
 
 .process-line {
+
   width: 35px;
+
   height: 1px;
 
   margin:
@@ -1278,10 +1469,12 @@ const steps = [
 
   background:
     var(--color-purple);
+
 }
 
 
 .process-card h3 {
+
   margin-bottom: 15px;
 
   color:
@@ -1294,160 +1487,218 @@ const steps = [
   font-size: 1.5rem;
 
   font-weight: 400;
+
 }
 
 
 .process-card p {
+
   color:
     var(--color-text-muted);
 
   font-size: 0.9rem;
 
   line-height: 1.75;
+
 }
 
 
-/* =========================
+/* ==================================================
    INFORMATION
-========================= */
+================================================== */
 
 .information-section {
+
+  position: relative;
+
   display: grid;
 
   grid-template-columns:
-    0.8fr
-    1.2fr;
+    minmax(260px, 0.7fr)
+    minmax(0, 1.3fr);
+
+  gap: 80px;
 
   align-items: center;
 
-  gap: 90px;
+  margin-bottom: 190px;
 
-  margin-bottom: 170px;
-}
+  padding:
+    70px;
 
-
-.information-decoration {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  min-height: 400px;
-}
-
-
-.big-diamond {
-  position: relative;
-
-  width: 260px;
-  height: 260px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  transform:
-    rotate(45deg);
+  overflow: hidden;
 
   border:
     1px solid
-    rgba(255, 155, 215, 0.35);
+    rgba(255, 255, 255, 0.08);
+
+  border-radius:
+    var(--radius-large);
 
   background:
     linear-gradient(
       135deg,
-      rgba(143, 76, 255, 0.1),
-      rgba(255, 79, 184, 0.08)
+      rgba(143, 76, 255, 0.055),
+      rgba(255, 79, 184, 0.035)
     );
 
-  box-shadow:
-    0 0 80px
-    rgba(255, 79, 184, 0.08);
+}
+
+
+/* ==================================================
+   INFORMATION DECORATION
+================================================== */
+
+.information-decoration {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 430px;
+
+}
+
+
+.big-diamond {
+
+  position: relative;
+
+  width: 250px;
+
+  height: 250px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 155, 215, 0.25);
+
+  transform:
+    rotate(45deg);
 
   animation:
     diamondFloat
     6s
     ease-in-out
     infinite;
+
 }
 
 
 .big-diamond::before {
+
   content: '';
 
   position: absolute;
 
-  inset: 18px;
+  inset: 20px;
 
   border:
     1px solid
-    rgba(255, 255, 255, 0.06);
+    rgba(143, 76, 255, 0.25);
+
+}
+
+
+.big-diamond::after {
+
+  content: '';
+
+  position: absolute;
+
+  inset: 45px;
+
+  border:
+    1px solid
+    rgba(255, 79, 184, 0.15);
+
 }
 
 
 .diamond-inner {
+
+  position: relative;
+
+  z-index: 3;
+
+  color:
+    var(--color-pink);
+
+  font-size: 2.5rem;
+
+  text-shadow:
+    0 0 25px
+    rgba(255, 79, 184, 0.45);
+
   transform:
     rotate(-45deg);
 
-  color:
-    var(--color-pink-soft);
-
-  font-size: 2rem;
-
-  text-shadow:
-    0 0 20px
-    rgba(255, 79, 184, 0.7);
 }
 
 
-/* =========================
+/* ==================================================
    INFORMATION CONTENT
-========================= */
+================================================== */
 
 .information-content {
-  max-width: 650px;
+
+  position: relative;
+
+  z-index: 4;
+
 }
 
 
 .information-list {
+
   display: flex;
 
   flex-direction: column;
 
-  gap: 25px;
+  gap: 28px;
 
-  margin-top: 35px;
+  margin-top: 45px;
+
 }
 
 
 .information-item {
-  display: flex;
 
-  align-items: flex-start;
+  display: grid;
 
-  gap: 16px;
+  grid-template-columns:
+    30px
+    1fr;
+
+  gap: 15px;
+
 }
 
 
 .information-icon {
-  flex-shrink: 0;
 
-  margin-top: 4px;
+  padding-top: 3px;
 
   color:
     var(--color-pink);
 
   font-size: 0.75rem;
 
-  text-shadow:
-    0 0 8px
-    rgba(255, 79, 184, 0.5);
 }
 
 
 .information-item h3 {
-  margin-bottom: 7px;
+
+  margin-bottom: 8px;
 
   color:
     var(--color-white);
@@ -1456,83 +1707,84 @@ const steps = [
     Georgia,
     serif;
 
-  font-size: 1.15rem;
+  font-size: 1.2rem;
 
   font-weight: 400;
+
 }
 
 
 .information-item p {
+
+  max-width: 620px;
+
   color:
     var(--color-text-muted);
 
   font-size: 0.9rem;
 
   line-height: 1.75;
+
 }
 
 
-/* =========================
+/* ==================================================
    TEXT LINK
-========================= */
+================================================== */
 
 .text-link {
+
   display: inline-flex;
 
   align-items: center;
 
   gap: 10px;
 
-  margin-top: 35px;
-
-  padding-bottom: 5px;
-
-  border-bottom:
-    1px solid
-    rgba(255, 155, 215, 0.35);
+  margin-top: 38px;
 
   color:
-    var(--color-white);
+    var(--color-pink-soft);
 
-  font-size: 0.85rem;
+  font-size: 0.82rem;
 
   font-weight: 600;
 
   transition:
-    color 0.3s ease,
-    border-color 0.3s ease;
-}
+    color 0.3s ease;
 
-
-.text-link:hover {
-  color:
-    var(--color-pink-soft);
-
-  border-color:
-    var(--color-pink);
 }
 
 
 .text-link span {
-  color:
-    var(--color-pink);
 
   transition:
     transform 0.3s ease;
+
+}
+
+
+.text-link:hover {
+
+  color:
+    var(--color-white);
+
 }
 
 
 .text-link:hover span {
+
   transform:
     translateX(5px);
+
 }
 
 
-/* =========================
+/* ==================================================
    TERMS PREVIEW
-========================= */
+================================================== */
 
 .terms-preview {
+
   position: relative;
 
   display: grid;
@@ -1542,66 +1794,49 @@ const steps = [
     minmax(0, 1fr)
     auto;
 
-  align-items: center;
-
   gap: 35px;
 
-  margin-bottom: 30px;
+  align-items: center;
+
+  margin-bottom: 35px;
 
   padding:
-    50px;
+    55px
+    60px;
 
   overflow: hidden;
 
   border:
     1px solid
-    rgba(255, 155, 215, 0.16);
+    rgba(255, 155, 215, 0.14);
 
   border-radius:
     var(--radius-large);
 
   background:
-    radial-gradient(
-      circle at right,
-      rgba(255, 79, 184, 0.08),
-      transparent 40%
-    ),
     linear-gradient(
       135deg,
-      rgba(143, 76, 255, 0.055),
-      rgba(255, 79, 184, 0.04)
+      rgba(255, 79, 184, 0.055),
+      rgba(143, 76, 255, 0.04)
     );
 
-  box-shadow:
-    0 30px 80px
-    rgba(0, 0, 0, 0.12);
-
-  transition:
-    border-color 0.35s ease,
-    transform 0.35s ease;
 }
 
 
-.terms-preview:hover {
-  transform:
-    translateY(-4px);
-
-  border-color:
-    rgba(255, 155, 215, 0.28);
-}
-
-
-/* =========================
+/* ==================================================
    TERMS ICON
-========================= */
+================================================== */
 
 .terms-preview-icon {
-  width: 60px;
-  height: 60px;
+
+  width: 65px;
+
+  height: 65px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   flex-shrink: 0;
@@ -1612,38 +1847,39 @@ const steps = [
 
   border-radius: 50%;
 
-  background:
-    rgba(255, 79, 184, 0.04);
-
   color:
     var(--color-pink);
 
-  font-size: 1rem;
+  font-size: 1.2rem;
 
   box-shadow:
-    0 0 35px
-    rgba(255, 79, 184, 0.1);
+    0 0 25px
+    rgba(255, 79, 184, 0.08);
+
 }
 
 
-/* =========================
+/* ==================================================
    TERMS CONTENT
-========================= */
+================================================== */
 
 .terms-preview-content {
+
   position: relative;
 
-  z-index: 5;
+  z-index: 3;
 
-  max-width: 700px;
+  max-width: 760px;
+
 }
 
 
 .terms-preview-content h2 {
+
   margin:
-    10px
+    13px
     0
-    16px;
+    0;
 
   color:
     var(--color-white);
@@ -1655,7 +1891,7 @@ const steps = [
 
   font-size:
     clamp(
-      2.1rem,
+      2rem,
       4vw,
       3.5rem
     );
@@ -1665,52 +1901,62 @@ const steps = [
   line-height: 1.05;
 
   letter-spacing: -0.04em;
+
 }
 
 
 .terms-preview-content h2 span {
+
   color:
     var(--color-pink);
 
   font-style: italic;
+
 }
 
 
 .terms-preview-content > p {
-  max-width: 620px;
+
+  max-width: 650px;
+
+  margin-top: 20px;
 
   color:
     var(--color-text-muted);
 
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 
-  line-height: 1.75;
+  line-height: 1.8;
+
 }
 
 
-/* =========================
+/* ==================================================
    TERMS TAGS
-========================= */
+================================================== */
 
 .terms-tags {
+
   display: flex;
 
   flex-wrap: wrap;
 
   gap: 8px;
 
-  margin-top: 22px;
+  margin-top: 25px;
+
 }
 
 
-.terms-tags > span {
+.terms-tags span {
+
   padding:
     7px
     11px;
 
   border:
     1px solid
-    rgba(255, 255, 255, 0.08);
+    rgba(255, 255, 255, 0.09);
 
   border-radius: 999px;
 
@@ -1720,143 +1966,159 @@ const steps = [
   color:
     var(--color-text-muted);
 
-  font-size: 0.62rem;
+  font-size: 0.64rem;
+
+  font-weight: 600;
 
   letter-spacing: 0.05em;
+
 }
 
 
 .terms-tags .merch-tag {
+
   border-color:
     rgba(255, 155, 215, 0.2);
 
-  background:
-    rgba(255, 79, 184, 0.06);
-
   color:
     var(--color-pink-soft);
+
 }
 
 
-/* =========================
+/* ==================================================
    TERMS BUTTON
-========================= */
+================================================== */
 
 .terms-button {
+
   display: inline-flex;
 
   align-items: center;
 
   gap: 10px;
 
-  margin-top: 27px;
+  margin-top: 30px;
 
-  padding-bottom: 5px;
+  padding:
+    12px
+    20px;
 
-  border-bottom:
+  border:
     1px solid
-    rgba(255, 155, 215, 0.35);
+    rgba(255, 155, 215, 0.25);
+
+  border-radius: 999px;
 
   color:
     var(--color-white);
 
-  font-size: 0.82rem;
+  font-size: 0.78rem;
 
   font-weight: 600;
 
   transition:
-    color 0.3s ease,
-    border-color 0.3s ease;
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+
 }
 
 
 .terms-button:hover {
-  color:
-    var(--color-pink-soft);
+
+  transform:
+    translateY(-2px);
 
   border-color:
     var(--color-pink);
+
+  background:
+    rgba(255, 79, 184, 0.06);
+
 }
 
 
-.terms-button > span {
+.terms-button span {
+
   color:
     var(--color-pink);
 
   transition:
     transform 0.3s ease;
+
 }
 
 
-.terms-button:hover > span {
+.terms-button:hover span {
+
   transform:
-    translateX(5px);
+    translateX(4px);
+
 }
 
 
-/* =========================
+/* ==================================================
    TERMS DECORATION
-========================= */
+================================================== */
 
 .terms-preview-decoration {
+
   position: relative;
 
-  z-index: 1;
+  width: 130px;
 
-  width: 150px;
-  height: 150px;
+  height: 130px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  flex-shrink: 0;
+  pointer-events: none;
+
 }
 
 
 .terms-big-diamond {
+
   color:
-    rgba(255, 79, 184, 0.13);
+    rgba(255, 79, 184, 0.12);
 
   font-family:
     Georgia,
     serif;
 
-  font-size: 9rem;
+  font-size: 8rem;
 
   line-height: 1;
 
-  transform:
-    rotate(45deg);
 }
 
 
 .terms-small-star {
+
   position: absolute;
 
   color:
-    var(--color-pink-soft);
+    var(--color-pink);
 
-  font-size: 0.9rem;
+  font-size: 1rem;
 
   text-shadow:
-    0 0 12px
+    0 0 15px
     rgba(255, 79, 184, 0.5);
 
-  animation:
-    twinkle
-    3s
-    ease-in-out
-    infinite;
 }
 
 
-/* =========================
+/* ==================================================
    ORDER NOTICE
-========================= */
+================================================== */
 
 .order-notice {
+
   display: flex;
 
   align-items: flex-start;
@@ -1871,21 +2133,21 @@ const steps = [
     160px;
 
   padding:
-    18px
-    22px;
+    16px
+    20px;
 
-  color:
-    var(--color-text-muted);
+  border-left:
+    2px solid
+    var(--color-pink);
 
-  font-size: 0.75rem;
+  background:
+    rgba(255, 79, 184, 0.035);
 
-  line-height: 1.7;
-
-  text-align: center;
 }
 
 
 .order-notice-icon {
+
   flex-shrink: 0;
 
   margin-top: 2px;
@@ -1893,166 +2155,157 @@ const steps = [
   color:
     var(--color-pink);
 
-  font-size: 0.7rem;
+  font-size: 0.72rem;
+
 }
 
 
-.order-notice a {
-  color:
-    var(--color-pink-soft);
-
-  border-bottom:
-    1px solid
-    rgba(255, 155, 215, 0.3);
-
-  transition:
-    color 0.3s ease,
-    border-color 0.3s ease;
-}
-
-
-.order-notice a:hover {
-  color:
-    var(--color-pink);
-
-  border-color:
-    var(--color-pink);
-}
-
-
-/* =========================
-   FINAL CTA
-========================= */
-
-.final-cta {
-  position: relative;
-
-  max-width: 900px;
-
-  margin-inline: auto;
-
-  padding:
-    90px
-    60px;
-
-  overflow: hidden;
-
-  border:
-    1px solid
-    rgba(255, 155, 215, 0.14);
-
-  border-radius:
-    var(--radius-large);
-
-  background:
-    radial-gradient(
-      circle at top,
-      rgba(255, 79, 184, 0.09),
-      transparent 55%
-    ),
-    rgba(255, 255, 255, 0.018);
-
-  text-align: center;
-}
-
-
-.cta-star {
-  display: block;
-
-  margin-bottom: 20px;
-
-  color:
-    var(--color-pink);
-
-  font-size: 1.7rem;
-
-  text-shadow:
-    0 0 20px
-    rgba(255, 79, 184, 0.55);
-}
-
-
-.final-cta p {
-  max-width: 550px;
-
-  margin:
-    25px
-    auto
-    35px;
-
-  color:
-    var(--color-text-muted);
-
-  line-height: 1.8;
-}
-
-
-/* =========================
-   CTA ACTIONS
-========================= */
-
-.cta-actions {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  flex-wrap: wrap;
-
-  gap:
-    20px
-    25px;
-}
-
-
-.cta-terms {
-  padding-bottom: 4px;
-
-  border-bottom:
-    1px solid
-    rgba(255, 155, 215, 0.3);
+.order-notice p {
 
   color:
     var(--color-text-muted);
 
   font-size: 0.78rem;
 
-  font-weight: 600;
+  line-height: 1.7;
+
+}
+
+
+.order-notice a {
+
+  color:
+    var(--color-pink-soft);
+
+  text-decoration: underline;
+
+  text-underline-offset: 3px;
+
+}
+
+
+/* ==================================================
+   FINAL CTA
+================================================== */
+
+.final-cta {
+
+  position: relative;
+
+  max-width: 850px;
+
+  margin-inline: auto;
+
+  padding:
+    80px
+    40px;
+
+  text-align: center;
+
+}
+
+
+.cta-star {
+
+  display: block;
+
+  margin-bottom: 25px;
+
+  color:
+    var(--color-pink);
+
+  font-size: 1.2rem;
+
+  text-shadow:
+    0 0 18px
+    rgba(255, 79, 184, 0.55);
+
+}
+
+
+.final-cta p {
+
+  max-width: 620px;
+
+  margin:
+    25px
+    auto
+    0;
+
+  color:
+    var(--color-text-muted);
+
+  line-height: 1.8;
+
+}
+
+
+.cta-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+  margin-top: 35px;
+
+}
+
+
+.cta-terms {
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 0.78rem;
+
+  text-decoration: underline;
+
+  text-underline-offset: 4px;
 
   transition:
-    color 0.3s ease,
-    border-color 0.3s ease;
+    color 0.3s ease;
+
 }
 
 
 .cta-terms:hover {
+
   color:
     var(--color-pink-soft);
 
-  border-color:
-    var(--color-pink);
 }
 
 
-/* =========================
+/* ==================================================
    ANIMATIONS
-========================= */
+================================================== */
 
 @keyframes twinkle {
 
   0%,
   100% {
-    opacity: 0.25;
+
+    opacity: 0.35;
 
     transform:
-      scale(0.8);
+      scale(0.85);
+
   }
 
+
   50% {
+
     opacity: 1;
 
     transform:
-      scale(1.1);
+      scale(1.15);
+
   }
 
 }
@@ -2062,17 +2315,22 @@ const steps = [
 
   0%,
   100% {
-    opacity: 0.6;
+
+    opacity: 0.45;
 
     transform:
-      scale(0.9);
+      scale(0.8);
+
   }
 
+
   50% {
+
     opacity: 1;
 
     transform:
-      scale(1.2);
+      scale(1.15);
+
   }
 
 }
@@ -2082,275 +2340,355 @@ const steps = [
 
   0%,
   100% {
+
     transform:
       rotate(45deg)
-      translate(
-        0,
-        0
-      );
+      translateY(0);
+
   }
 
+
   50% {
+
     transform:
       rotate(45deg)
-      translate(
-        -5px,
-        -5px
-      );
+      translateY(-10px);
+
   }
 
 }
 
 
-/* =========================
-   TABLET
-========================= */
+/* ==================================================
+   RESPONSIVE — 1100PX
+================================================== */
 
-@media (max-width: 950px) {
-
-  .commissions-page {
-    padding-top: 125px;
-  }
-
-
-  .commissions-header {
-    margin-bottom: 130px;
-  }
-
-
-  .commissions-list {
-    gap: 55px;
-  }
-
-
-  .process-grid {
-    grid-template-columns:
-      repeat(
-        2,
-        1fr
-      );
-  }
-
+@media (max-width: 1100px) {
 
   .information-section {
-    grid-template-columns:
-      1fr;
 
-    gap: 40px;
+    gap: 50px;
+
+    padding:
+      60px
+      45px;
+
   }
 
 
   .information-decoration {
-    min-height: 330px;
+
+    min-height: 350px;
+
   }
 
 
-  .information-content {
-    max-width: 700px;
+  .big-diamond {
+
+    width: 210px;
+
+    height: 210px;
+
   }
 
 
   .terms-preview {
-    grid-template-columns:
-      auto
-      1fr;
 
     padding:
-      45px
-      40px;
-  }
+      50px
+      45px;
 
-
-  .terms-preview-decoration {
-    position: absolute;
-
-    right: 20px;
-    bottom: -20px;
-
-    opacity: 0.55;
   }
 
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* ==================================================
+   RESPONSIVE — 900PX
+================================================== */
 
-@media (max-width: 650px) {
+@media (max-width: 900px) {
 
   .commissions-page {
-    padding:
-      110px
-      0
-      70px;
-  }
 
+    padding-top: 130px;
 
-  .commissions-container {
-    width:
-      min(
-        calc(100% - 30px),
-        var(--max-width)
-      );
   }
 
 
   .commissions-header {
-    margin-bottom: 110px;
-  }
 
+    margin-bottom: 120px;
 
-  .commissions-header h1 {
-    font-size:
-      clamp(
-        3rem,
-        16vw,
-        4.8rem
-      );
-  }
-
-
-  .header-description {
-    font-size: 0.95rem;
-  }
-
-
-  .kofi-button,
-  .cta-button {
-    width: 100%;
-
-    max-width: 350px;
   }
 
 
   .services-section,
   .process-section,
   .information-section {
-    margin-bottom: 120px;
-  }
 
+    margin-bottom: 140px;
 
-  .section-heading {
-    margin-bottom: 45px;
-  }
-
-
-  .commissions-list {
-    gap: 40px;
   }
 
 
   .process-grid {
+
     grid-template-columns:
-      1fr;
+      repeat(
+        2,
+        1fr
+      );
+
   }
 
 
-  .process-card {
-    min-height: auto;
+  .information-section {
 
-    padding:
-      30px
-      20px;
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
   }
 
 
   .information-decoration {
-    min-height: 270px;
+
+    min-height: 280px;
+
   }
 
-
-  .big-diamond {
-    width: 190px;
-    height: 190px;
-  }
-
-
-  /* TERMS */
 
   .terms-preview {
+
     grid-template-columns:
+      auto
       1fr;
 
-    gap: 20px;
-
-    margin-bottom: 20px;
-
-    padding:
-      35px
-      25px;
-  }
-
-
-  .terms-preview-icon {
-    width: 50px;
-    height: 50px;
   }
 
 
   .terms-preview-decoration {
-    right: -35px;
-    bottom: -40px;
 
-    opacity: 0.35;
-  }
+    display: none;
 
-
-  .terms-big-diamond {
-    font-size: 8rem;
-  }
-
-
-  .terms-tags {
-    padding-right: 20px;
   }
 
 
   .order-notice {
+
     margin-bottom: 120px;
 
-    padding:
-      18px
-      5px;
-
-    text-align: left;
-  }
-
-
-  .final-cta {
-    padding:
-      65px
-      25px;
-  }
-
-
-  .cta-actions {
-    flex-direction: column;
   }
 
 }
 
 
-/* =========================
-   REDUCED MOTION
-========================= */
+/* ==================================================
+   RESPONSIVE — 650PX
+================================================== */
 
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 650px) {
 
-  .star,
-  .status-dot,
-  .big-diamond,
-  .terms-small-star {
-    animation: none;
+  .commissions-page {
+
+    padding:
+      115px
+      0
+      70px;
+
   }
 
 
-  .process-card,
-  .kofi-button,
-  .cta-button,
+  .commissions-container {
+
+    width:
+      min(
+        calc(100% - 28px),
+        var(--max-width)
+      );
+
+  }
+
+
+  .commissions-header {
+
+    margin-bottom: 100px;
+
+  }
+
+
+  .commissions-header h1 {
+
+    font-size:
+      clamp(
+        3rem,
+        15vw,
+        4.8rem
+      );
+
+  }
+
+
+  .header-description {
+
+    font-size: 0.95rem;
+
+  }
+
+
+  .services-section,
+  .process-section,
+  .information-section {
+
+    margin-bottom: 110px;
+
+  }
+
+
+  .section-heading {
+
+    margin-bottom: 45px;
+
+  }
+
+
+  .process-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .process-card {
+
+    min-height: auto;
+
+  }
+
+
+  .information-section {
+
+    padding:
+      45px
+      25px;
+
+  }
+
+
+  .information-decoration {
+
+    min-height: 230px;
+
+  }
+
+
+  .big-diamond {
+
+    width: 165px;
+
+    height: 165px;
+
+  }
+
+
   .terms-preview {
-    transition: none;
+
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    padding:
+      40px
+      25px;
+
+  }
+
+
+  .terms-preview-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+  }
+
+
+  .order-notice {
+
+    margin-bottom: 95px;
+
+  }
+
+
+  .final-cta {
+
+    padding:
+      55px
+      15px;
+
+  }
+
+
+  .cta-actions {
+
+    flex-direction: column;
+
+  }
+
+
+  .cta-button {
+
+    width: 100%;
+
+  }
+
+}
+
+
+/* ==================================================
+   RESPONSIVE — 400PX
+================================================== */
+
+@media (max-width: 400px) {
+
+  .commissions-container {
+
+    width:
+      calc(100% - 22px);
+
+  }
+
+
+  .information-section {
+
+    padding:
+      38px
+      20px;
+
+  }
+
+
+  .terms-preview {
+
+    padding:
+      35px
+      20px;
+
+  }
+
+
+  .terms-tags {
+
+    gap: 6px;
+
+  }
+
+
+  .terms-tags span {
+
+    font-size: 0.6rem;
+
   }
 
 }

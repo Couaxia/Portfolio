@@ -1,5 +1,14 @@
 <script setup>
+
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+
+/* =========================
+   I18N
+========================= */
+
+const { t } = useI18n()
 
 
 /* =========================
@@ -33,17 +42,23 @@ const currentImage = ref(0)
 ========================= */
 
 const images = computed(() => {
+
   return props.commission.images || []
+
 })
 
 
 const hasImages = computed(() => {
+
   return images.value.length > 0
+
 })
 
 
 const hasMultipleImages = computed(() => {
+
   return images.value.length > 1
+
 })
 
 
@@ -52,7 +67,11 @@ const hasMultipleImages = computed(() => {
 ========================= */
 
 const commissionNumber = computed(() => {
-  return String(props.index + 1).padStart(2, '0')
+
+  return String(
+    props.index + 1
+  ).padStart(2, '0')
+
 })
 
 
@@ -61,7 +80,62 @@ const commissionNumber = computed(() => {
 ========================= */
 
 const currentImageNumber = computed(() => {
+
   return currentImage.value + 1
+
+})
+
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+const imageAlt = computed(() => {
+
+  return t(
+    'commissions.card.imageAlt',
+    {
+      title: props.commission.title,
+      number: currentImageNumber.value
+    }
+  )
+
+})
+
+
+const previousImageLabel = computed(() => {
+
+  return t(
+    'commissions.card.previousImage',
+    {
+      title: props.commission.title
+    }
+  )
+
+})
+
+
+const nextImageLabel = computed(() => {
+
+  return t(
+    'commissions.card.nextImage',
+    {
+      title: props.commission.title
+    }
+  )
+
+})
+
+
+const orderLabel = computed(() => {
+
+  return t(
+    'commissions.card.orderAria',
+    {
+      title: props.commission.title
+    }
+  )
+
 })
 
 
@@ -76,7 +150,9 @@ const nextImage = () => {
   }
 
   currentImage.value =
-    (currentImage.value + 1) %
+    (
+      currentImage.value + 1
+    ) %
     images.value.length
 
 }
@@ -111,6 +187,19 @@ const selectImage = (index) => {
   currentImage.value = index
 
 }
+
+
+const selectImageLabel = (index) => {
+
+  return t(
+    'commissions.card.showImage',
+    {
+      number: index + 1
+    }
+  )
+
+}
+
 </script>
 
 
@@ -164,7 +253,7 @@ const selectImage = (index) => {
             <img
               :key="currentImage"
               :src="images[currentImage]"
-              :alt="`${commission.title} - aperçu ${currentImageNumber}`"
+              :alt="imageAlt"
               class="commission-image"
               loading="lazy"
               draggable="false"
@@ -199,7 +288,7 @@ const selectImage = (index) => {
           <button
             class="carousel-button carousel-previous"
             type="button"
-            :aria-label="`Image précédente de ${commission.title}`"
+            :aria-label="previousImageLabel"
             @click="previousImage"
           >
             ‹
@@ -209,7 +298,7 @@ const selectImage = (index) => {
           <button
             class="carousel-button carousel-next"
             type="button"
-            :aria-label="`Image suivante de ${commission.title}`"
+            :aria-label="nextImageLabel"
             @click="nextImage"
           >
             ›
@@ -250,8 +339,12 @@ const selectImage = (index) => {
               active:
                 currentImage === imageIndex
             }"
-            :aria-label="`Afficher l'image ${imageIndex + 1}`"
-            @click="selectImage(imageIndex)"
+            :aria-label="
+              selectImageLabel(imageIndex)
+            "
+            @click="
+              selectImage(imageIndex)
+            "
           ></button>
 
         </div>
@@ -319,7 +412,7 @@ const selectImage = (index) => {
         </span>
 
         <span>
-          Commission
+          {{ $t('commissions.card.commission') }}
         </span>
 
       </div>
@@ -423,7 +516,12 @@ const selectImage = (index) => {
         >
 
           <span class="price-label">
-            {{ commission.priceLabel || 'À partir de' }}
+
+            {{
+              commission.priceLabel ||
+              $t('commissions.card.startingFrom')
+            }}
+
           </span>
 
           <strong>
@@ -441,11 +539,11 @@ const selectImage = (index) => {
           target="_blank"
           rel="noopener noreferrer"
           class="commission-button"
-          :aria-label="`Commander ${commission.title} sur Ko-fi`"
+          :aria-label="orderLabel"
         >
 
           <span>
-            Commander
+            {{ $t('commissions.card.order') }}
           </span>
 
           <span
@@ -482,6 +580,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-card {
+
   position: relative;
 
   display: grid;
@@ -516,10 +615,12 @@ const selectImage = (index) => {
     transform 0.4s ease,
     border-color 0.4s ease,
     box-shadow 0.4s ease;
+
 }
 
 
 .commission-card:hover {
+
   transform:
     translateY(-6px);
 
@@ -529,6 +630,7 @@ const selectImage = (index) => {
   box-shadow:
     0 35px 90px
     rgba(0, 0, 0, 0.22);
+
 }
 
 
@@ -538,12 +640,15 @@ const selectImage = (index) => {
 
 .commission-card-reverse
 .commission-visual {
+
   order: 2;
+
 }
 
 
 .commission-card-reverse
 .commission-content {
+
   order: 1;
 
   padding:
@@ -551,6 +656,7 @@ const selectImage = (index) => {
     35px
     55px
     55px;
+
 }
 
 
@@ -559,6 +665,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-visual {
+
   position: relative;
 
   min-width: 0;
@@ -582,6 +689,7 @@ const selectImage = (index) => {
       rgba(255, 79, 184, 0.09),
       transparent 65%
     );
+
 }
 
 
@@ -590,6 +698,7 @@ const selectImage = (index) => {
 ========================= */
 
 .visual-glow {
+
   position: absolute;
 
   width: 380px;
@@ -609,6 +718,7 @@ const selectImage = (index) => {
     blur(40px);
 
   pointer-events: none;
+
 }
 
 
@@ -617,6 +727,7 @@ const selectImage = (index) => {
 ========================= */
 
 .visual-number {
+
   position: absolute;
 
   z-index: 15;
@@ -637,6 +748,7 @@ const selectImage = (index) => {
   font-style: italic;
 
   letter-spacing: 0.12em;
+
 }
 
 
@@ -645,6 +757,7 @@ const selectImage = (index) => {
 ========================= */
 
 .image-area {
+
   position: relative;
 
   z-index: 5;
@@ -655,6 +768,7 @@ const selectImage = (index) => {
 
   align-items: center;
   justify-content: center;
+
 }
 
 
@@ -663,6 +777,7 @@ const selectImage = (index) => {
 ========================= */
 
 .image-frame {
+
   position: relative;
 
   width: 100%;
@@ -685,6 +800,7 @@ const selectImage = (index) => {
   box-shadow:
     0 25px 55px
     rgba(0, 0, 0, 0.25);
+
 }
 
 
@@ -693,6 +809,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-image {
+
   position: absolute;
 
   inset: 0;
@@ -713,13 +830,16 @@ const selectImage = (index) => {
 
   transition:
     transform 0.65s ease;
+
 }
 
 
 .commission-card:hover
 .commission-image {
+
   transform:
     scale(1.025);
+
 }
 
 
@@ -728,6 +848,7 @@ const selectImage = (index) => {
 ========================= */
 
 .image-overlay {
+
   position: absolute;
 
   inset: 0;
@@ -740,6 +861,7 @@ const selectImage = (index) => {
       transparent 65%,
       rgba(15, 9, 20, 0.65)
     );
+
 }
 
 
@@ -748,6 +870,7 @@ const selectImage = (index) => {
 ========================= */
 
 .image-category {
+
   position: absolute;
 
   z-index: 4;
@@ -782,6 +905,7 @@ const selectImage = (index) => {
 
   backdrop-filter:
     blur(10px);
+
 }
 
 
@@ -790,6 +914,7 @@ const selectImage = (index) => {
 ========================= */
 
 .carousel-button {
+
   position: absolute;
 
   z-index: 20;
@@ -835,25 +960,32 @@ const selectImage = (index) => {
     background 0.3s ease,
     border-color 0.3s ease,
     transform 0.3s ease;
+
 }
 
 
 .carousel-button:hover {
+
   border-color:
     var(--color-pink);
 
   background:
     rgba(255, 79, 184, 0.2);
+
 }
 
 
 .carousel-previous {
+
   left: -18px;
+
 }
 
 
 .carousel-next {
+
   right: -18px;
+
 }
 
 
@@ -862,6 +994,7 @@ const selectImage = (index) => {
 ========================= */
 
 .image-counter {
+
   position: absolute;
 
   z-index: 20;
@@ -894,6 +1027,7 @@ const selectImage = (index) => {
 
   backdrop-filter:
     blur(10px);
+
 }
 
 
@@ -902,6 +1036,7 @@ const selectImage = (index) => {
 ========================= */
 
 .carousel-dots {
+
   position: absolute;
 
   z-index: 20;
@@ -918,28 +1053,36 @@ const selectImage = (index) => {
 
   transform:
     translateX(-50%);
+
 }
 
 
 .carousel-dot {
+
   width: 6px;
   height: 6px;
 
   padding: 0;
+
+  border: none;
 
   border-radius: 50%;
 
   background:
     rgba(255, 255, 255, 0.25);
 
+  cursor: pointer;
+
   transition:
     width 0.3s ease,
     background 0.3s ease,
     box-shadow 0.3s ease;
+
 }
 
 
 .carousel-dot.active {
+
   width: 20px;
 
   border-radius: 999px;
@@ -950,6 +1093,7 @@ const selectImage = (index) => {
   box-shadow:
     0 0 8px
     rgba(255, 79, 184, 0.5);
+
 }
 
 
@@ -959,25 +1103,31 @@ const selectImage = (index) => {
 
 .commission-image-enter-active,
 .commission-image-leave-active {
+
   transition:
     opacity 0.25s ease,
     transform 0.25s ease;
+
 }
 
 
 .commission-image-enter-from {
+
   opacity: 0;
 
   transform:
     scale(1.03);
+
 }
 
 
 .commission-image-leave-to {
+
   opacity: 0;
 
   transform:
     scale(0.98);
+
 }
 
 
@@ -986,6 +1136,7 @@ const selectImage = (index) => {
 ========================= */
 
 .image-placeholder {
+
   min-height: 400px;
 
   flex-direction: column;
@@ -1001,10 +1152,12 @@ const selectImage = (index) => {
 
   background:
     rgba(255, 255, 255, 0.02);
+
 }
 
 
 .placeholder-diamond {
+
   color:
     var(--color-pink);
 
@@ -1019,10 +1172,12 @@ const selectImage = (index) => {
   text-shadow:
     0 0 25px
     rgba(255, 79, 184, 0.4);
+
 }
 
 
 .placeholder-text {
+
   color:
     var(--color-text-muted);
 
@@ -1033,6 +1188,7 @@ const selectImage = (index) => {
   letter-spacing: 0.16em;
 
   text-transform: uppercase;
+
 }
 
 
@@ -1041,6 +1197,7 @@ const selectImage = (index) => {
 ========================= */
 
 .corner {
+
   position: absolute;
 
   z-index: 6;
@@ -1049,10 +1206,12 @@ const selectImage = (index) => {
   height: 22px;
 
   pointer-events: none;
+
 }
 
 
 .corner-top-left {
+
   left: 18px;
   top: 18px;
 
@@ -1063,10 +1222,12 @@ const selectImage = (index) => {
   border-top:
     1px solid
     rgba(255, 155, 215, 0.35);
+
 }
 
 
 .corner-top-right {
+
   right: 18px;
   top: 18px;
 
@@ -1077,10 +1238,12 @@ const selectImage = (index) => {
   border-top:
     1px solid
     rgba(255, 155, 215, 0.35);
+
 }
 
 
 .corner-bottom-left {
+
   left: 18px;
   bottom: 18px;
 
@@ -1091,10 +1254,12 @@ const selectImage = (index) => {
   border-bottom:
     1px solid
     rgba(255, 155, 215, 0.35);
+
 }
 
 
 .corner-bottom-right {
+
   right: 18px;
   bottom: 18px;
 
@@ -1105,6 +1270,7 @@ const selectImage = (index) => {
   border-bottom:
     1px solid
     rgba(255, 155, 215, 0.35);
+
 }
 
 
@@ -1113,6 +1279,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-content {
+
   position: relative;
 
   z-index: 4;
@@ -1130,6 +1297,7 @@ const selectImage = (index) => {
     55px
     55px
     35px;
+
 }
 
 
@@ -1138,6 +1306,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-meta {
+
   display: flex;
 
   align-items: center;
@@ -1158,20 +1327,25 @@ const selectImage = (index) => {
   letter-spacing: 0.14em;
 
   text-transform: uppercase;
+
 }
 
 
 .commission-category {
+
   color:
     var(--color-pink-soft);
+
 }
 
 
 .meta-diamond {
+
   color:
     var(--color-pink);
 
   font-size: 0.85rem;
+
 }
 
 
@@ -1180,6 +1354,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-content h3 {
+
   margin: 0;
 
   color:
@@ -1202,6 +1377,7 @@ const selectImage = (index) => {
   line-height: 1.05;
 
   letter-spacing: -0.035em;
+
 }
 
 
@@ -1210,6 +1386,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-credit {
+
   margin-top: 9px;
 
   color:
@@ -1225,6 +1402,7 @@ const selectImage = (index) => {
   font-style: italic;
 
   opacity: 0.85;
+
 }
 
 
@@ -1233,6 +1411,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-description {
+
   max-width: 540px;
 
   margin-top: 20px;
@@ -1243,6 +1422,7 @@ const selectImage = (index) => {
   font-size: 0.92rem;
 
   line-height: 1.8;
+
 }
 
 
@@ -1251,6 +1431,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-notice {
+
   display: flex;
 
   align-items: flex-start;
@@ -1269,10 +1450,12 @@ const selectImage = (index) => {
 
   background:
     rgba(255, 79, 184, 0.045);
+
 }
 
 
 .notice-icon {
+
   flex-shrink: 0;
 
   margin-top: 2px;
@@ -1281,16 +1464,19 @@ const selectImage = (index) => {
     var(--color-pink);
 
   font-size: 0.7rem;
+
 }
 
 
 .commission-notice p {
+
   color:
     var(--color-text);
 
   font-size: 0.75rem;
 
   line-height: 1.6;
+
 }
 
 
@@ -1299,6 +1485,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-features {
+
   display: grid;
 
   grid-template-columns:
@@ -1319,10 +1506,12 @@ const selectImage = (index) => {
   padding: 0;
 
   list-style: none;
+
 }
 
 
 .commission-features li {
+
   display: flex;
 
   align-items: flex-start;
@@ -1337,10 +1526,12 @@ const selectImage = (index) => {
   font-size: 0.76rem;
 
   line-height: 1.5;
+
 }
 
 
 .feature-icon {
+
   flex-shrink: 0;
 
   margin-top: 2px;
@@ -1353,6 +1544,7 @@ const selectImage = (index) => {
   text-shadow:
     0 0 8px
     rgba(255, 79, 184, 0.5);
+
 }
 
 
@@ -1361,6 +1553,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-bottom {
+
   display: flex;
 
   align-items: flex-end;
@@ -1375,6 +1568,7 @@ const selectImage = (index) => {
   border-top:
     1px solid
     rgba(255, 255, 255, 0.07);
+
 }
 
 
@@ -1383,15 +1577,18 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-price {
+
   display: flex;
 
   flex-direction: column;
 
   gap: 5px;
+
 }
 
 
 .price-label {
+
   color:
     var(--color-text-muted);
 
@@ -1402,10 +1599,12 @@ const selectImage = (index) => {
   letter-spacing: 0.12em;
 
   text-transform: uppercase;
+
 }
 
 
 .commission-price strong {
+
   color:
     var(--color-white);
 
@@ -1417,6 +1616,7 @@ const selectImage = (index) => {
   font-size: 2rem;
 
   font-weight: 400;
+
 }
 
 
@@ -1425,6 +1625,7 @@ const selectImage = (index) => {
 ========================= */
 
 .commission-button {
+
   display: inline-flex;
 
   align-items: center;
@@ -1470,10 +1671,12 @@ const selectImage = (index) => {
     border-color 0.3s ease,
     background 0.3s ease,
     box-shadow 0.3s ease;
+
 }
 
 
 .commission-button:hover {
+
   transform:
     translateY(-2px);
 
@@ -1490,10 +1693,12 @@ const selectImage = (index) => {
   box-shadow:
     0 12px 25px
     rgba(255, 79, 184, 0.1);
+
 }
 
 
 .button-arrow {
+
   color:
     var(--color-pink);
 
@@ -1501,16 +1706,19 @@ const selectImage = (index) => {
 
   transition:
     transform 0.3s ease;
+
 }
 
 
 .commission-button:hover
 .button-arrow {
+
   transform:
     translate(
       3px,
       -3px
     );
+
 }
 
 
@@ -1519,6 +1727,7 @@ const selectImage = (index) => {
 ========================= */
 
 .card-star {
+
   position: absolute;
 
   z-index: 25;
@@ -1544,6 +1753,7 @@ const selectImage = (index) => {
     3s
     ease-in-out
     infinite;
+
 }
 
 
@@ -1555,20 +1765,24 @@ const selectImage = (index) => {
 
   0%,
   100% {
+
     opacity: 0.25;
 
     transform:
       scale(0.8)
       rotate(0deg);
+
   }
 
 
   50% {
+
     opacity: 0.8;
 
     transform:
       scale(1.1)
       rotate(10deg);
+
   }
 
 }
@@ -1581,8 +1795,10 @@ const selectImage = (index) => {
 @media (max-width: 900px) {
 
   .commission-card {
+
     grid-template-columns:
       1fr;
+
   }
 
 
@@ -1590,31 +1806,39 @@ const selectImage = (index) => {
   .commission-visual,
   .commission-card-reverse
   .commission-content {
+
     order: initial;
+
   }
 
 
   .commission-visual {
+
     min-height: 520px;
 
     padding:
       55px
       50px;
+
   }
 
 
   .image-frame {
+
     max-width: 430px;
+
   }
 
 
   .commission-content,
   .commission-card-reverse
   .commission-content {
+
     padding:
       25px
       45px
       50px;
+
   }
 
 }
@@ -1627,85 +1851,109 @@ const selectImage = (index) => {
 @media (max-width: 600px) {
 
   .commission-card {
+
     min-height: auto;
+
   }
 
 
   .commission-visual {
+
     min-height: 390px;
 
     padding:
       55px
       30px;
+
   }
 
 
   .image-frame {
+
     max-width: 310px;
 
     border-radius: 18px;
+
   }
 
 
   .carousel-button {
+
     width: 38px;
     height: 38px;
 
     font-size: 1.5rem;
+
   }
 
 
   .carousel-previous {
+
     left: -15px;
+
   }
 
 
   .carousel-next {
+
     right: -15px;
+
   }
 
 
   .commission-content,
   .commission-card-reverse
   .commission-content {
+
     padding:
       15px
       25px
       35px;
+
   }
 
 
   .commission-content h3 {
+
     font-size:
       clamp(
         2rem,
         10vw,
         2.8rem
       );
+
   }
 
 
   .commission-features {
+
     grid-template-columns:
       1fr;
+
   }
 
 
   .commission-bottom {
+
     align-items: stretch;
 
     flex-direction: column;
+
   }
 
 
   .commission-button {
+
     width: 100%;
+
   }
 
 
   .image-category {
+
     left: 12px;
     bottom: 12px;
+
   }
 
 }
@@ -1718,31 +1966,39 @@ const selectImage = (index) => {
 @media (max-width: 400px) {
 
   .commission-visual {
+
     min-height: 340px;
 
     padding:
       50px
       25px;
+
   }
 
 
   .commission-content,
   .commission-card-reverse
   .commission-content {
+
     padding:
       10px
       20px
       30px;
+
   }
 
 
   .carousel-previous {
+
     left: -12px;
+
   }
 
 
   .carousel-next {
+
     right: -12px;
+
   }
 
 }
@@ -1760,18 +2016,24 @@ const selectImage = (index) => {
   .carousel-dot,
   .commission-button,
   .button-arrow {
+
     transition: none;
+
   }
 
 
   .card-star {
+
     animation: none;
+
   }
 
 
   .commission-image-enter-active,
   .commission-image-leave-active {
+
     transition: none;
+
   }
 
 }

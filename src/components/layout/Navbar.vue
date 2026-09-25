@@ -1,10 +1,15 @@
 <script setup>
+
 import { ref } from 'vue'
+
 import { RouterLink } from 'vue-router'
+
 
 import logoCouaxia from '../../assets/images/logo/Logo_couaxia.png'
 
+
 import { useLanguage } from '../useLanguage'
+
 
 
 /* =========================
@@ -17,6 +22,7 @@ const {
 } = useLanguage()
 
 
+
 /* =========================
    MOBILE MENU
 ========================= */
@@ -25,13 +31,18 @@ const isMenuOpen = ref(false)
 
 
 const toggleMenu = () => {
+
   isMenuOpen.value = !isMenuOpen.value
+
 }
 
 
 const closeMenu = () => {
+
   isMenuOpen.value = false
+
 }
+
 
 
 /* =========================
@@ -39,11 +50,15 @@ const closeMenu = () => {
 ========================= */
 
 const changeLanguage = (language) => {
+
   setLanguage(language)
 
   closeMenu()
+
 }
+
 </script>
+
 
 
 <template>
@@ -72,6 +87,7 @@ const changeLanguage = (language) => {
       </RouterLink>
 
 
+
       <!-- =========================
            DESKTOP NAVIGATION
       ========================== -->
@@ -89,6 +105,7 @@ const changeLanguage = (language) => {
         </RouterLink>
 
 
+
         <!-- ABOUT -->
 
         <RouterLink
@@ -97,6 +114,7 @@ const changeLanguage = (language) => {
         >
           {{ $t('navigation.about') }}
         </RouterLink>
+
 
 
         <!-- PROJECTS -->
@@ -109,6 +127,7 @@ const changeLanguage = (language) => {
         </RouterLink>
 
 
+
         <!-- CREATIONS -->
 
         <RouterLink
@@ -117,6 +136,7 @@ const changeLanguage = (language) => {
         >
           {{ $t('navigation.creations') }}
         </RouterLink>
+
 
 
         <!-- COMMISSIONS -->
@@ -135,6 +155,7 @@ const changeLanguage = (language) => {
         </RouterLink>
 
 
+
         <!-- CONTACT -->
 
         <RouterLink
@@ -145,6 +166,7 @@ const changeLanguage = (language) => {
         </RouterLink>
 
       </nav>
+
 
 
       <!-- =========================
@@ -196,6 +218,7 @@ const changeLanguage = (language) => {
         </div>
 
 
+
         <!-- =========================
              MOBILE BUTTON
         ========================== -->
@@ -222,6 +245,7 @@ const changeLanguage = (language) => {
     </div>
 
 
+
     <!-- =========================
          MOBILE MENU
     ========================== -->
@@ -243,6 +267,7 @@ const changeLanguage = (language) => {
           </span>
 
 
+
           <!-- HOME -->
 
           <RouterLink
@@ -258,6 +283,7 @@ const changeLanguage = (language) => {
             {{ $t('navigation.home') }}
 
           </RouterLink>
+
 
 
           <!-- ABOUT -->
@@ -277,6 +303,7 @@ const changeLanguage = (language) => {
           </RouterLink>
 
 
+
           <!-- PROJECTS -->
 
           <RouterLink
@@ -294,6 +321,7 @@ const changeLanguage = (language) => {
           </RouterLink>
 
 
+
           <!-- CREATIONS -->
 
           <RouterLink
@@ -309,6 +337,7 @@ const changeLanguage = (language) => {
             {{ $t('navigation.creations') }}
 
           </RouterLink>
+
 
 
           <!-- COMMISSIONS -->
@@ -332,6 +361,7 @@ const changeLanguage = (language) => {
           </RouterLink>
 
 
+
           <!-- CONTACT -->
 
           <RouterLink
@@ -347,6 +377,7 @@ const changeLanguage = (language) => {
             {{ $t('navigation.contact') }}
 
           </RouterLink>
+
 
 
           <!-- =========================
@@ -408,6 +439,7 @@ const changeLanguage = (language) => {
 </template>
 
 
+
 <style scoped>
 
 /* =========================
@@ -415,6 +447,7 @@ const changeLanguage = (language) => {
 ========================= */
 
 .navbar {
+
   position: fixed;
 
   top: 0;
@@ -436,17 +469,24 @@ const changeLanguage = (language) => {
 
   -webkit-backdrop-filter:
     blur(18px);
+
 }
 
 
+
+/* =========================
+   CONTAINER
+========================= */
+
 .navbar-container {
+
   width:
     min(
       calc(100% - 40px),
       1400px
     );
 
-  min-height: 85px;
+  height: 70px;
 
   margin-inline: auto;
 
@@ -455,8 +495,10 @@ const changeLanguage = (language) => {
   align-items: center;
   justify-content: space-between;
 
-  gap: 35px;
+  gap: 30px;
+
 }
+
 
 
 /* =========================
@@ -464,6 +506,7 @@ const changeLanguage = (language) => {
 ========================= */
 
 .navbar-logo {
+
   position: relative;
 
   z-index: 5;
@@ -473,13 +516,15 @@ const changeLanguage = (language) => {
   align-items: center;
 
   flex-shrink: 0;
+
 }
 
 
 .navbar-logo img {
+
   display: block;
 
-  width: 145px;
+  width: 130px;
   height: auto;
 
   object-fit: contain;
@@ -487,10 +532,12 @@ const changeLanguage = (language) => {
   transition:
     transform 0.3s ease,
     filter 0.3s ease;
+
 }
 
 
 .navbar-logo:hover img {
+
   transform:
     scale(1.04);
 
@@ -499,7 +546,9 @@ const changeLanguage = (language) => {
       0 0 12px
       rgba(255, 79, 184, 0.25)
     );
+
 }
+
 
 
 /* =========================
@@ -507,6 +556,7 @@ const changeLanguage = (language) => {
 ========================= */
 
 .navbar-navigation {
+
   display: flex;
 
   align-items: center;
@@ -514,13 +564,15 @@ const changeLanguage = (language) => {
 
   gap:
     clamp(
-      18px,
-      2vw,
-      35px
+      16px,
+      1.8vw,
+      30px
     );
 
   margin-left: auto;
+
 }
+
 
 
 /* =========================
@@ -528,6 +580,7 @@ const changeLanguage = (language) => {
 ========================= */
 
 .navbar-link {
+
   position: relative;
 
   display: inline-flex;
@@ -537,13 +590,13 @@ const changeLanguage = (language) => {
   gap: 6px;
 
   padding:
-    8px
+    7px
     0;
 
   color:
     var(--color-text-muted);
 
-  font-size: 0.76rem;
+  font-size: 0.74rem;
 
   font-weight: 600;
 
@@ -553,10 +606,12 @@ const changeLanguage = (language) => {
 
   transition:
     color 0.3s ease;
+
 }
 
 
 .navbar-link::after {
+
   content: '';
 
   position: absolute;
@@ -579,18 +634,24 @@ const changeLanguage = (language) => {
 
   transition:
     width 0.3s ease;
+
 }
 
 
 .navbar-link:hover {
+
   color:
     var(--color-white);
+
 }
 
 
 .navbar-link:hover::after {
+
   width: 100%;
+
 }
+
 
 
 /* =========================
@@ -598,14 +659,19 @@ const changeLanguage = (language) => {
 ========================= */
 
 .navbar-link.router-link-active {
+
   color:
     var(--color-white);
+
 }
 
 
 .navbar-link.router-link-active::after {
+
   width: 100%;
+
 }
+
 
 
 /* =========================
@@ -613,9 +679,12 @@ const changeLanguage = (language) => {
 ========================= */
 
 .navbar-link.router-link-exact-active {
+
   color:
     var(--color-white);
+
 }
+
 
 
 /* =========================
@@ -623,16 +692,19 @@ const changeLanguage = (language) => {
 ========================= */
 
 .commission-link {
+
   color:
     var(--color-pink-soft);
+
 }
 
 
 .commission-star {
+
   color:
     var(--color-pink);
 
-  font-size: 0.75rem;
+  font-size: 0.72rem;
 
   text-shadow:
     0 0 10px
@@ -643,14 +715,18 @@ const changeLanguage = (language) => {
     2.8s
     ease-in-out
     infinite;
+
 }
 
 
 .commission-link:hover,
 .commission-link.router-link-active {
+
   color:
     var(--color-pink-soft);
+
 }
+
 
 
 /* =========================
@@ -658,14 +734,17 @@ const changeLanguage = (language) => {
 ========================= */
 
 .navbar-actions {
+
   display: flex;
 
   align-items: center;
 
-  gap: 20px;
+  gap: 18px;
 
   flex-shrink: 0;
+
 }
+
 
 
 /* =========================
@@ -673,6 +752,7 @@ const changeLanguage = (language) => {
 ========================= */
 
 .language-selector {
+
   display: flex;
 
   align-items: center;
@@ -680,8 +760,8 @@ const changeLanguage = (language) => {
   gap: 7px;
 
   padding:
-    7px
-    11px;
+    6px
+    10px;
 
   border:
     1px solid
@@ -691,10 +771,12 @@ const changeLanguage = (language) => {
 
   background:
     rgba(255, 255, 255, 0.025);
+
 }
 
 
 .language-button {
+
   position: relative;
 
   padding: 0;
@@ -710,7 +792,7 @@ const changeLanguage = (language) => {
 
   font-family: inherit;
 
-  font-size: 0.65rem;
+  font-size: 0.63rem;
 
   font-weight: 700;
 
@@ -721,31 +803,39 @@ const changeLanguage = (language) => {
   transition:
     color 0.25s ease,
     text-shadow 0.25s ease;
+
 }
 
 
 .language-button:hover {
+
   color:
     var(--color-white);
+
 }
 
 
 .language-button.active {
+
   color:
     var(--color-pink-soft);
 
   text-shadow:
     0 0 10px
     rgba(255, 79, 184, 0.3);
+
 }
 
 
 .language-separator {
+
   color:
     rgba(255, 255, 255, 0.18);
 
-  font-size: 0.65rem;
+  font-size: 0.63rem;
+
 }
+
 
 
 /* =========================
@@ -753,6 +843,7 @@ const changeLanguage = (language) => {
 ========================= */
 
 .menu-button {
+
   display: none;
 
   width: 38px;
@@ -770,10 +861,12 @@ const changeLanguage = (language) => {
     rgba(255, 255, 255, 0.025);
 
   cursor: pointer;
+
 }
 
 
 .menu-button span {
+
   display: block;
 
   width: 17px;
@@ -791,28 +884,37 @@ const changeLanguage = (language) => {
   transition:
     transform 0.3s ease,
     opacity 0.3s ease;
+
 }
+
 
 
 /* OPEN */
 
 .menu-button.active span:nth-child(1) {
+
   transform:
     translateY(5px)
     rotate(45deg);
+
 }
 
 
 .menu-button.active span:nth-child(2) {
+
   opacity: 0;
+
 }
 
 
 .menu-button.active span:nth-child(3) {
+
   transform:
     translateY(-5px)
     rotate(-45deg);
+
 }
+
 
 
 /* =========================
@@ -820,8 +922,11 @@ const changeLanguage = (language) => {
 ========================= */
 
 .mobile-navigation {
+
   display: none;
+
 }
+
 
 
 /* =========================
@@ -832,20 +937,26 @@ const changeLanguage = (language) => {
 
   0%,
   100% {
+
     opacity: 0.6;
 
     transform:
       scale(0.85);
+
   }
 
+
   50% {
+
     opacity: 1;
 
     transform:
       scale(1.15);
+
   }
 
 }
+
 
 
 /* =========================
@@ -855,28 +966,39 @@ const changeLanguage = (language) => {
 @media (max-width: 1100px) {
 
   .navbar-container {
-    min-height: 78px;
+
+    height: 70px;
+
   }
 
 
   .navbar-navigation {
+
     display: none;
+
   }
 
 
   .navbar-logo img {
-    width: 130px;
+
+    width: 125px;
+
   }
 
 
   .language-selector {
+
     display: none;
+
   }
 
 
   .menu-button {
+
     display: block;
+
   }
+
 
 
   /* =========================
@@ -884,17 +1006,19 @@ const changeLanguage = (language) => {
   ========================= */
 
   .mobile-navigation {
+
     position: fixed;
 
-    top: 78px;
+    top: 70px;
     left: 0;
 
     display: block;
 
     width: 100%;
+
     height:
       calc(
-        100vh - 78px
+        100vh - 70px
       );
 
     overflow-y: auto;
@@ -907,10 +1031,12 @@ const changeLanguage = (language) => {
 
     -webkit-backdrop-filter:
       blur(20px);
+
   }
 
 
   .mobile-navigation-content {
+
     width:
       min(
         calc(100% - 40px),
@@ -923,7 +1049,9 @@ const changeLanguage = (language) => {
       55px
       0
       70px;
+
   }
+
 
 
   /* =========================
@@ -931,6 +1059,7 @@ const changeLanguage = (language) => {
   ========================= */
 
   .mobile-menu-label {
+
     display: block;
 
     margin-bottom: 30px;
@@ -943,7 +1072,9 @@ const changeLanguage = (language) => {
     font-weight: 700;
 
     letter-spacing: 0.22em;
+
   }
+
 
 
   /* =========================
@@ -951,6 +1082,7 @@ const changeLanguage = (language) => {
   ========================= */
 
   .mobile-link {
+
     position: relative;
 
     display: flex;
@@ -987,19 +1119,23 @@ const changeLanguage = (language) => {
     transition:
       color 0.3s ease,
       padding-left 0.3s ease;
+
   }
 
 
   .mobile-link:hover,
   .mobile-link.router-link-active {
+
     padding-left: 12px;
 
     color:
       var(--color-white);
+
   }
 
 
   .mobile-number {
+
     width: 25px;
 
     flex-shrink: 0;
@@ -1012,7 +1148,9 @@ const changeLanguage = (language) => {
     font-size: 0.65rem;
 
     font-style: italic;
+
   }
+
 
 
   /* =========================
@@ -1020,12 +1158,15 @@ const changeLanguage = (language) => {
   ========================= */
 
   .mobile-commission-link {
+
     color:
       var(--color-pink-soft);
+
   }
 
 
   .mobile-commission-star {
+
     color:
       var(--color-pink);
 
@@ -1040,7 +1181,9 @@ const changeLanguage = (language) => {
       2.8s
       ease-in-out
       infinite;
+
   }
+
 
 
   /* =========================
@@ -1048,11 +1191,14 @@ const changeLanguage = (language) => {
   ========================= */
 
   .mobile-language {
+
     margin-top: 45px;
+
   }
 
 
   .mobile-language-label {
+
     display: block;
 
     margin-bottom: 15px;
@@ -1067,10 +1213,12 @@ const changeLanguage = (language) => {
     letter-spacing: 0.16em;
 
     text-transform: uppercase;
+
   }
 
 
   .mobile-language-buttons {
+
     display: grid;
 
     grid-template-columns:
@@ -1080,10 +1228,12 @@ const changeLanguage = (language) => {
       );
 
     gap: 12px;
+
   }
 
 
   .mobile-language-buttons button {
+
     display: flex;
 
     flex-direction: column;
@@ -1121,29 +1271,35 @@ const changeLanguage = (language) => {
       border-color 0.3s ease,
       background 0.3s ease,
       color 0.3s ease;
+
   }
 
 
   .mobile-language-buttons button small {
+
     color:
       rgba(185, 174, 191, 0.55);
 
     font-size: 0.62rem;
 
     font-weight: 400;
+
   }
 
 
   .mobile-language-buttons button:hover {
+
     border-color:
       rgba(255, 155, 215, 0.2);
 
     color:
       var(--color-white);
+
   }
 
 
   .mobile-language-buttons button.active {
+
     border-color:
       rgba(255, 155, 215, 0.35);
 
@@ -1152,15 +1308,19 @@ const changeLanguage = (language) => {
 
     color:
       var(--color-pink-soft);
+
   }
 
 
   .mobile-language-buttons button.active small {
+
     color:
       var(--color-text-muted);
+
   }
 
 }
+
 
 
 /* =========================
@@ -1170,35 +1330,58 @@ const changeLanguage = (language) => {
 @media (max-width: 500px) {
 
   .navbar-container {
+
     width:
       calc(
         100% - 28px
       );
+
+    height: 68px;
+
   }
 
 
   .navbar-logo img {
+
     width: 115px;
+
+  }
+
+
+  .mobile-navigation {
+
+    top: 68px;
+
+    height:
+      calc(
+        100vh - 68px
+      );
+
   }
 
 
   .mobile-navigation-content {
+
     width:
       calc(
         100% - 30px
       );
 
     padding-top: 40px;
+
   }
 
 
   .mobile-link {
+
     padding:
       16px
       3px;
+
   }
 
 }
+
 
 
 /* =========================
@@ -1207,19 +1390,24 @@ const changeLanguage = (language) => {
 
 .mobile-menu-enter-active,
 .mobile-menu-leave-active {
+
   transition:
     opacity 0.3s ease,
     transform 0.3s ease;
+
 }
 
 
 .mobile-menu-enter-from,
 .mobile-menu-leave-to {
+
   opacity: 0;
 
   transform:
     translateY(-15px);
+
 }
+
 
 
 /* =========================
@@ -1230,7 +1418,9 @@ const changeLanguage = (language) => {
 
   .commission-star,
   .mobile-commission-star {
+
     animation: none;
+
   }
 
 
@@ -1238,7 +1428,9 @@ const changeLanguage = (language) => {
   .navbar-logo img,
   .mobile-link,
   .language-button {
+
     transition: none;
+
   }
 
 }
