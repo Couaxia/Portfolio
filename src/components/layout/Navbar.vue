@@ -1,31 +1,56 @@
 <script setup>
 import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
+
 import logoCouaxia from '../../assets/images/logo/Logo_couaxia.png'
+
+import { useLanguage } from '../useLanguage'
 
 
 /* =========================
-   MENU MOBILE
+   LANGUAGE
 ========================= */
 
-const menuOpen = ref(false)
+const {
+  currentLanguage,
+  setLanguage
+} = useLanguage()
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const isMenuOpen = ref(false)
 
 
 const toggleMenu = () => {
-  menuOpen.value = !menuOpen.value
+  isMenuOpen.value = !isMenuOpen.value
 }
 
 
 const closeMenu = () => {
-  menuOpen.value = false
+  isMenuOpen.value = false
+}
+
+
+/* =========================
+   CHANGE LANGUAGE
+========================= */
+
+const changeLanguage = (language) => {
+  setLanguage(language)
+
+  closeMenu()
 }
 </script>
 
 
 <template>
 
-  <header class="header">
+  <header class="navbar">
 
-    <nav class="navbar container">
+    <div class="navbar-container">
 
 
       <!-- =========================
@@ -35,101 +60,348 @@ const closeMenu = () => {
       <RouterLink
         to="/"
         class="navbar-logo"
-        aria-label="Retour à l'accueil"
+        aria-label="Couaxia - Home"
         @click="closeMenu"
       >
 
         <img
           :src="logoCouaxia"
           alt="Couaxia"
-          class="navbar-logo-image"
-          draggable="false"
         >
 
       </RouterLink>
 
 
       <!-- =========================
-           NAVIGATION
+           DESKTOP NAVIGATION
       ========================== -->
 
-      <ul
-        class="navbar-links"
-        :class="{ active: menuOpen }"
-      >
-
-        <li>
-          <RouterLink
-            to="/"
-            @click="closeMenu"
-          >
-            Accueil
-          </RouterLink>
-        </li>
+      <nav class="navbar-navigation">
 
 
-        <li>
-          <RouterLink
-            to="/about"
-            @click="closeMenu"
-          >
-            À propos
-          </RouterLink>
-        </li>
+        <!-- HOME -->
+
+        <RouterLink
+          to="/"
+          class="navbar-link"
+        >
+          {{ $t('navigation.home') }}
+        </RouterLink>
 
 
-        <li>
-          <RouterLink
-            to="/projects"
-            @click="closeMenu"
-          >
-            Projets Web
-          </RouterLink>
-        </li>
+        <!-- ABOUT -->
+
+        <RouterLink
+          to="/about"
+          class="navbar-link"
+        >
+          {{ $t('navigation.about') }}
+        </RouterLink>
 
 
-        <li>
-          <RouterLink
-            to="/creations"
-            @click="closeMenu"
-          >
-            Créations
-          </RouterLink>
-        </li>
+        <!-- PROJECTS -->
+
+        <RouterLink
+          to="/projects"
+          class="navbar-link"
+        >
+          {{ $t('navigation.projects') }}
+        </RouterLink>
 
 
-        <li>
-          <RouterLink
-            to="/contact"
-            @click="closeMenu"
-          >
-            Contact
-          </RouterLink>
-        </li>
+        <!-- CREATIONS -->
 
-      </ul>
+        <RouterLink
+          to="/creations"
+          class="navbar-link"
+        >
+          {{ $t('navigation.creations') }}
+        </RouterLink>
+
+
+        <!-- COMMISSIONS -->
+
+        <RouterLink
+          to="/commissions"
+          class="navbar-link commission-link"
+        >
+
+          <span class="commission-star">
+            ✦
+          </span>
+
+          {{ $t('navigation.commissions') }}
+
+        </RouterLink>
+
+
+        <!-- CONTACT -->
+
+        <RouterLink
+          to="/contact"
+          class="navbar-link"
+        >
+          {{ $t('navigation.contact') }}
+        </RouterLink>
+
+      </nav>
 
 
       <!-- =========================
-           MENU MOBILE
+           RIGHT SIDE
       ========================== -->
 
-      <button
-        class="navbar-toggle"
-        :class="{ active: menuOpen }"
-        type="button"
-        aria-label="Ouvrir le menu"
-        :aria-expanded="menuOpen"
-        @click="toggleMenu"
+      <div class="navbar-actions">
+
+
+        <!-- =========================
+             LANGUAGE SELECTOR
+        ========================== -->
+
+        <div
+          class="language-selector"
+          :aria-label="$t('language.changeLanguage')"
+        >
+
+          <button
+            type="button"
+            class="language-button"
+            :class="{
+              active: currentLanguage === 'fr'
+            }"
+            :aria-pressed="currentLanguage === 'fr'"
+            @click="changeLanguage('fr')"
+          >
+            FR
+          </button>
+
+
+          <span class="language-separator">
+            /
+          </span>
+
+
+          <button
+            type="button"
+            class="language-button"
+            :class="{
+              active: currentLanguage === 'en'
+            }"
+            :aria-pressed="currentLanguage === 'en'"
+            @click="changeLanguage('en')"
+          >
+            EN
+          </button>
+
+        </div>
+
+
+        <!-- =========================
+             MOBILE BUTTON
+        ========================== -->
+
+        <button
+          type="button"
+          class="menu-button"
+          :class="{
+            active: isMenuOpen
+          }"
+          :aria-expanded="isMenuOpen"
+          aria-label="Menu"
+          @click="toggleMenu"
+        >
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         MOBILE MENU
+    ========================== -->
+
+    <Transition name="mobile-menu">
+
+      <div
+        v-if="isMenuOpen"
+        class="mobile-navigation"
       >
 
-        <span></span>
-        <span></span>
-        <span></span>
+        <nav class="mobile-navigation-content">
 
-      </button>
 
-    </nav>
+          <!-- NUMBER -->
+
+          <span class="mobile-menu-label">
+            MENU
+          </span>
+
+
+          <!-- HOME -->
+
+          <RouterLink
+            to="/"
+            class="mobile-link"
+            @click="closeMenu"
+          >
+
+            <span class="mobile-number">
+              01
+            </span>
+
+            {{ $t('navigation.home') }}
+
+          </RouterLink>
+
+
+          <!-- ABOUT -->
+
+          <RouterLink
+            to="/about"
+            class="mobile-link"
+            @click="closeMenu"
+          >
+
+            <span class="mobile-number">
+              02
+            </span>
+
+            {{ $t('navigation.about') }}
+
+          </RouterLink>
+
+
+          <!-- PROJECTS -->
+
+          <RouterLink
+            to="/projects"
+            class="mobile-link"
+            @click="closeMenu"
+          >
+
+            <span class="mobile-number">
+              03
+            </span>
+
+            {{ $t('navigation.projects') }}
+
+          </RouterLink>
+
+
+          <!-- CREATIONS -->
+
+          <RouterLink
+            to="/creations"
+            class="mobile-link"
+            @click="closeMenu"
+          >
+
+            <span class="mobile-number">
+              04
+            </span>
+
+            {{ $t('navigation.creations') }}
+
+          </RouterLink>
+
+
+          <!-- COMMISSIONS -->
+
+          <RouterLink
+            to="/commissions"
+            class="mobile-link mobile-commission-link"
+            @click="closeMenu"
+          >
+
+            <span class="mobile-number">
+              05
+            </span>
+
+            <span class="mobile-commission-star">
+              ✦
+            </span>
+
+            {{ $t('navigation.commissions') }}
+
+          </RouterLink>
+
+
+          <!-- CONTACT -->
+
+          <RouterLink
+            to="/contact"
+            class="mobile-link"
+            @click="closeMenu"
+          >
+
+            <span class="mobile-number">
+              06
+            </span>
+
+            {{ $t('navigation.contact') }}
+
+          </RouterLink>
+
+
+          <!-- =========================
+               MOBILE LANGUAGE
+          ========================== -->
+
+          <div class="mobile-language">
+
+            <span class="mobile-language-label">
+              {{ $t('language.changeLanguage') }}
+            </span>
+
+
+            <div class="mobile-language-buttons">
+
+              <button
+                type="button"
+                :class="{
+                  active: currentLanguage === 'fr'
+                }"
+                @click="changeLanguage('fr')"
+              >
+                FR
+
+                <small>
+                  {{ $t('language.french') }}
+                </small>
+
+              </button>
+
+
+              <button
+                type="button"
+                :class="{
+                  active: currentLanguage === 'en'
+                }"
+                @click="changeLanguage('en')"
+              >
+                EN
+
+                <small>
+                  {{ $t('language.english') }}
+                </small>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </nav>
+
+      </div>
+
+    </Transition>
 
   </header>
 
@@ -139,10 +411,10 @@ const closeMenu = () => {
 <style scoped>
 
 /* =========================
-   HEADER
+   NAVBAR
 ========================= */
 
-.header {
+.navbar {
   position: fixed;
 
   top: 0;
@@ -152,34 +424,38 @@ const closeMenu = () => {
 
   width: 100%;
 
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
   background:
     rgba(15, 9, 20, 0.82);
 
   backdrop-filter:
-    blur(15px);
+    blur(18px);
 
   -webkit-backdrop-filter:
-    blur(15px);
-
-  border-bottom:
-    1px solid
-    var(--color-border);
+    blur(18px);
 }
 
 
-/* =========================
-   NAVBAR
-========================= */
+.navbar-container {
+  width:
+    min(
+      calc(100% - 40px),
+      1400px
+    );
 
-.navbar {
-  position: relative;
+  min-height: 85px;
 
-  height: 80px;
+  margin-inline: auto;
 
   display: flex;
 
   align-items: center;
   justify-content: space-between;
+
+  gap: 35px;
 }
 
 
@@ -190,75 +466,60 @@ const closeMenu = () => {
 .navbar-logo {
   position: relative;
 
+  z-index: 5;
+
   display: flex;
 
   align-items: center;
-  justify-content: flex-start;
-
-  width: 175px;
-  height: 80px;
 
   flex-shrink: 0;
-
-  overflow: visible;
 }
 
 
-.navbar-logo-image {
-  position: absolute;
-
-  left: -34px;
-  top: 50%;
-
+.navbar-logo img {
   display: block;
 
-  width: 205px;
-  max-width: none;
-
+  width: 145px;
   height: auto;
 
   object-fit: contain;
 
-  transform:
-    translateY(-50%);
-
-  transform-origin: center;
-
-  user-select: none;
-
-  pointer-events: none;
-
-  filter:
-    drop-shadow(
-      0 0 7px
-      rgba(255, 79, 184, 0.15)
-    );
-
   transition:
-    transform var(--transition-normal),
-    filter var(--transition-normal);
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 
-/* =========================
-   LOGO HOVER
-========================= */
-
-.navbar-logo:hover
-.navbar-logo-image {
+.navbar-logo:hover img {
   transform:
-    translateY(-50%)
     scale(1.04);
 
   filter:
     drop-shadow(
-      0 0 10px
-      rgba(255, 79, 184, 0.35)
-    )
-    drop-shadow(
-      0 0 18px
-      rgba(143, 76, 255, 0.18)
+      0 0 12px
+      rgba(255, 79, 184, 0.25)
     );
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar-navigation {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap:
+    clamp(
+      18px,
+      2vw,
+      35px
+    );
+
+  margin-left: auto;
 }
 
 
@@ -266,64 +527,48 @@ const closeMenu = () => {
    LINKS
 ========================= */
 
-.navbar-links {
-  display: flex;
+.navbar-link {
+  position: relative;
+
+  display: inline-flex;
 
   align-items: center;
 
-  gap: 35px;
-
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-}
-
-
-.navbar-links a {
-  position: relative;
+  gap: 6px;
 
   padding:
-    10px
+    8px
     0;
 
   color:
     var(--color-text-muted);
 
-  font-size: 0.9rem;
+  font-size: 0.76rem;
 
-  font-weight: 500;
+  font-weight: 600;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.045em;
+
+  white-space: nowrap;
 
   transition:
-    color
-    var(--transition-fast);
+    color 0.3s ease;
 }
 
 
-.navbar-links a:hover {
-  color:
-    var(--color-white);
-}
-
-
-/* =========================
-   TRAIT SOUS LE LIEN
-========================= */
-
-.navbar-links a::after {
+.navbar-link::after {
   content: '';
 
   position: absolute;
 
   left: 50%;
-  bottom: 2px;
+  bottom: 0;
 
   width: 0;
-  height: 2px;
+  height: 1px;
 
-  border-radius: 10px;
+  transform:
+    translateX(-50%);
 
   background:
     linear-gradient(
@@ -332,221 +577,587 @@ const closeMenu = () => {
       var(--color-pink)
     );
 
-  transform:
-    translateX(-50%);
-
   transition:
-    width
-    var(--transition-normal);
+    width 0.3s ease;
 }
 
 
-.navbar-links a:hover::after {
-  width: 100%;
-}
-
-
-/* =========================
-   PAGE ACTIVE
-========================= */
-
-.navbar-links
-a.router-link-exact-active {
+.navbar-link:hover {
   color:
     var(--color-white);
 }
 
 
-.navbar-links
-a.router-link-exact-active::after {
+.navbar-link:hover::after {
   width: 100%;
 }
 
 
 /* =========================
-   BURGER
+   ACTIVE ROUTE
 ========================= */
 
-.navbar-toggle {
-  display: none;
+.navbar-link.router-link-active {
+  color:
+    var(--color-white);
+}
 
-  width: 35px;
-  height: 30px;
+
+.navbar-link.router-link-active::after {
+  width: 100%;
+}
+
+
+/* =========================
+   HOME EXACT ACTIVE
+========================= */
+
+.navbar-link.router-link-exact-active {
+  color:
+    var(--color-white);
+}
+
+
+/* =========================
+   COMMISSIONS
+========================= */
+
+.commission-link {
+  color:
+    var(--color-pink-soft);
+}
+
+
+.commission-star {
+  color:
+    var(--color-pink);
+
+  font-size: 0.75rem;
+
+  text-shadow:
+    0 0 10px
+    rgba(255, 79, 184, 0.6);
+
+  animation:
+    commissionTwinkle
+    2.8s
+    ease-in-out
+    infinite;
+}
+
+
+.commission-link:hover,
+.commission-link.router-link-active {
+  color:
+    var(--color-pink-soft);
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.navbar-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   LANGUAGE SELECTOR
+========================= */
+
+.language-selector {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding:
+    7px
+    11px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+}
+
+
+.language-button {
+  position: relative;
 
   padding: 0;
 
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 6px;
-
   border: none;
 
-  background: transparent;
+  outline: none;
+
+  background: none;
+
+  color:
+    rgba(185, 174, 191, 0.55);
+
+  font-family: inherit;
+
+  font-size: 0.65rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+
+.language-button:hover {
+  color:
+    var(--color-white);
+}
+
+
+.language-button.active {
+  color:
+    var(--color-pink-soft);
+
+  text-shadow:
+    0 0 10px
+    rgba(255, 79, 184, 0.3);
+}
+
+
+.language-separator {
+  color:
+    rgba(255, 255, 255, 0.18);
+
+  font-size: 0.65rem;
+}
+
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.menu-button {
+  display: none;
+
+  width: 38px;
+  height: 38px;
+
+  padding: 7px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.025);
 
   cursor: pointer;
 }
 
 
-.navbar-toggle span {
+.menu-button span {
   display: block;
 
-  width: 26px;
-  height: 2px;
+  width: 17px;
+  height: 1px;
 
-  border-radius: 10px;
+  margin:
+    4px
+    auto;
 
   background:
     var(--color-white);
 
+  transform-origin: center;
+
   transition:
-    transform var(--transition-normal),
-    opacity var(--transition-normal);
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 
-/* =========================
-   BURGER → X
-========================= */
+/* OPEN */
 
-.navbar-toggle.active
-span:nth-child(1) {
+.menu-button.active span:nth-child(1) {
   transform:
-    translateY(8px)
+    translateY(5px)
     rotate(45deg);
 }
 
 
-.navbar-toggle.active
-span:nth-child(2) {
+.menu-button.active span:nth-child(2) {
   opacity: 0;
 }
 
 
-.navbar-toggle.active
-span:nth-child(3) {
+.menu-button.active span:nth-child(3) {
   transform:
-    translateY(-8px)
+    translateY(-5px)
     rotate(-45deg);
 }
 
 
 /* =========================
-   TABLET
+   MOBILE NAVIGATION
 ========================= */
 
-@media (max-width: 1000px) {
+.mobile-navigation {
+  display: none;
+}
 
-  .navbar-logo {
-    width: 160px;
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes commissionTwinkle {
+
+  0%,
+  100% {
+    opacity: 0.6;
+
+    transform:
+      scale(0.85);
   }
 
+  50% {
+    opacity: 1;
 
-  .navbar-logo-image {
-    left: -30px;
-
-    width: 190px;
-  }
-
-
-  .navbar-links {
-    gap: 24px;
-  }
-
-
-  .navbar-links a {
-    font-size: 0.84rem;
+    transform:
+      scale(1.15);
   }
 
 }
 
 
 /* =========================
-   MOBILE
+   RESPONSIVE
 ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
 
-  .navbar {
-    height: 70px;
+  .navbar-container {
+    min-height: 78px;
   }
 
 
-  /* LOGO */
-
-  .navbar-logo {
-    width: 145px;
-    height: 70px;
+  .navbar-navigation {
+    display: none;
   }
 
 
-  .navbar-logo-image {
-    left: -27px;
-
-    width: 175px;
+  .navbar-logo img {
+    width: 130px;
   }
 
 
-  /* BURGER */
-
-  .navbar-toggle {
-    display: flex;
+  .language-selector {
+    display: none;
   }
 
 
-  /* MENU */
+  .menu-button {
+    display: block;
+  }
 
-  .navbar-links {
-    position: absolute;
 
-    top: 70px;
+  /* =========================
+     MOBILE MENU
+  ========================= */
+
+  .mobile-navigation {
+    position: fixed;
+
+    top: 78px;
     left: 0;
 
+    display: block;
+
     width: 100%;
+    height:
+      calc(
+        100vh - 78px
+      );
 
-    padding:
-      35px
-      20px;
-
-    flex-direction: column;
-
-    gap: 25px;
+    overflow-y: auto;
 
     background:
       rgba(15, 9, 20, 0.98);
 
+    backdrop-filter:
+      blur(20px);
+
+    -webkit-backdrop-filter:
+      blur(20px);
+  }
+
+
+  .mobile-navigation-content {
+    width:
+      min(
+        calc(100% - 40px),
+        600px
+      );
+
+    margin-inline: auto;
+
+    padding:
+      55px
+      0
+      70px;
+  }
+
+
+  /* =========================
+     MOBILE LABEL
+  ========================= */
+
+  .mobile-menu-label {
+    display: block;
+
+    margin-bottom: 30px;
+
+    color:
+      var(--color-pink-soft);
+
+    font-size: 0.62rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+  }
+
+
+  /* =========================
+     MOBILE LINKS
+  ========================= */
+
+  .mobile-link {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding:
+      18px
+      5px;
+
     border-bottom:
       1px solid
-      var(--color-border);
+      rgba(255, 255, 255, 0.06);
 
-    opacity: 0;
+    color:
+      var(--color-text-muted);
 
-    visibility: hidden;
+    font-family:
+      Georgia,
+      'Times New Roman',
+      serif;
 
-    transform:
-      translateY(-15px);
+    font-size:
+      clamp(
+        1.8rem,
+        7vw,
+        2.7rem
+      );
+
+    font-weight: 400;
 
     transition:
-      opacity var(--transition-normal),
-      visibility var(--transition-normal),
-      transform var(--transition-normal);
+      color 0.3s ease,
+      padding-left 0.3s ease;
   }
 
 
-  .navbar-links.active {
-    opacity: 1;
+  .mobile-link:hover,
+  .mobile-link.router-link-active {
+    padding-left: 12px;
 
-    visibility: visible;
-
-    transform:
-      translateY(0);
+    color:
+      var(--color-white);
   }
 
 
-  .navbar-links a {
-    font-size: 1rem;
+  .mobile-number {
+    width: 25px;
+
+    flex-shrink: 0;
+
+    color:
+      rgba(255, 155, 215, 0.35);
+
+    font-family: inherit;
+
+    font-size: 0.65rem;
+
+    font-style: italic;
+  }
+
+
+  /* =========================
+     MOBILE COMMISSION
+  ========================= */
+
+  .mobile-commission-link {
+    color:
+      var(--color-pink-soft);
+  }
+
+
+  .mobile-commission-star {
+    color:
+      var(--color-pink);
+
+    font-size: 0.75rem;
+
+    text-shadow:
+      0 0 12px
+      rgba(255, 79, 184, 0.6);
+
+    animation:
+      commissionTwinkle
+      2.8s
+      ease-in-out
+      infinite;
+  }
+
+
+  /* =========================
+     MOBILE LANGUAGE
+  ========================= */
+
+  .mobile-language {
+    margin-top: 45px;
+  }
+
+
+  .mobile-language-label {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color:
+      var(--color-text-muted);
+
+    font-size: 0.62rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+  }
+
+
+  .mobile-language-buttons {
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        2,
+        1fr
+      );
+
+    gap: 12px;
+  }
+
+
+  .mobile-language-buttons button {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+
+    padding:
+      17px
+      20px;
+
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.08);
+
+    border-radius:
+      var(--radius-small);
+
+    background:
+      rgba(255, 255, 255, 0.025);
+
+    color:
+      var(--color-text-muted);
+
+    font-family: inherit;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+      border-color 0.3s ease,
+      background 0.3s ease,
+      color 0.3s ease;
+  }
+
+
+  .mobile-language-buttons button small {
+    color:
+      rgba(185, 174, 191, 0.55);
+
+    font-size: 0.62rem;
+
+    font-weight: 400;
+  }
+
+
+  .mobile-language-buttons button:hover {
+    border-color:
+      rgba(255, 155, 215, 0.2);
+
+    color:
+      var(--color-white);
+  }
+
+
+  .mobile-language-buttons button.active {
+    border-color:
+      rgba(255, 155, 215, 0.35);
+
+    background:
+      rgba(255, 79, 184, 0.07);
+
+    color:
+      var(--color-pink-soft);
+  }
+
+
+  .mobile-language-buttons button.active small {
+    color:
+      var(--color-text-muted);
   }
 
 }
@@ -556,24 +1167,78 @@ span:nth-child(3) {
    SMALL MOBILE
 ========================= */
 
-@media (max-width: 420px) {
+@media (max-width: 500px) {
 
-  .navbar-logo {
-    width: 130px;
+  .navbar-container {
+    width:
+      calc(
+        100% - 28px
+      );
   }
 
 
-  .navbar-logo-image {
-    left: -24px;
-
-    width: 158px;
+  .navbar-logo img {
+    width: 115px;
   }
 
 
-  .navbar-links {
+  .mobile-navigation-content {
+    width:
+      calc(
+        100% - 30px
+      );
+
+    padding-top: 40px;
+  }
+
+
+  .mobile-link {
     padding:
-      30px
-      20px;
+      16px
+      3px;
+  }
+
+}
+
+
+/* =========================
+   TRANSITION
+========================= */
+
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+
+  transform:
+    translateY(-15px);
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .commission-star,
+  .mobile-commission-star {
+    animation: none;
+  }
+
+
+  .navbar-link,
+  .navbar-logo img,
+  .mobile-link,
+  .language-button {
+    transition: none;
   }
 
 }

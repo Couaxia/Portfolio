@@ -1,6 +1,8 @@
 <script setup>
-import { ref } from 'vue'
+
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 
 /* =========================
@@ -8,6 +10,13 @@ import { useRouter } from 'vue-router'
 ========================= */
 
 const router = useRouter()
+
+
+/* =========================
+   TRANSLATIONS
+========================= */
+
+const { t } = useI18n()
 
 
 /* =========================
@@ -36,9 +45,14 @@ const projectModules = import.meta.glob(
    IMAGES
 ========================= */
 
-const creationImages = Object.values(creationModules)
+const creationImages = Object.values(
+  creationModules
+)
 
-const projectImages = Object.values(projectModules)
+
+const projectImages = Object.values(
+  projectModules
+)
 
 
 /* =========================
@@ -49,11 +63,17 @@ const shuffle = (array) => {
 
   const copy = [...array]
 
-  for (let i = copy.length - 1; i > 0; i--) {
+
+  for (
+    let i = copy.length - 1;
+    i > 0;
+    i--
+  ) {
 
     const j = Math.floor(
       Math.random() * (i + 1)
     )
+
 
     ;[copy[i], copy[j]] = [
       copy[j],
@@ -62,7 +82,9 @@ const shuffle = (array) => {
 
   }
 
+
   return copy
+
 }
 
 
@@ -84,7 +106,7 @@ const randomProjects = shuffle(
    UNIVERSE ITEMS
 ========================= */
 
-const universeItems = ref([
+const universeItems = computed(() => [
 
   {
     image: randomCreations[0],
@@ -93,9 +115,11 @@ const universeItems = ref([
 
     className: 'item-1',
 
-    label: 'CRÉATION',
+    label:
+      t('home.universe.creation'),
 
-    title: 'Découvrir mes créations',
+    title:
+      t('home.universe.discoverCreations'),
 
     route: '/creations'
   },
@@ -108,9 +132,11 @@ const universeItems = ref([
 
     className: 'item-2',
 
-    label: 'PROJET WEB',
+    label:
+      t('home.universe.webProject'),
 
-    title: 'Découvrir mes projets',
+    title:
+      t('home.universe.discoverProjects'),
 
     route: '/projects',
 
@@ -125,9 +151,11 @@ const universeItems = ref([
 
     className: 'item-3',
 
-    label: 'CRÉATION',
+    label:
+      t('home.universe.creation'),
 
-    title: 'Découvrir mes créations',
+    title:
+      t('home.universe.discoverCreations'),
 
     route: '/creations'
   },
@@ -140,9 +168,11 @@ const universeItems = ref([
 
     className: 'item-4',
 
-    label: 'PROJET WEB',
+    label:
+      t('home.universe.webProject'),
 
-    title: 'Découvrir mes projets',
+    title:
+      t('home.universe.discoverProjects'),
 
     route: '/projects'
   },
@@ -155,9 +185,11 @@ const universeItems = ref([
 
     className: 'item-5',
 
-    label: 'CRÉATION',
+    label:
+      t('home.universe.creation'),
 
-    title: 'Découvrir mes créations',
+    title:
+      t('home.universe.discoverCreations'),
 
     route: '/creations'
   },
@@ -170,9 +202,11 @@ const universeItems = ref([
 
     className: 'item-6',
 
-    label: 'PROJET WEB',
+    label:
+      t('home.universe.webProject'),
 
-    title: 'Découvrir mes projets',
+    title:
+      t('home.universe.discoverProjects'),
 
     route: '/projects',
 
@@ -192,8 +226,11 @@ const openItem = (item) => {
     return
   }
 
+
   router.push(item.route)
+
 }
+
 </script>
 
 
@@ -279,7 +316,10 @@ const openItem = (item) => {
         ========================== -->
 
         <div
-          v-if="item.type === 'planet' && item.ring"
+          v-if="
+            item.type === 'planet'
+            && item.ring
+          "
           class="planet-ring planet-ring-back"
         ></div>
 
@@ -333,11 +373,15 @@ const openItem = (item) => {
                 {{ item.label }}
               </span>
 
+
               <span class="overlay-link">
-                Découvrir
+
+                {{ $t('home.universe.discover') }}
+
                 <span aria-hidden="true">
                   →
                 </span>
+
               </span>
 
             </div>
@@ -352,7 +396,10 @@ const openItem = (item) => {
         ========================== -->
 
         <div
-          v-if="item.type === 'planet' && item.ring"
+          v-if="
+            item.type === 'planet'
+            && item.ring
+          "
           class="planet-ring planet-ring-front"
         ></div>
 
@@ -376,7 +423,7 @@ const openItem = (item) => {
           ◇
         </span>
 
-        Créations
+        {{ $t('home.universe.legend.creations') }}
 
       </RouterLink>
 
@@ -391,7 +438,7 @@ const openItem = (item) => {
 
         <span class="legend-planet"></span>
 
-        Projets Web
+        {{ $t('home.universe.legend.projects') }}
 
       </RouterLink>
 
@@ -409,6 +456,7 @@ const openItem = (item) => {
 ========================= */
 
 .image-universe {
+
   position: relative;
 
   width: 100%;
@@ -417,6 +465,7 @@ const openItem = (item) => {
   isolation: isolate;
 
   overflow: hidden;
+
 }
 
 
@@ -425,6 +474,7 @@ const openItem = (item) => {
 ========================= */
 
 .universe-glow {
+
   position: absolute;
 
   z-index: 0;
@@ -452,6 +502,7 @@ const openItem = (item) => {
     translate(-50%, -50%);
 
   pointer-events: none;
+
 }
 
 
@@ -460,6 +511,7 @@ const openItem = (item) => {
 ========================= */
 
 .universe-item {
+
   position: absolute;
 
   z-index: 4;
@@ -469,10 +521,12 @@ const openItem = (item) => {
     7s
     ease-in-out
     infinite;
+
 }
 
 
 .item-interactive {
+
   position: relative;
 
   width: 100%;
@@ -485,24 +539,29 @@ const openItem = (item) => {
   transition:
     transform 0.4s ease,
     filter 0.4s ease;
+
 }
 
 
 .item-interactive:hover {
+
   transform:
     scale(1.045);
 
   filter:
     brightness(1.08);
+
 }
 
 
 .item-interactive:focus-visible {
+
   transform:
     scale(1.045);
 
   filter:
     brightness(1.08);
+
 }
 
 
@@ -511,6 +570,7 @@ const openItem = (item) => {
 ========================= */
 
 .image-shape {
+
   position: relative;
 
   z-index: 5;
@@ -526,10 +586,12 @@ const openItem = (item) => {
   box-shadow:
     0 20px 55px
     rgba(0, 0, 0, 0.32);
+
 }
 
 
 .image-shape img {
+
   display: block;
 
   width: 100%;
@@ -542,18 +604,22 @@ const openItem = (item) => {
   transition:
     transform 0.7s ease,
     filter 0.5s ease;
+
 }
 
 
 .item-interactive:hover
 .image-shape img,
+
 .item-interactive:focus-visible
 .image-shape img {
+
   transform:
     scale(1.08);
 
   filter:
     brightness(0.65);
+
 }
 
 
@@ -563,9 +629,11 @@ const openItem = (item) => {
 
 .diamond-wrapper
 .image-shape img {
+
   object-fit: cover;
 
   object-position: center;
+
 }
 
 
@@ -575,9 +643,11 @@ const openItem = (item) => {
 
 .planet-wrapper
 .image-shape img {
+
   object-fit: cover;
 
   object-position: top center;
+
 }
 
 
@@ -586,6 +656,7 @@ const openItem = (item) => {
 ========================= */
 
 .planet-shape {
+
   border-radius: 50%;
 
   border:
@@ -601,6 +672,7 @@ const openItem = (item) => {
 
     inset 0 0 25px
     rgba(255, 255, 255, 0.025);
+
 }
 
 
@@ -609,6 +681,7 @@ const openItem = (item) => {
 ========================= */
 
 .diamond-shape {
+
   clip-path:
     polygon(
       50% 0%,
@@ -620,6 +693,7 @@ const openItem = (item) => {
   box-shadow:
     0 20px 55px
     rgba(0, 0, 0, 0.32);
+
 }
 
 
@@ -628,6 +702,7 @@ const openItem = (item) => {
 ========================= */
 
 .diamond-glow {
+
   position: absolute;
 
   z-index: 3;
@@ -660,17 +735,21 @@ const openItem = (item) => {
   transition:
     opacity 0.35s ease,
     filter 0.35s ease;
+
 }
 
 
 .item-interactive:hover
 .diamond-glow,
+
 .item-interactive:focus-visible
 .diamond-glow {
+
   opacity: 1;
 
   filter:
     blur(6px);
+
 }
 
 
@@ -679,6 +758,7 @@ const openItem = (item) => {
 ========================= */
 
 .image-overlay {
+
   position: absolute;
 
   z-index: 10;
@@ -705,15 +785,19 @@ const openItem = (item) => {
     opacity 0.4s ease;
 
   pointer-events: none;
+
 }
 
 
 .planet-overlay {
+
   border-radius: 50%;
+
 }
 
 
 .diamond-overlay {
+
   clip-path:
     polygon(
       50% 0%,
@@ -721,14 +805,18 @@ const openItem = (item) => {
       50% 100%,
       0% 50%
     );
+
 }
 
 
 .item-interactive:hover
 .image-overlay,
+
 .item-interactive:focus-visible
 .image-overlay {
+
   opacity: 1;
+
 }
 
 
@@ -737,6 +825,7 @@ const openItem = (item) => {
 ========================= */
 
 .overlay-content {
+
   display: flex;
 
   flex-direction: column;
@@ -752,19 +841,24 @@ const openItem = (item) => {
 
   transition:
     transform 0.4s ease;
+
 }
 
 
 .item-interactive:hover
 .overlay-content,
+
 .item-interactive:focus-visible
 .overlay-content {
+
   transform:
     translateY(0);
+
 }
 
 
 .overlay-label {
+
   color:
     var(--color-pink-soft);
 
@@ -775,10 +869,12 @@ const openItem = (item) => {
   letter-spacing: 0.18em;
 
   text-transform: uppercase;
+
 }
 
 
 .overlay-link {
+
   color:
     var(--color-white);
 
@@ -790,10 +886,12 @@ const openItem = (item) => {
   font-size: 0.88rem;
 
   font-weight: 600;
+
 }
 
 
 .overlay-link span {
+
   display: inline-block;
 
   margin-left: 4px;
@@ -803,13 +901,16 @@ const openItem = (item) => {
 
   transition:
     transform 0.3s ease;
+
 }
 
 
 .item-interactive:hover
 .overlay-link span {
+
   transform:
     translateX(4px);
+
 }
 
 
@@ -818,6 +919,7 @@ const openItem = (item) => {
 ========================= */
 
 .item-1 {
+
   width: 175px;
   height: 175px;
 
@@ -825,6 +927,7 @@ const openItem = (item) => {
   top: 70px;
 
   animation-delay: -1s;
+
 }
 
 
@@ -833,6 +936,7 @@ const openItem = (item) => {
 ========================= */
 
 .item-2 {
+
   width: 200px;
   height: 200px;
 
@@ -840,6 +944,7 @@ const openItem = (item) => {
   top: 30px;
 
   animation-delay: -3s;
+
 }
 
 
@@ -848,6 +953,7 @@ const openItem = (item) => {
 ========================= */
 
 .item-3 {
+
   width: 210px;
   height: 210px;
 
@@ -857,6 +963,7 @@ const openItem = (item) => {
   z-index: 8;
 
   animation-delay: -5s;
+
 }
 
 
@@ -865,6 +972,7 @@ const openItem = (item) => {
 ========================= */
 
 .item-4 {
+
   width: 155px;
   height: 155px;
 
@@ -872,6 +980,7 @@ const openItem = (item) => {
   top: 325px;
 
   animation-delay: -2s;
+
 }
 
 
@@ -880,6 +989,7 @@ const openItem = (item) => {
 ========================= */
 
 .item-5 {
+
   width: 135px;
   height: 135px;
 
@@ -887,6 +997,7 @@ const openItem = (item) => {
   bottom: 45px;
 
   animation-delay: -4s;
+
 }
 
 
@@ -895,6 +1006,7 @@ const openItem = (item) => {
 ========================= */
 
 .item-6 {
+
   width: 140px;
   height: 140px;
 
@@ -902,6 +1014,7 @@ const openItem = (item) => {
   bottom: 35px;
 
   animation-delay: -6s;
+
 }
 
 
@@ -910,6 +1023,7 @@ const openItem = (item) => {
 ========================= */
 
 .planet-ring {
+
   position: absolute;
 
   left: 50%;
@@ -925,19 +1039,23 @@ const openItem = (item) => {
   border-radius: 50%;
 
   pointer-events: none;
+
 }
 
 
 .planet-ring-back {
+
   z-index: 2;
 
   transform:
     translate(-50%, -50%)
     rotate(-17deg);
+
 }
 
 
 .planet-ring-front {
+
   z-index: 7;
 
   transform:
@@ -960,6 +1078,7 @@ const openItem = (item) => {
       0 0 5px
       rgba(255, 79, 184, 0.2)
     );
+
 }
 
 
@@ -968,6 +1087,7 @@ const openItem = (item) => {
 ========================= */
 
 .orbit {
+
   position: absolute;
 
   z-index: 1;
@@ -978,10 +1098,12 @@ const openItem = (item) => {
   border-radius: 50%;
 
   pointer-events: none;
+
 }
 
 
 .orbit-one {
+
   width: 480px;
   height: 480px;
 
@@ -992,10 +1114,12 @@ const openItem = (item) => {
   transform:
     translate(-50%, -50%)
     rotate(-12deg);
+
 }
 
 
 .orbit-two {
+
   width: 545px;
   height: 330px;
 
@@ -1006,10 +1130,12 @@ const openItem = (item) => {
   transform:
     translate(-50%, -50%)
     rotate(25deg);
+
 }
 
 
 .orbit-three {
+
   width: 380px;
   height: 510px;
 
@@ -1020,6 +1146,7 @@ const openItem = (item) => {
   transform:
     translate(-50%, -50%)
     rotate(48deg);
+
 }
 
 
@@ -1028,6 +1155,7 @@ const openItem = (item) => {
 ========================= */
 
 .sparkle {
+
   position: absolute;
 
   z-index: 20;
@@ -1048,18 +1176,22 @@ const openItem = (item) => {
     3s
     ease-in-out
     infinite;
+
 }
 
 
 .sparkle-one {
+
   left: 30%;
   top: 22px;
 
   font-size: 1.6rem;
+
 }
 
 
 .sparkle-two {
+
   right: 30%;
   top: 135px;
 
@@ -1069,10 +1201,12 @@ const openItem = (item) => {
   font-size: 0.8rem;
 
   animation-delay: -1s;
+
 }
 
 
 .sparkle-three {
+
   left: 27%;
   bottom: 110px;
 
@@ -1082,20 +1216,24 @@ const openItem = (item) => {
   font-size: 1.4rem;
 
   animation-delay: -2s;
+
 }
 
 
 .sparkle-four {
+
   right: 10%;
   bottom: 35px;
 
   font-size: 1.2rem;
 
   animation-delay: -0.5s;
+
 }
 
 
 .sparkle-five {
+
   left: 5%;
   top: 48%;
 
@@ -1105,6 +1243,7 @@ const openItem = (item) => {
   font-size: 1rem;
 
   animation-delay: -1.5s;
+
 }
 
 
@@ -1113,6 +1252,7 @@ const openItem = (item) => {
 ========================= */
 
 .universe-legend {
+
   position: absolute;
 
   z-index: 40;
@@ -1130,10 +1270,12 @@ const openItem = (item) => {
     translateX(-50%);
 
   white-space: nowrap;
+
 }
 
 
 .legend-item {
+
   display: flex;
 
   align-items: center;
@@ -1151,26 +1293,32 @@ const openItem = (item) => {
 
   transition:
     color 0.3s ease;
+
 }
 
 
 .legend-item:hover {
+
   color:
     var(--color-white);
+
 }
 
 
 .legend-diamond {
+
   color:
     var(--color-pink-soft);
 
   font-size: 1rem;
 
   line-height: 1;
+
 }
 
 
 .legend-planet {
+
   width: 8px;
   height: 8px;
 
@@ -1183,10 +1331,12 @@ const openItem = (item) => {
   box-shadow:
     0 0 7px
     rgba(143, 76, 255, 0.45);
+
 }
 
 
 .legend-separator {
+
   width: 3px;
   height: 3px;
 
@@ -1194,6 +1344,7 @@ const openItem = (item) => {
 
   background:
     var(--color-pink);
+
 }
 
 
@@ -1205,14 +1356,18 @@ const openItem = (item) => {
 
   0%,
   100% {
+
     transform:
       translateY(0);
+
   }
 
 
   50% {
+
     transform:
       translateY(-7px);
+
   }
 
 }
@@ -1226,20 +1381,24 @@ const openItem = (item) => {
 
   0%,
   100% {
+
     opacity: 0.3;
 
     transform:
       scale(0.75)
       rotate(0deg);
+
   }
 
 
   50% {
+
     opacity: 1;
 
     transform:
       scale(1.15)
       rotate(10deg);
+
   }
 
 }
@@ -1252,6 +1411,7 @@ const openItem = (item) => {
 @media (max-width: 1050px) {
 
   .image-universe {
+
     width:
       min(
         620px,
@@ -1261,40 +1421,53 @@ const openItem = (item) => {
     height: 560px;
 
     margin-inline: auto;
+
   }
 
 
   .item-1 {
+
     left: 5%;
     top: 65px;
+
   }
 
 
   .item-2 {
+
     right: 5%;
+
   }
 
 
   .item-3 {
+
     left: 34%;
+
   }
 
 
   .item-4 {
+
     right: 4%;
     top: 315px;
+
   }
 
 
   .item-5 {
+
     left: 11%;
     bottom: 45px;
+
   }
 
 
   .item-6 {
+
     left: 56%;
     bottom: 35px;
+
   }
 
 }
@@ -1307,144 +1480,182 @@ const openItem = (item) => {
 @media (max-width: 550px) {
 
   .image-universe {
+
     width: 100%;
     height: 440px;
 
     overflow: hidden;
+
   }
 
 
   .item-1 {
+
     width: 115px;
     height: 115px;
 
     left: 2%;
     top: 55px;
+
   }
 
 
   .item-2 {
+
     width: 125px;
     height: 125px;
 
     right: 2%;
     top: 25px;
+
   }
 
 
   .item-3 {
+
     width: 145px;
     height: 145px;
 
     left: 31%;
     top: 145px;
+
   }
 
 
   .item-4 {
+
     width: 105px;
     height: 105px;
 
     right: 2%;
     top: 260px;
+
   }
 
 
   .item-5 {
+
     width: 92px;
     height: 92px;
 
     left: 5%;
     bottom: 45px;
+
   }
 
 
   .item-6 {
+
     width: 95px;
     height: 95px;
 
     left: 51%;
     bottom: 35px;
+
   }
 
 
   /* ORBITS */
 
   .orbit-one {
+
     width: 320px;
     height: 320px;
+
   }
 
 
   .orbit-two {
+
     width: 380px;
     height: 230px;
+
   }
 
 
   .orbit-three {
+
     width: 260px;
     height: 370px;
+
   }
 
 
   /* TEXT ON SMALL SHAPES */
 
   .overlay-label {
+
     font-size: 0.48rem;
+
   }
 
 
   .overlay-link {
+
     font-size: 0.7rem;
+
   }
 
 
   /* LEGEND */
 
   .universe-legend {
+
     bottom: 2px;
 
     gap: 9px;
+
   }
 
 
   .legend-item {
+
     font-size: 0.55rem;
+
   }
 
 
   /* SPARKLES */
 
   .sparkle-one {
+
     left: 28%;
     top: 10px;
+
   }
 
 
   .sparkle-two {
+
     right: 27%;
     top: 120px;
+
   }
 
 
   .sparkle-three {
+
     left: 24%;
     bottom: 95px;
 
     font-size: 1.2rem;
+
   }
 
 
   .sparkle-four {
+
     right: 5%;
     bottom: 35px;
+
   }
 
 
   .sparkle-five {
+
     left: 2%;
     top: 46%;
+
   }
 
 }
@@ -1457,59 +1668,75 @@ const openItem = (item) => {
 @media (max-width: 380px) {
 
   .image-universe {
+
     height: 410px;
+
   }
 
 
   .item-1 {
+
     width: 100px;
     height: 100px;
+
   }
 
 
   .item-2 {
+
     width: 110px;
     height: 110px;
+
   }
 
 
   .item-3 {
+
     width: 125px;
     height: 125px;
 
     left: 30%;
+
   }
 
 
   .item-4 {
+
     width: 90px;
     height: 90px;
 
     top: 250px;
+
   }
 
 
   .item-5 {
+
     width: 80px;
     height: 80px;
 
     bottom: 40px;
+
   }
 
 
   .item-6 {
+
     width: 82px;
     height: 82px;
 
     left: 50%;
     bottom: 35px;
+
   }
 
 
   .universe-legend {
+
     transform:
       translateX(-50%)
       scale(0.9);
+
   }
 
 }

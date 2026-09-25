@@ -1,13 +1,16 @@
 <script setup>
+
 import ImageUniverse from './ImageUniverse.vue'
 
 import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
+
 </script>
 
 
 <template>
 
   <section class="hero">
+
 
     <!-- =========================
          BACKGROUND
@@ -36,7 +39,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 
       <img
         :src="couaxiaHero"
-        alt="Illustration de Couaxia"
+        :alt="$t('home.hero.imageAlt')"
         draggable="false"
       >
 
@@ -56,10 +59,11 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 
       <div class="hero-content">
 
+
         <!-- INTRO -->
 
         <p class="hero-intro">
-          Bienvenue dans mon univers
+          {{ $t('home.hero.intro') }}
         </p>
 
 
@@ -71,14 +75,17 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
             COUAXIA
           </span>
 
+
           <span class="hero-subtitle">
-            Développeuse Web
+
+            {{ $t('home.hero.developer') }}
 
             <span class="hero-symbol">
               &
             </span>
 
-            Créatrice
+            {{ $t('home.hero.creator') }}
+
           </span>
 
         </h1>
@@ -87,8 +94,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
         <!-- DESCRIPTION -->
 
         <p class="hero-description">
-          Je crée des expériences web et des univers visuels
-          en mélangeant développement, créativité et imagination.
+          {{ $t('home.hero.description') }}
         </p>
 
 
@@ -97,19 +103,19 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
         <div class="hero-tags">
 
           <span>
-            Développement
+            {{ $t('home.hero.tags.development') }}
           </span>
 
           <i></i>
 
           <span>
-            Design
+            {{ $t('home.hero.tags.design') }}
           </span>
 
           <i></i>
 
           <span>
-            Création
+            {{ $t('home.hero.tags.creation') }}
           </span>
 
         </div>
@@ -125,7 +131,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
           >
 
             <span>
-              Mes projets web
+              {{ $t('home.hero.buttons.projects') }}
             </span>
 
             <span
@@ -144,7 +150,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
           >
 
             <span>
-              Mes créations
+              {{ $t('home.hero.buttons.creations') }}
             </span>
 
             <span
@@ -167,7 +173,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
         >
 
           <span>
-            À propos de moi
+            {{ $t('home.hero.buttons.about') }}
           </span>
 
           <span
@@ -208,6 +214,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero {
+
   position: relative;
 
   min-height: 100vh;
@@ -224,6 +231,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 
   background:
     var(--color-background);
+
 }
 
 
@@ -232,6 +240,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-background {
+
   position: absolute;
 
   inset: 0;
@@ -239,6 +248,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   overflow: hidden;
 
   pointer-events: none;
+
 }
 
 
@@ -247,16 +257,19 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-glow {
+
   position: absolute;
 
   border-radius: 50%;
 
   filter:
     blur(130px);
+
 }
 
 
 .hero-glow-left {
+
   width: 500px;
   height: 500px;
 
@@ -265,10 +278,12 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 
   background:
     rgba(143, 76, 255, 0.2);
+
 }
 
 
 .hero-glow-right {
+
   width: 550px;
   height: 550px;
 
@@ -277,6 +292,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 
   background:
     rgba(255, 79, 184, 0.14);
+
 }
 
 
@@ -285,6 +301,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-orbit {
+
   position: absolute;
 
   border:
@@ -292,24 +309,29 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
     rgba(255, 255, 255, 0.035);
 
   border-radius: 50%;
+
 }
 
 
 .hero-orbit-one {
+
   width: 700px;
   height: 700px;
 
   top: -350px;
   right: -150px;
+
 }
 
 
 .hero-orbit-two {
+
   width: 950px;
   height: 950px;
 
   right: -350px;
   bottom: -600px;
+
 }
 
 
@@ -318,6 +340,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-character {
+
   position: absolute;
 
   z-index: 1;
@@ -333,6 +356,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
     );
 
   pointer-events: none;
+
 }
 
 
@@ -341,6 +365,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-character img {
+
   position: relative;
 
   z-index: 2;
@@ -367,6 +392,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
     6s
     ease-in-out
     infinite;
+
 }
 
 
@@ -375,6 +401,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-character-glow {
+
   position: absolute;
 
   z-index: 1;
@@ -404,6 +431,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
       -50%,
       -50%
     );
+
 }
 
 
@@ -415,15 +443,19 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 
   0%,
   100% {
+
     transform:
       translateY(0)
       rotate(-1deg);
+
   }
 
   50% {
+
     transform:
       translateY(-8px)
       rotate(1deg);
+
   }
 
 }
@@ -434,6 +466,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-container {
+
   position: relative;
 
   z-index: 2;
@@ -452,6 +485,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
       5vw,
       90px
     );
+
 }
 
 
@@ -460,11 +494,13 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-content {
+
   position: relative;
 
   z-index: 5;
 
   max-width: 650px;
+
 }
 
 
@@ -473,6 +509,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-intro {
+
   position: relative;
 
   display: inline-flex;
@@ -492,10 +529,12 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   letter-spacing: 0.25em;
 
   text-transform: uppercase;
+
 }
 
 
 .hero-intro::before {
+
   content: '';
 
   width: 35px;
@@ -507,6 +546,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
       var(--color-purple),
       var(--color-pink)
     );
+
 }
 
 
@@ -515,6 +555,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-title {
+
   display: flex;
 
   flex-direction: column;
@@ -523,6 +564,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
     0
     0
     30px;
+
 }
 
 
@@ -531,6 +573,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-name {
+
   display: inline-block;
 
   width: fit-content;
@@ -561,6 +604,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   -webkit-background-clip: text;
 
   color: transparent;
+
 }
 
 
@@ -569,6 +613,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-subtitle {
+
   margin-top: 30px;
 
   color:
@@ -586,10 +631,12 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   line-height: 1.25;
 
   letter-spacing: -0.02em;
+
 }
 
 
 .hero-symbol {
+
   margin:
     0
     5px;
@@ -604,6 +651,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   font-size: 1.15em;
 
   font-style: italic;
+
 }
 
 
@@ -612,6 +660,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-description {
+
   max-width: 540px;
 
   margin-bottom: 25px;
@@ -622,6 +671,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   font-size: 1.05rem;
 
   line-height: 1.8;
+
 }
 
 
@@ -630,6 +680,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-tags {
+
   display: flex;
 
   flex-wrap: wrap;
@@ -654,10 +705,12 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   letter-spacing: 0.12em;
 
   text-transform: uppercase;
+
 }
 
 
 .hero-tags i {
+
   width: 4px;
   height: 4px;
 
@@ -673,6 +726,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
     0
     8px
     rgba(255, 79, 184, 0.6);
+
 }
 
 
@@ -681,6 +735,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-actions {
+
   display: flex;
 
   flex-wrap: wrap;
@@ -688,6 +743,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   gap: 14px;
 
   margin-bottom: 30px;
+
 }
 
 
@@ -696,6 +752,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-button {
+
   min-height: 52px;
 
   display: inline-flex;
@@ -719,12 +776,15 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
     background var(--transition-normal),
     border-color var(--transition-normal),
     box-shadow var(--transition-normal);
+
 }
 
 
 .hero-button:hover {
+
   transform:
     translateY(-3px);
+
 }
 
 
@@ -733,6 +793,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-button-primary {
+
   background:
     linear-gradient(
       135deg,
@@ -748,15 +809,18 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
     12px
     35px
     rgba(143, 76, 255, 0.22);
+
 }
 
 
 .hero-button-primary:hover {
+
   box-shadow:
     0
     16px
     45px
     rgba(255, 79, 184, 0.28);
+
 }
 
 
@@ -765,6 +829,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-button-secondary {
+
   border:
     1px solid
     var(--color-border);
@@ -779,10 +844,12 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 
   color:
     var(--color-white);
+
 }
 
 
 .hero-button-secondary:hover {
+
   border-color:
     rgba(
       255,
@@ -798,6 +865,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
       255,
       0.055
     );
+
 }
 
 
@@ -806,18 +874,22 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .button-arrow {
+
   display: inline-block;
 
   transition:
     transform
     var(--transition-fast);
+
 }
 
 
 .hero-button:hover
 .button-arrow {
+
   transform:
     translateX(4px);
+
 }
 
 
@@ -826,6 +898,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-about {
+
   position: relative;
 
   display: inline-flex;
@@ -847,10 +920,12 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   transition:
     color
     var(--transition-fast);
+
 }
 
 
 .hero-about::after {
+
   content: '';
 
   position: absolute;
@@ -867,37 +942,46 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   transition:
     width
     var(--transition-normal);
+
 }
 
 
 .hero-about:hover {
+
   color:
     var(--color-white);
+
 }
 
 
 .hero-about:hover::after {
+
   width: 100%;
+
 }
 
 
 .hero-about-arrow {
+
   color:
     var(--color-pink);
 
   transition:
     transform
     var(--transition-fast);
+
 }
 
 
 .hero-about:hover
 .hero-about-arrow {
+
   transform:
     translate(
       3px,
       -3px
     );
+
 }
 
 
@@ -906,6 +990,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-visual {
+
   position: relative;
 
   min-width: 0;
@@ -916,6 +1001,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 
   align-items: center;
   justify-content: center;
+
 }
 
 
@@ -924,6 +1010,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-visual-glow {
+
   position: absolute;
 
   z-index: 0;
@@ -954,6 +1041,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
     );
 
   pointer-events: none;
+
 }
 
 
@@ -962,9 +1050,11 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 ========================= */
 
 .hero-visual :deep(.image-universe) {
+
   position: relative;
 
   z-index: 2;
+
 }
 
 
@@ -975,9 +1065,11 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 @media (min-width: 1400px) {
 
   .hero-container {
+
     grid-template-columns:
       minmax(0, 0.9fr)
       minmax(560px, 1.1fr);
+
   }
 
 }
@@ -990,11 +1082,13 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 @media (max-width: 1350px) {
 
   .hero-character {
+
     width: 190px;
 
     left: -65px;
 
     opacity: 0.75;
+
   }
 
 }
@@ -1007,74 +1101,93 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 @media (max-width: 1050px) {
 
   .hero {
+
     padding:
       130px
       0
       80px;
+
   }
 
 
   .hero-container {
+
     grid-template-columns:
       1fr;
 
     gap: 40px;
 
     text-align: center;
+
   }
 
 
   /* CHARACTER */
 
   .hero-character {
+
     width: 170px;
 
     top: 70px;
     left: -55px;
 
     opacity: 0.5;
+
   }
 
 
   /* CONTENT */
 
   .hero-content {
+
     max-width: 720px;
 
     margin-inline: auto;
+
   }
 
 
   .hero-intro {
+
     justify-content: center;
+
   }
 
 
   .hero-name {
+
     margin-inline: auto;
+
   }
 
 
   .hero-description {
+
     margin-inline: auto;
 
     margin-bottom: 25px;
+
   }
 
 
   .hero-tags {
+
     justify-content: center;
+
   }
 
 
   .hero-actions {
+
     justify-content: center;
+
   }
 
 
   /* VISUAL */
 
   .hero-visual {
+
     width:
       min(
         650px,
@@ -1084,6 +1197,7 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
     min-height: 580px;
 
     margin-inline: auto;
+
   }
 
 }
@@ -1096,17 +1210,21 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 @media (max-width: 550px) {
 
   .hero {
+
     min-height: auto;
 
     padding:
       110px
       0
       60px;
+
   }
 
 
   .hero-container {
+
     gap: 30px;
+
   }
 
 
@@ -1115,12 +1233,14 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   ========================= */
 
   .hero-character {
+
     width: 120px;
 
     top: 65px;
     left: -35px;
 
     opacity: 0.42;
+
   }
 
 
@@ -1129,16 +1249,20 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   ========================= */
 
   .hero-intro {
+
     margin-bottom: 20px;
 
     font-size: 0.62rem;
 
     letter-spacing: 0.18em;
+
   }
 
 
   .hero-intro::before {
+
     display: none;
+
   }
 
 
@@ -1147,19 +1271,23 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   ========================= */
 
   .hero-name {
+
     font-size:
       clamp(
         3.3rem,
         18vw,
         5rem
       );
+
   }
 
 
   .hero-subtitle {
+
     margin-top: 22px;
 
     font-size: 1.35rem;
+
   }
 
 
@@ -1168,9 +1296,11 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   ========================= */
 
   .hero-description {
+
     font-size: 0.95rem;
 
     line-height: 1.7;
+
   }
 
 
@@ -1179,11 +1309,13 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   ========================= */
 
   .hero-tags {
+
     gap: 9px;
 
     margin-bottom: 30px;
 
     font-size: 0.57rem;
+
   }
 
 
@@ -1192,21 +1324,27 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   ========================= */
 
   .hero-actions {
+
     width: 100%;
 
     flex-direction: column;
 
     margin-bottom: 25px;
+
   }
 
 
   .hero-button {
+
     width: 100%;
+
   }
 
 
   .hero-about {
+
     margin-top: 5px;
+
   }
 
 
@@ -1215,15 +1353,19 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
   ========================= */
 
   .hero-visual {
+
     width: 100%;
 
     min-height: 440px;
+
   }
 
 
   .hero-visual-glow {
+
     width: 340px;
     height: 340px;
+
   }
 
 }
@@ -1236,21 +1378,27 @@ import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
 @media (max-width: 380px) {
 
   .hero-character {
+
     width: 105px;
 
     left: -35px;
+
   }
 
 
   .hero-name {
+
     font-size: 3.1rem;
+
   }
 
 
   .hero-tags {
+
     gap: 7px;
 
     letter-spacing: 0.08em;
+
   }
 
 }
