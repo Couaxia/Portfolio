@@ -3,7 +3,7 @@
 ========================= */
 
 const creationImages = import.meta.glob(
-  '../assets/creations/*.{png,jpg,jpeg,webp}',
+  '../assets/creations/*.{png,jpg,jpeg,webp,gif}',
   {
     eager: true,
     import: 'default'
@@ -34,7 +34,7 @@ const creations = [
   {
     id: 1,
 
-    title: 'Emote Couaxia Hello',
+    title: 'YCH Emote Couaxia Hello',
 
     category: 'Emotes',
 
@@ -47,7 +47,7 @@ const creations = [
   {
     id: 2,
 
-    title: 'Les pecks de baby',
+    title: 'YCH Les pecks de baby',
 
     category: 'Emotes',
 
@@ -60,7 +60,7 @@ const creations = [
   {
     id: 3,
 
-    title: 'Myo_Faunette café',
+    title: 'YCH Myo_Faunette café',
 
     category: 'Illustration',
 
@@ -73,7 +73,7 @@ const creations = [
   {
     id: 4,
 
-    title: 'Myo Note',
+    title: 'YCH Myo Note',
 
     category: 'Emotes',
 
@@ -86,7 +86,7 @@ const creations = [
    {
     id: 5,
 
-    title: 'Couaxia Whaou',
+    title: 'YCH Couaxia Whaou',
 
     category: 'Emotes',
 
@@ -99,7 +99,7 @@ const creations = [
   {
     id: 6,
 
-    title: 'Bannière couaxia bouche',
+    title: 'YCH Bannière couaxia bouche',
 
     category: 'Illustration',
 
@@ -107,6 +107,129 @@ const creations = [
 
     description:
       'Une petite bannière de la bouche !'
+  },
+
+  {
+    id: 7,
+
+    title: 'YCH Emote Gekko',
+
+    category: 'Emotes',
+
+    image: findImage('gekko.png'),
+
+    description:
+      'Plusieur emotes de Gekkko (VALORANT) disponible sur ko-fi'
+  },
+  {
+    id: 8,
+
+    title: 'YCH Emote Louxi',
+
+    category: 'Emotes',
+
+    image: findImage('louxi.png'),
+
+    description:
+      'Une emote donner pour LouxiFR !'
+  },
+  {
+    id: 9,
+
+    title: 'YCH Bannière bouche Nymya',
+
+    category: 'Illustration',
+
+    image: findImage('Nymya_Bouche.png'),
+
+    description:
+      'Une emote donner pour LouxiFR !'
+  },
+  {
+    id: 10,
+
+    title: 'Pour un heureux gagnant',
+
+    category: 'Illustration',
+
+    image: findImage('pikanya.png'),
+
+    description:
+      'Un pikachu au couleurs de Pikanya, mais avec un petit plus 𐂠 !'
+  },
+  {
+    id: 11,
+
+    title: 'YCH Emote Celanya UwU',
+
+    category: 'Emotes',
+
+    image: findImage('UwU_celanya.png'),
+
+    description:
+      'Un cadeau pour celanya UwU'
+  },
+
+   {
+    id: 12,
+
+    title: 'YCH Emote Peachy',
+
+    category: 'Emotes',
+
+    image: findImage('Kawaii_peachy.png'),
+
+    description:
+      'Un cadeau pour Peachy'
+  },
+  {
+    id: 13,
+
+    title: 'YCH Emote Couaxia',
+
+    category: 'Emotes',
+
+    image: findImage('couaxia_What.png'),
+
+    description:
+      'Un super emotes avec uen petites référence'
+  },
+  {
+    id: 14,
+
+    title: 'YCH Emote Sage',
+
+    category: 'Emotes',
+
+    image: findImage('Sage_slime.png'),
+
+    description:
+      'Petit emote de Sage (Valorant)'
+  },
+
+  {
+    id: 15,
+
+    title: 'YCH Emote Couaxia',
+
+    category: 'Emotes',
+
+    image: findImage('Opop.gif'),
+
+    description:
+      'Première emote animé POP'
+  },
+  {
+    id: 16,
+
+    title: 'YCH Emote Celanya',
+
+    category: 'Emotes',
+
+    image: findImage('Celanya_Fire.gif'),
+
+    description:
+      'Emote animé pour Celanya'
   },
 ]
 

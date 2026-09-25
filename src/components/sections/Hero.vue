@@ -1,4 +1,12 @@
+<script setup>
+import ImageUniverse from './ImageUniverse.vue'
+
+import couaxiaHero from '../../assets/images/about/couaxia_meow.png'
+</script>
+
+
 <template>
+
   <section class="hero">
 
     <!-- =========================
@@ -6,11 +14,32 @@
     ========================== -->
 
     <div class="hero-background">
+
       <div class="hero-glow hero-glow-left"></div>
+
       <div class="hero-glow hero-glow-right"></div>
 
       <div class="hero-orbit hero-orbit-one"></div>
+
       <div class="hero-orbit hero-orbit-two"></div>
+
+    </div>
+
+
+    <!-- =========================
+         COUAXIA CHARACTER
+    ========================== -->
+
+    <div class="hero-character">
+
+      <div class="hero-character-glow"></div>
+
+      <img
+        :src="couaxiaHero"
+        alt="Illustration de Couaxia"
+        draggable="false"
+      >
+
     </div>
 
 
@@ -20,18 +49,21 @@
 
     <div class="hero-container container">
 
+
       <!-- =========================
            TEXTE
       ========================== -->
 
       <div class="hero-content">
 
+        <!-- INTRO -->
+
         <p class="hero-intro">
           Bienvenue dans mon univers
         </p>
 
 
-        <!-- TITRE -->
+        <!-- TITLE -->
 
         <h1 class="hero-title">
 
@@ -41,7 +73,11 @@
 
           <span class="hero-subtitle">
             Développeuse Web
-            <span class="hero-symbol">&</span>
+
+            <span class="hero-symbol">
+              &
+            </span>
+
             Créatrice
           </span>
 
@@ -56,24 +92,30 @@
         </p>
 
 
-        <!-- DOMAINES -->
+        <!-- TAGS -->
 
         <div class="hero-tags">
 
-          <span>Développement</span>
+          <span>
+            Développement
+          </span>
 
           <i></i>
 
-          <span>Design</span>
+          <span>
+            Design
+          </span>
 
           <i></i>
 
-          <span>Création</span>
+          <span>
+            Création
+          </span>
 
         </div>
 
 
-        <!-- BOUTONS -->
+        <!-- ACTIONS -->
 
         <div class="hero-actions">
 
@@ -81,6 +123,7 @@
             to="/projects"
             class="hero-button hero-button-primary"
           >
+
             <span>
               Mes projets web
             </span>
@@ -91,6 +134,7 @@
             >
               →
             </span>
+
           </RouterLink>
 
 
@@ -98,6 +142,7 @@
             to="/creations"
             class="hero-button hero-button-secondary"
           >
+
             <span>
               Mes créations
             </span>
@@ -108,6 +153,7 @@
             >
               →
             </span>
+
           </RouterLink>
 
         </div>
@@ -119,6 +165,7 @@
           to="/about"
           class="hero-about"
         >
+
           <span>
             À propos de moi
           </span>
@@ -129,74 +176,28 @@
           >
             ↗
           </span>
+
         </RouterLink>
 
       </div>
 
 
       <!-- =========================
-           ILLUSTRATION
+           IMAGE UNIVERSE
       ========================== -->
 
       <div class="hero-visual">
 
-        <!-- Halo -->
-
         <div class="hero-visual-glow"></div>
 
-
-        <!-- Cercles décoratifs -->
-
-        <div class="visual-circle visual-circle-one"></div>
-
-        <div class="visual-circle visual-circle-two"></div>
-
-
-        <!-- IMAGE -->
-
-        <div class="hero-artwork">
-
-          <!--
-            PLUS TARD :
-
-            <img
-              src="/images/couaxia.png"
-              alt="Illustration de Couaxia"
-            >
-          -->
-
-          <div class="hero-image-placeholder">
-
-            <span class="placeholder-small">
-              Illustration
-            </span>
-
-            <span class="placeholder-name">
-              Couaxia
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <!-- Petit élément décoratif -->
-
-        <div class="visual-label">
-
-          <span class="visual-label-dot"></span>
-
-          <span>
-            Portfolio
-          </span>
-
-        </div>
+        <ImageUniverse />
 
       </div>
 
     </div>
 
   </section>
+
 </template>
 
 
@@ -215,13 +216,14 @@
   align-items: center;
 
   padding:
-    130px
+    120px
     0
     70px;
 
   overflow: hidden;
 
-  background: var(--color-background);
+  background:
+    var(--color-background);
 }
 
 
@@ -234,16 +236,23 @@
 
   inset: 0;
 
+  overflow: hidden;
+
   pointer-events: none;
 }
 
+
+/* =========================
+   GLOWS
+========================= */
 
 .hero-glow {
   position: absolute;
 
   border-radius: 50%;
 
-  filter: blur(130px);
+  filter:
+    blur(130px);
 }
 
 
@@ -254,7 +263,8 @@
   top: 10%;
   left: -320px;
 
-  background: rgba(143, 76, 255, 0.2);
+  background:
+    rgba(143, 76, 255, 0.2);
 }
 
 
@@ -265,7 +275,8 @@
   right: -280px;
   bottom: -100px;
 
-  background: rgba(255, 79, 184, 0.14);
+  background:
+    rgba(255, 79, 184, 0.14);
 }
 
 
@@ -276,7 +287,9 @@
 .hero-orbit {
   position: absolute;
 
-  border: 1px solid rgba(255, 255, 255, 0.035);
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.035);
 
   border-radius: 50%;
 }
@@ -301,6 +314,122 @@
 
 
 /* =========================
+   COUAXIA CHARACTER
+========================= */
+
+.hero-character {
+  position: absolute;
+
+  z-index: 1;
+
+  top: 75px;
+  left: -45px;
+
+  width:
+    clamp(
+      180px,
+      15vw,
+      300px
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   CHARACTER IMAGE
+========================= */
+
+.hero-character img {
+  position: relative;
+
+  z-index: 2;
+
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  user-select: none;
+
+  filter:
+    drop-shadow(
+      0
+      15px
+      30px
+      rgba(0, 0, 0, 0.35)
+    );
+
+  animation:
+    character-floating
+    6s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================
+   CHARACTER GLOW
+========================= */
+
+.hero-character-glow {
+  position: absolute;
+
+  z-index: 1;
+
+  left: 50%;
+  top: 45%;
+
+  width: 85%;
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 79, 184, 0.2),
+      rgba(143, 76, 255, 0.1) 45%,
+      transparent 72%
+    );
+
+  filter:
+    blur(25px);
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+}
+
+
+/* =========================
+   CHARACTER ANIMATION
+========================= */
+
+@keyframes character-floating {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+
+  50% {
+    transform:
+      translateY(-8px)
+      rotate(1deg);
+  }
+
+}
+
+
+/* =========================
    CONTAINER
 ========================= */
 
@@ -312,12 +441,17 @@
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1.05fr)
-    minmax(350px, 0.95fr);
+    minmax(0, 0.95fr)
+    minmax(500px, 1.05fr);
 
   align-items: center;
 
-  gap: clamp(50px, 8vw, 120px);
+  gap:
+    clamp(
+      40px,
+      5vw,
+      90px
+    );
 }
 
 
@@ -326,7 +460,11 @@
 ========================= */
 
 .hero-content {
-  max-width: 680px;
+  position: relative;
+
+  z-index: 5;
+
+  max-width: 650px;
 }
 
 
@@ -345,7 +483,8 @@
 
   margin-bottom: 25px;
 
-  color: var(--color-pink-soft);
+  color:
+    var(--color-pink-soft);
 
   font-size: 0.75rem;
   font-weight: 600;
@@ -362,11 +501,12 @@
   width: 35px;
   height: 1px;
 
-  background: linear-gradient(
-    90deg,
-    var(--color-purple),
-    var(--color-pink)
-  );
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-purple),
+      var(--color-pink)
+    );
 }
 
 
@@ -379,28 +519,42 @@
 
   flex-direction: column;
 
-  margin: 0 0 30px;
+  margin:
+    0
+    0
+    30px;
 }
 
+
+/* =========================
+   COUAXIA TITLE
+========================= */
 
 .hero-name {
   display: inline-block;
 
   width: fit-content;
 
-  font-size: clamp(4.5rem, 8vw, 8rem);
+  font-size:
+    clamp(
+      4.2rem,
+      7vw,
+      7.5rem
+    );
+
   font-weight: 800;
 
   line-height: 0.85;
 
   letter-spacing: -0.055em;
 
-  background: linear-gradient(
-    135deg,
-    var(--color-white) 15%,
-    var(--color-pink-soft) 55%,
-    var(--color-purple)
-  );
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-white) 15%,
+      var(--color-pink-soft) 55%,
+      var(--color-purple)
+    );
 
   background-clip: text;
 
@@ -410,12 +564,23 @@
 }
 
 
+/* =========================
+   SUBTITLE
+========================= */
+
 .hero-subtitle {
   margin-top: 30px;
 
-  color: var(--color-white);
+  color:
+    var(--color-white);
 
-  font-size: clamp(1.45rem, 2.5vw, 2.2rem);
+  font-size:
+    clamp(
+      1.4rem,
+      2.3vw,
+      2.1rem
+    );
+
   font-weight: 400;
 
   line-height: 1.25;
@@ -425,11 +590,16 @@
 
 
 .hero-symbol {
-  margin: 0 5px;
+  margin:
+    0
+    5px;
 
-  color: var(--color-pink);
+  color:
+    var(--color-pink);
 
-  font-family: Georgia, serif;
+  font-family:
+    Georgia,
+    serif;
 
   font-size: 1.15em;
 
@@ -446,7 +616,8 @@
 
   margin-bottom: 25px;
 
-  color: var(--color-text-muted);
+  color:
+    var(--color-text-muted);
 
   font-size: 1.05rem;
 
@@ -469,7 +640,13 @@
 
   margin-bottom: 38px;
 
-  color: rgba(255, 255, 255, 0.5);
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.5
+    );
 
   font-size: 0.68rem;
   font-weight: 500;
@@ -484,9 +661,18 @@
   width: 4px;
   height: 4px;
 
+  flex-shrink: 0;
+
   border-radius: 50%;
 
-  background: var(--color-pink);
+  background:
+    var(--color-pink);
+
+  box-shadow:
+    0
+    0
+    8px
+    rgba(255, 79, 184, 0.6);
 }
 
 
@@ -505,6 +691,10 @@
 }
 
 
+/* =========================
+   BUTTONS
+========================= */
+
 .hero-button {
   min-height: 52px;
 
@@ -515,7 +705,9 @@
 
   gap: 12px;
 
-  padding: 0 25px;
+  padding:
+    0
+    25px;
 
   border-radius: 50px;
 
@@ -531,63 +723,101 @@
 
 
 .hero-button:hover {
-  transform: translateY(-3px);
+  transform:
+    translateY(-3px);
 }
 
 
-/* PRIMARY */
+/* =========================
+   PRIMARY BUTTON
+========================= */
 
 .hero-button-primary {
-  background: linear-gradient(
-    135deg,
-    var(--color-purple),
-    var(--color-pink)
-  );
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-purple),
+      var(--color-pink)
+    );
 
-  color: var(--color-white);
+  color:
+    var(--color-white);
 
   box-shadow:
-    0 12px 35px rgba(143, 76, 255, 0.22);
+    0
+    12px
+    35px
+    rgba(143, 76, 255, 0.22);
 }
 
 
 .hero-button-primary:hover {
   box-shadow:
-    0 16px 45px rgba(255, 79, 184, 0.28);
+    0
+    16px
+    45px
+    rgba(255, 79, 184, 0.28);
 }
 
 
-/* SECONDARY */
+/* =========================
+   SECONDARY BUTTON
+========================= */
 
 .hero-button-secondary {
-  border: 1px solid var(--color-border);
+  border:
+    1px solid
+    var(--color-border);
 
-  background: rgba(255, 255, 255, 0.025);
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.025
+    );
 
-  color: var(--color-white);
+  color:
+    var(--color-white);
 }
 
 
 .hero-button-secondary:hover {
-  border-color: rgba(255, 155, 215, 0.5);
+  border-color:
+    rgba(
+      255,
+      155,
+      215,
+      0.5
+    );
 
-  background: rgba(255, 255, 255, 0.055);
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.055
+    );
 }
 
 
-/* ARROW */
+/* =========================
+   BUTTON ARROW
+========================= */
 
 .button-arrow {
   display: inline-block;
 
-  color: currentColor;
-
-  transition: transform var(--transition-fast);
+  transition:
+    transform
+    var(--transition-fast);
 }
 
 
-.hero-button:hover .button-arrow {
-  transform: translateX(4px);
+.hero-button:hover
+.button-arrow {
+  transform:
+    translateX(4px);
 }
 
 
@@ -606,14 +836,17 @@
 
   padding-bottom: 5px;
 
-  color: var(--color-text-muted);
+  color:
+    var(--color-text-muted);
 
   font-size: 0.75rem;
   font-weight: 500;
 
   letter-spacing: 0.06em;
 
-  transition: color var(--transition-fast);
+  transition:
+    color
+    var(--transition-fast);
 }
 
 
@@ -628,14 +861,18 @@
   width: 25px;
   height: 1px;
 
-  background: var(--color-pink);
+  background:
+    var(--color-pink);
 
-  transition: width var(--transition-normal);
+  transition:
+    width
+    var(--transition-normal);
 }
 
 
 .hero-about:hover {
-  color: var(--color-white);
+  color:
+    var(--color-white);
 }
 
 
@@ -645,14 +882,22 @@
 
 
 .hero-about-arrow {
-  color: var(--color-pink);
+  color:
+    var(--color-pink);
 
-  transition: transform var(--transition-fast);
+  transition:
+    transform
+    var(--transition-fast);
 }
 
 
-.hero-about:hover .hero-about-arrow {
-  transform: translate(3px, -3px);
+.hero-about:hover
+.hero-about-arrow {
+  transform:
+    translate(
+      3px,
+      -3px
+    );
 }
 
 
@@ -662,6 +907,8 @@
 
 .hero-visual {
   position: relative;
+
+  min-width: 0;
 
   min-height: 620px;
 
@@ -673,202 +920,91 @@
 
 
 /* =========================
-   ARTWORK GLOW
+   VISUAL GLOW
 ========================= */
 
 .hero-visual-glow {
   position: absolute;
 
-  width: 430px;
-  height: 430px;
+  z-index: 0;
+
+  width: 520px;
+  height: 520px;
+
+  left: 50%;
+  top: 50%;
 
   border-radius: 50%;
 
-  background: radial-gradient(
-    circle,
-    rgba(255, 79, 184, 0.2),
-    rgba(143, 76, 255, 0.09) 50%,
-    transparent 72%
-  );
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 79, 184, 0.17),
+      rgba(143, 76, 255, 0.08) 45%,
+      transparent 72%
+    );
 
-  filter: blur(18px);
-}
+  filter:
+    blur(25px);
 
-
-/* =========================
-   CIRCLES
-========================= */
-
-.visual-circle {
-  position: absolute;
-
-  border-radius: 50%;
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
 
   pointer-events: none;
 }
 
 
-.visual-circle-one {
-  width: 460px;
-  height: 460px;
+/* =========================
+   IMAGE UNIVERSE
+========================= */
 
-  border: 1px solid rgba(255, 155, 215, 0.13);
+.hero-visual :deep(.image-universe) {
+  position: relative;
+
+  z-index: 2;
 }
 
 
-.visual-circle-two {
-  width: 520px;
-  height: 520px;
+/* =========================
+   LARGE SCREEN
+========================= */
 
-  border: 1px dashed rgba(143, 76, 255, 0.12);
+@media (min-width: 1400px) {
 
-  animation: visual-rotate 35s linear infinite;
-}
-
-
-@keyframes visual-rotate {
-
-  to {
-    transform: rotate(360deg);
+  .hero-container {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(560px, 1.1fr);
   }
 
 }
 
 
 /* =========================
-   ARTWORK
+   MEDIUM SCREEN
 ========================= */
 
-.hero-artwork {
-  position: relative;
+@media (max-width: 1350px) {
 
-  z-index: 3;
+  .hero-character {
+    width: 190px;
 
-  width: min(410px, 90%);
+    left: -65px;
+
+    opacity: 0.75;
+  }
+
 }
 
 
 /* =========================
-   PLACEHOLDER
+   TABLET
 ========================= */
 
-.hero-image-placeholder {
-  width: 100%;
-
-  aspect-ratio: 4 / 5;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 10px;
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-
-  border-radius:
-    48%
-    48%
-    35%
-    35%;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.045),
-      rgba(255, 255, 255, 0.01)
-    );
-
-  backdrop-filter: blur(4px);
-
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.2);
-}
-
-
-.placeholder-small {
-  color: var(--color-text-muted);
-
-  font-size: 0.65rem;
-
-  letter-spacing: 0.2em;
-
-  text-transform: uppercase;
-}
-
-
-.placeholder-name {
-  color: rgba(255, 255, 255, 0.2);
-
-  font-size: 2rem;
-  font-weight: 700;
-
-  letter-spacing: 0.08em;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================
-   VISUAL LABEL
-========================= */
-
-.visual-label {
-  position: absolute;
-
-  z-index: 5;
-
-  right: 0;
-  bottom: 100px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  padding:
-    9px
-    14px;
-
-  border: 1px solid var(--color-border);
-
-  border-radius: 50px;
-
-  background: rgba(15, 9, 20, 0.7);
-
-  backdrop-filter: blur(10px);
-
-  color: var(--color-text-muted);
-
-  font-size: 0.65rem;
-
-  letter-spacing: 0.15em;
-
-  text-transform: uppercase;
-}
-
-
-.visual-label-dot {
-  width: 6px;
-  height: 6px;
-
-  border-radius: 50%;
-
-  background: var(--color-pink);
-
-  box-shadow:
-    0 0 10px var(--color-pink);
-}
-
-
-/* =========================
-   RESPONSIVE TABLET
-========================= */
-
-@media (max-width: 950px) {
+@media (max-width: 1050px) {
 
   .hero {
     padding:
@@ -879,13 +1015,28 @@
 
 
   .hero-container {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
 
-    gap: 60px;
+    gap: 40px;
 
     text-align: center;
   }
 
+
+  /* CHARACTER */
+
+  .hero-character {
+    width: 170px;
+
+    top: 70px;
+    left: -55px;
+
+    opacity: 0.5;
+  }
+
+
+  /* CONTENT */
 
   .hero-content {
     max-width: 720px;
@@ -921,38 +1072,25 @@
   }
 
 
+  /* VISUAL */
+
   .hero-visual {
-    min-height: 520px;
-  }
+    width:
+      min(
+        650px,
+        100%
+      );
 
+    min-height: 580px;
 
-  .hero-artwork {
-    width: min(360px, 80%);
-  }
-
-
-  .visual-circle-one {
-    width: 400px;
-    height: 400px;
-  }
-
-
-  .visual-circle-two {
-    width: 450px;
-    height: 450px;
-  }
-
-
-  .visual-label {
-    right: 15%;
-    bottom: 50px;
+    margin-inline: auto;
   }
 
 }
 
 
 /* =========================
-   RESPONSIVE MOBILE
+   MOBILE
 ========================= */
 
 @media (max-width: 550px) {
@@ -961,19 +1099,39 @@
     min-height: auto;
 
     padding:
-      115px
+      110px
       0
-      70px;
+      60px;
   }
 
 
   .hero-container {
-    gap: 50px;
+    gap: 30px;
   }
 
 
+  /* =========================
+     CHARACTER
+  ========================= */
+
+  .hero-character {
+    width: 120px;
+
+    top: 65px;
+    left: -35px;
+
+    opacity: 0.42;
+  }
+
+
+  /* =========================
+     INTRO
+  ========================= */
+
   .hero-intro {
-    font-size: 0.65rem;
+    margin-bottom: 20px;
+
+    font-size: 0.62rem;
 
     letter-spacing: 0.18em;
   }
@@ -984,8 +1142,17 @@
   }
 
 
+  /* =========================
+     TITLE
+  ========================= */
+
   .hero-name {
-    font-size: clamp(3.4rem, 18vw, 5rem);
+    font-size:
+      clamp(
+        3.3rem,
+        18vw,
+        5rem
+      );
   }
 
 
@@ -996,6 +1163,10 @@
   }
 
 
+  /* =========================
+     DESCRIPTION
+  ========================= */
+
   .hero-description {
     font-size: 0.95rem;
 
@@ -1003,17 +1174,29 @@
   }
 
 
+  /* =========================
+     TAGS
+  ========================= */
+
   .hero-tags {
     gap: 9px;
 
-    font-size: 0.58rem;
+    margin-bottom: 30px;
+
+    font-size: 0.57rem;
   }
 
+
+  /* =========================
+     BUTTONS
+  ========================= */
 
   .hero-actions {
     width: 100%;
 
     flex-direction: column;
+
+    margin-bottom: 25px;
   }
 
 
@@ -1027,39 +1210,47 @@
   }
 
 
-  /* VISUAL */
+  /* =========================
+     VISUAL
+  ========================= */
 
   .hero-visual {
-    min-height: 430px;
-  }
+    width: 100%;
 
-
-  .hero-artwork {
-    width: min(300px, 80%);
-  }
-
-
-  .visual-circle-one {
-    width: 330px;
-    height: 330px;
-  }
-
-
-  .visual-circle-two {
-    width: 370px;
-    height: 370px;
+    min-height: 440px;
   }
 
 
   .hero-visual-glow {
-    width: 320px;
-    height: 320px;
+    width: 340px;
+    height: 340px;
+  }
+
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+  .hero-character {
+    width: 105px;
+
+    left: -35px;
   }
 
 
-  .visual-label {
-    right: 5%;
-    bottom: 20px;
+  .hero-name {
+    font-size: 3.1rem;
+  }
+
+
+  .hero-tags {
+    gap: 7px;
+
+    letter-spacing: 0.08em;
   }
 
 }
