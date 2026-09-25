@@ -14,6 +14,7 @@ const creationModules = import.meta.glob(
   }
 )
 
+
 const projectModules = import.meta.glob(
   '../../assets/projects/**/*.{png,jpg,jpeg,webp}',
   {
@@ -61,6 +62,7 @@ const randomCreations = shuffle(
   creationImages
 ).slice(0, 3)
 
+
 const randomProjects = shuffle(
   projectImages
 ).slice(0, 3)
@@ -71,11 +73,17 @@ const randomProjects = shuffle(
 ========================= */
 
 const universeItems = ref([
+
+  /* CREATION — HAUT GAUCHE */
+
   {
     image: randomCreations[0],
-    type: 'star',
+    type: 'diamond',
     className: 'item-1'
   },
+
+
+  /* PROJECT — HAUT DROITE */
 
   {
     image: randomProjects[0],
@@ -84,11 +92,17 @@ const universeItems = ref([
     ring: true
   },
 
+
+  /* CREATION — CENTRE */
+
   {
     image: randomCreations[1],
-    type: 'star',
+    type: 'diamond',
     className: 'item-3'
   },
+
+
+  /* PROJECT — DROITE */
 
   {
     image: randomProjects[1],
@@ -96,11 +110,17 @@ const universeItems = ref([
     className: 'item-4'
   },
 
+
+  /* CREATION — BAS GAUCHE */
+
   {
     image: randomCreations[2],
-    type: 'star',
+    type: 'diamond',
     className: 'item-5'
   },
+
+
+  /* PROJECT — BAS CENTRE */
 
   {
     image: randomProjects[2],
@@ -108,6 +128,7 @@ const universeItems = ref([
     className: 'item-6',
     ring: true
   }
+
 ].filter((item) => item.image))
 </script>
 
@@ -115,6 +136,7 @@ const universeItems = ref([
 <template>
 
   <div class="image-universe">
+
 
     <!-- =========================
          BACKGROUND GLOW
@@ -128,7 +150,9 @@ const universeItems = ref([
     ========================== -->
 
     <div class="orbit orbit-one"></div>
+
     <div class="orbit orbit-two"></div>
+
     <div class="orbit orbit-three"></div>
 
 
@@ -171,7 +195,10 @@ const universeItems = ref([
       ]"
     >
 
-      <!-- PLANET RING BACK -->
+
+      <!-- =========================
+           PLANET RING BACK
+      ========================== -->
 
       <div
         v-if="item.type === 'planet' && item.ring"
@@ -179,13 +206,25 @@ const universeItems = ref([
       ></div>
 
 
-      <!-- IMAGE -->
+      <!-- =========================
+           DIAMOND GLOW
+      ========================== -->
+
+      <div
+        v-if="item.type === 'diamond'"
+        class="diamond-glow"
+      ></div>
+
+
+      <!-- =========================
+           IMAGE
+      ========================== -->
 
       <div
         class="image-shape"
         :class="
-          item.type === 'star'
-            ? 'star-shape'
+          item.type === 'diamond'
+            ? 'diamond-shape'
             : 'planet-shape'
         "
       >
@@ -199,7 +238,9 @@ const universeItems = ref([
       </div>
 
 
-      <!-- PLANET RING FRONT -->
+      <!-- =========================
+           PLANET RING FRONT
+      ========================== -->
 
       <div
         v-if="item.type === 'planet' && item.ring"
@@ -243,20 +284,21 @@ const universeItems = ref([
   left: 50%;
   top: 50%;
 
-  width: 460px;
-  height: 460px;
+  width: 500px;
+  height: 500px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(255, 79, 184, 0.11),
-      rgba(143, 76, 255, 0.055) 45%,
+      rgba(255, 79, 184, 0.12),
+      rgba(143, 76, 255, 0.06) 45%,
       transparent 72%
     );
 
-  filter: blur(40px);
+  filter:
+    blur(42px);
 
   transform:
     translate(-50%, -50%);
@@ -332,7 +374,8 @@ const universeItems = ref([
 
 .universe-item:hover
 .image-shape img {
-  transform: scale(1.045);
+  transform:
+    scale(1.055);
 }
 
 
@@ -340,12 +383,7 @@ const universeItems = ref([
    CREATION IMAGES
 ========================= */
 
-/*
-  Les dessins peuvent remplir
-  complètement les étoiles.
-*/
-
-.star-wrapper
+.diamond-wrapper
 .image-shape img {
   object-fit: cover;
 
@@ -356,11 +394,6 @@ const universeItems = ref([
 /* =========================
    PROJECT IMAGES
 ========================= */
-
-/*
-  Les screenshots de sites
-  commencent depuis le haut.
-*/
 
 .planet-wrapper
 .image-shape img {
@@ -379,7 +412,7 @@ const universeItems = ref([
 
   border:
     1px solid
-    rgba(255, 155, 215, 0.3);
+    rgba(255, 155, 215, 0.32);
 
   box-shadow:
     0 20px 55px
@@ -394,48 +427,84 @@ const universeItems = ref([
 
 
 /* =========================
-   STARS
+   DIAMONDS
 ========================= */
 
-/*
-  Étoile à 4 branches
-  avec un centre plus large.
-*/
+.diamond-shape {
+  clip-path:
+    polygon(
+      50% 0%,
+      100% 50%,
+      50% 100%,
+      0% 50%
+    );
 
-.star-shape {
-  clip-path: polygon(
-    50% 0%,
+  box-shadow:
+    0 20px 55px
+    rgba(0, 0, 0, 0.32);
+}
 
-    65% 34%,
 
-    100% 50%,
+/* =========================
+   DIAMOND GLOW
+========================= */
 
-    65% 66%,
+.diamond-glow {
+  position: absolute;
 
-    50% 100%,
+  z-index: 3;
 
-    35% 66%,
+  inset: -4px;
 
-    0% 50%,
+  clip-path:
+    polygon(
+      50% 0%,
+      100% 50%,
+      50% 100%,
+      0% 50%
+    );
 
-    35% 34%
-  );
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 155, 215, 0.65),
+      rgba(143, 76, 255, 0.35) 48%,
+      rgba(255, 79, 184, 0.55)
+    );
 
-  border-radius: 8%;
+  filter:
+    blur(3px);
+
+  opacity: 0.55;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    filter 0.35s ease;
+}
+
+
+.diamond-wrapper:hover
+.diamond-glow {
+  opacity: 0.9;
+
+  filter:
+    blur(5px);
 }
 
 
 /* =========================
    ITEM 1
-   CREATION
+   CREATION — HAUT GAUCHE
 ========================= */
 
 .item-1 {
-  width: 185px;
-  height: 185px;
+  width: 175px;
+  height: 175px;
 
-  left: 8%;
-  top: 65px;
+  left: 7%;
+  top: 70px;
 
   animation-delay: -1s;
 }
@@ -443,15 +512,15 @@ const universeItems = ref([
 
 /* =========================
    ITEM 2
-   PROJECT
+   PROJECT — HAUT DROITE
 ========================= */
 
 .item-2 {
-  width: 205px;
-  height: 205px;
+  width: 200px;
+  height: 200px;
 
-  right: 8%;
-  top: 40px;
+  right: 9%;
+  top: 30px;
 
   animation-delay: -3s;
 }
@@ -463,11 +532,11 @@ const universeItems = ref([
 ========================= */
 
 .item-3 {
-  width: 220px;
-  height: 220px;
+  width: 210px;
+  height: 210px;
 
-  left: 34%;
-  top: 175px;
+  left: 36%;
+  top: 180px;
 
   z-index: 8;
 
@@ -477,15 +546,15 @@ const universeItems = ref([
 
 /* =========================
    ITEM 4
-   PROJECT
+   PROJECT — DROITE
 ========================= */
 
 .item-4 {
-  width: 165px;
-  height: 165px;
+  width: 155px;
+  height: 155px;
 
-  right: 10%;
-  top: 310px;
+  right: 5%;
+  top: 325px;
 
   animation-delay: -2s;
 }
@@ -493,15 +562,15 @@ const universeItems = ref([
 
 /* =========================
    ITEM 5
-   CREATION
+   CREATION — BAS GAUCHE
 ========================= */
 
 .item-5 {
-  width: 140px;
-  height: 140px;
+  width: 135px;
+  height: 135px;
 
-  left: 17%;
-  bottom: 35px;
+  left: 14%;
+  bottom: 45px;
 
   animation-delay: -4s;
 }
@@ -509,15 +578,15 @@ const universeItems = ref([
 
 /* =========================
    ITEM 6
-   PROJECT
+   PROJECT — BAS CENTRE
 ========================= */
 
 .item-6 {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
 
-  left: 52%;
-  bottom: 15px;
+  left: 57%;
+  bottom: 35px;
 
   animation-delay: -6s;
 }
@@ -694,8 +763,8 @@ const universeItems = ref([
 ========================= */
 
 .sparkle-one {
-  left: 31%;
-  top: 20px;
+  left: 30%;
+  top: 22px;
 
   font-size: 1.6rem;
 }
@@ -706,8 +775,8 @@ const universeItems = ref([
 ========================= */
 
 .sparkle-two {
-  right: 31%;
-  top: 125px;
+  right: 30%;
+  top: 135px;
 
   color:
     var(--color-pink-soft);
@@ -723,8 +792,8 @@ const universeItems = ref([
 ========================= */
 
 .sparkle-three {
-  left: 28%;
-  bottom: 105px;
+  left: 27%;
+  bottom: 110px;
 
   color:
     var(--color-pink-soft);
@@ -740,8 +809,8 @@ const universeItems = ref([
 ========================= */
 
 .sparkle-four {
-  right: 12%;
-  bottom: 45px;
+  right: 10%;
+  bottom: 35px;
 
   font-size: 1.2rem;
 
@@ -754,8 +823,8 @@ const universeItems = ref([
 ========================= */
 
 .sparkle-five {
-  left: 6%;
-  top: 47%;
+  left: 5%;
+  top: 48%;
 
   color:
     var(--color-purple);
@@ -778,6 +847,7 @@ const universeItems = ref([
       translateY(0);
   }
 
+
   50% {
     transform:
       translateY(-7px);
@@ -787,7 +857,7 @@ const universeItems = ref([
 
 
 /* =========================
-   SPARKLE
+   SPARKLE ANIMATION
 ========================= */
 
 @keyframes sparkle {
@@ -800,6 +870,7 @@ const universeItems = ref([
       scale(0.75)
       rotate(0deg);
   }
+
 
   50% {
     opacity: 1;
@@ -832,32 +903,36 @@ const universeItems = ref([
 
 
   .item-1 {
-    left: 7%;
+    left: 5%;
+    top: 65px;
   }
 
 
   .item-2 {
-    right: 7%;
+    right: 5%;
   }
 
 
   .item-3 {
-    left: 33%;
+    left: 34%;
   }
 
 
   .item-4 {
-    right: 7%;
+    right: 4%;
+    top: 315px;
   }
 
 
   .item-5 {
-    left: 14%;
+    left: 11%;
+    bottom: 45px;
   }
 
 
   .item-6 {
-    left: 51%;
+    left: 56%;
+    bottom: 35px;
   }
 
 }
@@ -871,79 +946,93 @@ const universeItems = ref([
 
   .image-universe {
     width: 100%;
-    height: 430px;
+    height: 440px;
 
     overflow: hidden;
   }
 
 
-  /* ITEM 1 */
+  /* =========================
+     ITEM 1
+  ========================= */
 
   .item-1 {
+    width: 115px;
+    height: 115px;
+
+    left: 2%;
+    top: 55px;
+  }
+
+
+  /* =========================
+     ITEM 2
+  ========================= */
+
+  .item-2 {
     width: 125px;
     height: 125px;
 
-    left: 3%;
-    top: 45px;
+    right: 2%;
+    top: 25px;
   }
 
 
-  /* ITEM 2 */
-
-  .item-2 {
-    width: 130px;
-    height: 130px;
-
-    right: 3%;
-    top: 30px;
-  }
-
-
-  /* ITEM 3 */
+  /* =========================
+     ITEM 3
+  ========================= */
 
   .item-3 {
-    width: 150px;
-    height: 150px;
+    width: 145px;
+    height: 145px;
 
     left: 31%;
-    top: 135px;
+    top: 145px;
   }
 
 
-  /* ITEM 4 */
+  /* =========================
+     ITEM 4
+  ========================= */
 
   .item-4 {
-    width: 110px;
-    height: 110px;
+    width: 105px;
+    height: 105px;
 
-    right: 4%;
-    top: 245px;
+    right: 2%;
+    top: 260px;
   }
 
 
-  /* ITEM 5 */
+  /* =========================
+     ITEM 5
+  ========================= */
 
   .item-5 {
-    width: 100px;
-    height: 100px;
+    width: 92px;
+    height: 92px;
 
-    left: 7%;
+    left: 5%;
+    bottom: 35px;
+  }
+
+
+  /* =========================
+     ITEM 6
+  ========================= */
+
+  .item-6 {
+    width: 95px;
+    height: 95px;
+
+    left: 51%;
     bottom: 25px;
   }
 
 
-  /* ITEM 6 */
-
-  .item-6 {
-    width: 100px;
-    height: 100px;
-
-    left: 46%;
-    bottom: 5px;
-  }
-
-
-  /* ORBITS */
+  /* =========================
+     ORBITS
+  ========================= */
 
   .orbit-one {
     width: 320px;
@@ -963,7 +1052,9 @@ const universeItems = ref([
   }
 
 
-  /* SPARKLES */
+  /* =========================
+     SPARKLES
+  ========================= */
 
   .sparkle-one {
     left: 28%;
@@ -972,13 +1063,13 @@ const universeItems = ref([
 
 
   .sparkle-two {
-    right: 28%;
-    top: 115px;
+    right: 27%;
+    top: 120px;
   }
 
 
   .sparkle-three {
-    left: 25%;
+    left: 24%;
     bottom: 95px;
 
     font-size: 1.2rem;
@@ -986,8 +1077,14 @@ const universeItems = ref([
 
 
   .sparkle-four {
-    right: 7%;
+    right: 5%;
     bottom: 35px;
+  }
+
+
+  .sparkle-five {
+    left: 2%;
+    top: 46%;
   }
 
 }
@@ -1000,45 +1097,52 @@ const universeItems = ref([
 @media (max-width: 380px) {
 
   .image-universe {
-    height: 400px;
+    height: 410px;
   }
 
 
   .item-1 {
+    width: 100px;
+    height: 100px;
+  }
+
+
+  .item-2 {
     width: 110px;
     height: 110px;
   }
 
 
-  .item-2 {
-    width: 115px;
-    height: 115px;
-  }
-
-
   .item-3 {
-    width: 135px;
-    height: 135px;
+    width: 125px;
+    height: 125px;
 
-    left: 29%;
+    left: 30%;
   }
 
 
   .item-4 {
-    width: 95px;
-    height: 95px;
+    width: 90px;
+    height: 90px;
+
+    top: 255px;
   }
 
 
   .item-5 {
-    width: 85px;
-    height: 85px;
+    width: 80px;
+    height: 80px;
+
+    bottom: 35px;
   }
 
 
   .item-6 {
-    width: 85px;
-    height: 85px;
+    width: 82px;
+    height: 82px;
+
+    left: 50%;
+    bottom: 25px;
   }
 
 }
