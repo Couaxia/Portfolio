@@ -61,3 +61,85 @@ section {
   width: min(100% - 40px, var(--max-width));
   margin-inline: auto;
 }
+
+/* =========================
+   CUSTOM SCROLLBAR
+========================= */
+
+
+/* Firefox */
+
+html {
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    var(--color-pink)
+    var(--color-background);
+}
+
+
+/* Chrome / Edge / Safari */
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+
+/* FOND */
+
+::-webkit-scrollbar-track {
+  background:
+    var(--color-background);
+}
+
+
+/* BARRE */
+
+::-webkit-scrollbar-thumb {
+  border:
+    3px solid
+    var(--color-background);
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-purple),
+      var(--color-pink),
+      var(--color-pink-soft)
+    );
+}
+
+
+/* HOVER */
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-pink),
+      var(--color-purple),
+      var(--color-pink)
+    );
+}
+
+::-webkit-scrollbar-thumb {
+  border:
+    3px solid
+    var(--color-background);
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--color-purple),
+      var(--color-pink),
+      var(--color-pink-soft)
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(255, 79, 184, 0.35);
+}

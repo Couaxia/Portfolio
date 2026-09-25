@@ -1,5 +1,13 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+
+/* =========================
+   ROUTER
+========================= */
+
+const router = useRouter()
 
 
 /* =========================
@@ -29,6 +37,7 @@ const projectModules = import.meta.glob(
 ========================= */
 
 const creationImages = Object.values(creationModules)
+
 const projectImages = Object.values(projectModules)
 
 
@@ -37,9 +46,11 @@ const projectImages = Object.values(projectModules)
 ========================= */
 
 const shuffle = (array) => {
+
   const copy = [...array]
 
   for (let i = copy.length - 1; i > 0; i--) {
+
     const j = Math.floor(
       Math.random() * (i + 1)
     )
@@ -48,6 +59,7 @@ const shuffle = (array) => {
       copy[j],
       copy[i]
     ]
+
   }
 
   return copy
@@ -74,62 +86,114 @@ const randomProjects = shuffle(
 
 const universeItems = ref([
 
-  /* CREATION — HAUT GAUCHE */
-
   {
     image: randomCreations[0],
+
     type: 'diamond',
-    className: 'item-1'
+
+    className: 'item-1',
+
+    label: 'CRÉATION',
+
+    title: 'Découvrir mes créations',
+
+    route: '/creations'
   },
 
 
-  /* PROJECT — HAUT DROITE */
-
   {
     image: randomProjects[0],
+
     type: 'planet',
+
     className: 'item-2',
+
+    label: 'PROJET WEB',
+
+    title: 'Découvrir mes projets',
+
+    route: '/projects',
+
     ring: true
   },
 
 
-  /* CREATION — CENTRE */
-
   {
     image: randomCreations[1],
+
     type: 'diamond',
-    className: 'item-3'
+
+    className: 'item-3',
+
+    label: 'CRÉATION',
+
+    title: 'Découvrir mes créations',
+
+    route: '/creations'
   },
 
-
-  /* PROJECT — DROITE */
 
   {
     image: randomProjects[1],
+
     type: 'planet',
-    className: 'item-4'
+
+    className: 'item-4',
+
+    label: 'PROJET WEB',
+
+    title: 'Découvrir mes projets',
+
+    route: '/projects'
   },
 
-
-  /* CREATION — BAS GAUCHE */
 
   {
     image: randomCreations[2],
+
     type: 'diamond',
-    className: 'item-5'
+
+    className: 'item-5',
+
+    label: 'CRÉATION',
+
+    title: 'Découvrir mes créations',
+
+    route: '/creations'
   },
 
 
-  /* PROJECT — BAS CENTRE */
-
   {
     image: randomProjects[2],
+
     type: 'planet',
+
     className: 'item-6',
+
+    label: 'PROJET WEB',
+
+    title: 'Découvrir mes projets',
+
+    route: '/projects',
+
     ring: true
   }
 
 ].filter((item) => item.image))
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+const openItem = (item) => {
+
+  if (!item.route) {
+    return
+  }
+
+  router.push(item.route)
+}
 </script>
 
 
@@ -182,7 +246,7 @@ const universeItems = ref([
 
 
     <!-- =========================
-         IMAGES
+         UNIVERSE ITEMS
     ========================== -->
 
     <div
@@ -197,55 +261,139 @@ const universeItems = ref([
 
 
       <!-- =========================
-           PLANET RING BACK
+           CLICKABLE ITEM
       ========================== -->
 
       <div
-        v-if="item.type === 'planet' && item.ring"
-        class="planet-ring planet-ring-back"
-      ></div>
-
-
-      <!-- =========================
-           DIAMOND GLOW
-      ========================== -->
-
-      <div
-        v-if="item.type === 'diamond'"
-        class="diamond-glow"
-      ></div>
-
-
-      <!-- =========================
-           IMAGE
-      ========================== -->
-
-      <div
-        class="image-shape"
-        :class="
-          item.type === 'diamond'
-            ? 'diamond-shape'
-            : 'planet-shape'
-        "
+        class="item-interactive"
+        role="link"
+        tabindex="0"
+        :aria-label="item.title"
+        @click="openItem(item)"
+        @keydown.enter="openItem(item)"
       >
 
-        <img
-          :src="item.image"
-          alt=""
-          draggable="false"
+
+        <!-- =========================
+             PLANET RING BACK
+        ========================== -->
+
+        <div
+          v-if="item.type === 'planet' && item.ring"
+          class="planet-ring planet-ring-back"
+        ></div>
+
+
+        <!-- =========================
+             DIAMOND GLOW
+        ========================== -->
+
+        <div
+          v-if="item.type === 'diamond'"
+          class="diamond-glow"
+        ></div>
+
+
+        <!-- =========================
+             IMAGE
+        ========================== -->
+
+        <div
+          class="image-shape"
+          :class="
+            item.type === 'diamond'
+              ? 'diamond-shape'
+              : 'planet-shape'
+          "
         >
+
+          <img
+            :src="item.image"
+            alt=""
+            draggable="false"
+          >
+
+
+          <!-- =========================
+               HOVER OVERLAY
+          ========================== -->
+
+          <div
+            class="image-overlay"
+            :class="
+              item.type === 'diamond'
+                ? 'diamond-overlay'
+                : 'planet-overlay'
+            "
+          >
+
+            <div class="overlay-content">
+
+              <span class="overlay-label">
+                {{ item.label }}
+              </span>
+
+              <span class="overlay-link">
+                Découvrir
+                <span aria-hidden="true">
+                  →
+                </span>
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             PLANET RING FRONT
+        ========================== -->
+
+        <div
+          v-if="item.type === 'planet' && item.ring"
+          class="planet-ring planet-ring-front"
+        ></div>
 
       </div>
 
+    </div>
 
-      <!-- =========================
-           PLANET RING FRONT
-      ========================== -->
 
-      <div
-        v-if="item.type === 'planet' && item.ring"
-        class="planet-ring planet-ring-front"
-      ></div>
+    <!-- =========================
+         LEGEND
+    ========================== -->
+
+    <div class="universe-legend">
+
+      <RouterLink
+        to="/creations"
+        class="legend-item"
+      >
+
+        <span class="legend-diamond">
+          ◇
+        </span>
+
+        Créations
+
+      </RouterLink>
+
+
+      <span class="legend-separator"></span>
+
+
+      <RouterLink
+        to="/projects"
+        class="legend-item"
+      >
+
+        <span class="legend-planet"></span>
+
+        Projets Web
+
+      </RouterLink>
 
     </div>
 
@@ -321,14 +469,37 @@ const universeItems = ref([
     7s
     ease-in-out
     infinite;
-
-  transition:
-    filter 0.35s ease;
 }
 
 
-.universe-item:hover {
-  z-index: 30;
+.item-interactive {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+
+.item-interactive:hover {
+  transform:
+    scale(1.045);
+
+  filter:
+    brightness(1.08);
+}
+
+
+.item-interactive:focus-visible {
+  transform:
+    scale(1.045);
 
   filter:
     brightness(1.08);
@@ -365,17 +536,24 @@ const universeItems = ref([
   height: 100%;
 
   pointer-events: none;
+
   user-select: none;
 
   transition:
-    transform 0.7s ease;
+    transform 0.7s ease,
+    filter 0.5s ease;
 }
 
 
-.universe-item:hover
+.item-interactive:hover
+.image-shape img,
+.item-interactive:focus-visible
 .image-shape img {
   transform:
-    scale(1.055);
+    scale(1.08);
+
+  filter:
+    brightness(0.65);
 }
 
 
@@ -485,18 +663,158 @@ const universeItems = ref([
 }
 
 
-.diamond-wrapper:hover
+.item-interactive:hover
+.diamond-glow,
+.item-interactive:focus-visible
 .diamond-glow {
-  opacity: 0.9;
+  opacity: 1;
 
   filter:
-    blur(5px);
+    blur(6px);
+}
+
+
+/* =========================
+   OVERLAY
+========================= */
+
+.image-overlay {
+  position: absolute;
+
+  z-index: 10;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  opacity: 0;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(15, 9, 20, 0.25),
+      rgba(15, 9, 20, 0.78)
+    );
+
+  transition:
+    opacity 0.4s ease;
+
+  pointer-events: none;
+}
+
+
+.planet-overlay {
+  border-radius: 50%;
+}
+
+
+.diamond-overlay {
+  clip-path:
+    polygon(
+      50% 0%,
+      100% 50%,
+      50% 100%,
+      0% 50%
+    );
+}
+
+
+.item-interactive:hover
+.image-overlay,
+.item-interactive:focus-visible
+.image-overlay {
+  opacity: 1;
+}
+
+
+/* =========================
+   OVERLAY CONTENT
+========================= */
+
+.overlay-content {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 7px;
+
+  text-align: center;
+
+  transform:
+    translateY(8px);
+
+  transition:
+    transform 0.4s ease;
+}
+
+
+.item-interactive:hover
+.overlay-content,
+.item-interactive:focus-visible
+.overlay-content {
+  transform:
+    translateY(0);
+}
+
+
+.overlay-label {
+  color:
+    var(--color-pink-soft);
+
+  font-size: 0.63rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+
+.overlay-link {
+  color:
+    var(--color-white);
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size: 0.88rem;
+
+  font-weight: 600;
+}
+
+
+.overlay-link span {
+  display: inline-block;
+
+  margin-left: 4px;
+
+  color:
+    var(--color-pink);
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.item-interactive:hover
+.overlay-link span {
+  transform:
+    translateX(4px);
 }
 
 
 /* =========================
    ITEM 1
-   CREATION — HAUT GAUCHE
 ========================= */
 
 .item-1 {
@@ -512,7 +830,6 @@ const universeItems = ref([
 
 /* =========================
    ITEM 2
-   PROJECT — HAUT DROITE
 ========================= */
 
 .item-2 {
@@ -528,7 +845,6 @@ const universeItems = ref([
 
 /* =========================
    ITEM 3
-   CREATION PRINCIPALE
 ========================= */
 
 .item-3 {
@@ -546,7 +862,6 @@ const universeItems = ref([
 
 /* =========================
    ITEM 4
-   PROJECT — DROITE
 ========================= */
 
 .item-4 {
@@ -562,7 +877,6 @@ const universeItems = ref([
 
 /* =========================
    ITEM 5
-   CREATION — BAS GAUCHE
 ========================= */
 
 .item-5 {
@@ -578,7 +892,6 @@ const universeItems = ref([
 
 /* =========================
    ITEM 6
-   PROJECT — BAS CENTRE
 ========================= */
 
 .item-6 {
@@ -615,10 +928,6 @@ const universeItems = ref([
 }
 
 
-/* =========================
-   BACK RING
-========================= */
-
 .planet-ring-back {
   z-index: 2;
 
@@ -627,10 +936,6 @@ const universeItems = ref([
     rotate(-17deg);
 }
 
-
-/* =========================
-   FRONT RING
-========================= */
 
 .planet-ring-front {
   z-index: 7;
@@ -676,10 +981,6 @@ const universeItems = ref([
 }
 
 
-/* =========================
-   ORBIT 1
-========================= */
-
 .orbit-one {
   width: 480px;
   height: 480px;
@@ -694,10 +995,6 @@ const universeItems = ref([
 }
 
 
-/* =========================
-   ORBIT 2
-========================= */
-
 .orbit-two {
   width: 545px;
   height: 330px;
@@ -711,10 +1008,6 @@ const universeItems = ref([
     rotate(25deg);
 }
 
-
-/* =========================
-   ORBIT 3
-========================= */
 
 .orbit-three {
   width: 380px;
@@ -758,10 +1051,6 @@ const universeItems = ref([
 }
 
 
-/* =========================
-   SPARKLE 1
-========================= */
-
 .sparkle-one {
   left: 30%;
   top: 22px;
@@ -769,10 +1058,6 @@ const universeItems = ref([
   font-size: 1.6rem;
 }
 
-
-/* =========================
-   SPARKLE 2
-========================= */
 
 .sparkle-two {
   right: 30%;
@@ -787,10 +1072,6 @@ const universeItems = ref([
 }
 
 
-/* =========================
-   SPARKLE 3
-========================= */
-
 .sparkle-three {
   left: 27%;
   bottom: 110px;
@@ -804,10 +1085,6 @@ const universeItems = ref([
 }
 
 
-/* =========================
-   SPARKLE 4
-========================= */
-
 .sparkle-four {
   right: 10%;
   bottom: 35px;
@@ -817,10 +1094,6 @@ const universeItems = ref([
   animation-delay: -0.5s;
 }
 
-
-/* =========================
-   SPARKLE 5
-========================= */
 
 .sparkle-five {
   left: 5%;
@@ -832,6 +1105,95 @@ const universeItems = ref([
   font-size: 1rem;
 
   animation-delay: -1.5s;
+}
+
+
+/* =========================
+   LEGEND
+========================= */
+
+.universe-legend {
+  position: absolute;
+
+  z-index: 40;
+
+  left: 50%;
+  bottom: 2px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  transform:
+    translateX(-50%);
+
+  white-space: nowrap;
+}
+
+
+.legend-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 0.67rem;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+.legend-item:hover {
+  color:
+    var(--color-white);
+}
+
+
+.legend-diamond {
+  color:
+    var(--color-pink-soft);
+
+  font-size: 1rem;
+
+  line-height: 1;
+}
+
+
+.legend-planet {
+  width: 8px;
+  height: 8px;
+
+  border:
+    1px solid
+    var(--color-purple);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 7px
+    rgba(143, 76, 255, 0.45);
+}
+
+
+.legend-separator {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background:
+    var(--color-pink);
 }
 
 
@@ -857,7 +1219,7 @@ const universeItems = ref([
 
 
 /* =========================
-   SPARKLE ANIMATION
+   SPARKLE
 ========================= */
 
 @keyframes sparkle {
@@ -952,10 +1314,6 @@ const universeItems = ref([
   }
 
 
-  /* =========================
-     ITEM 1
-  ========================= */
-
   .item-1 {
     width: 115px;
     height: 115px;
@@ -964,10 +1322,6 @@ const universeItems = ref([
     top: 55px;
   }
 
-
-  /* =========================
-     ITEM 2
-  ========================= */
 
   .item-2 {
     width: 125px;
@@ -978,10 +1332,6 @@ const universeItems = ref([
   }
 
 
-  /* =========================
-     ITEM 3
-  ========================= */
-
   .item-3 {
     width: 145px;
     height: 145px;
@@ -990,10 +1340,6 @@ const universeItems = ref([
     top: 145px;
   }
 
-
-  /* =========================
-     ITEM 4
-  ========================= */
 
   .item-4 {
     width: 105px;
@@ -1004,35 +1350,25 @@ const universeItems = ref([
   }
 
 
-  /* =========================
-     ITEM 5
-  ========================= */
-
   .item-5 {
     width: 92px;
     height: 92px;
 
     left: 5%;
-    bottom: 35px;
+    bottom: 45px;
   }
 
-
-  /* =========================
-     ITEM 6
-  ========================= */
 
   .item-6 {
     width: 95px;
     height: 95px;
 
     left: 51%;
-    bottom: 25px;
+    bottom: 35px;
   }
 
 
-  /* =========================
-     ORBITS
-  ========================= */
+  /* ORBITS */
 
   .orbit-one {
     width: 320px;
@@ -1052,9 +1388,33 @@ const universeItems = ref([
   }
 
 
-  /* =========================
-     SPARKLES
-  ========================= */
+  /* TEXT ON SMALL SHAPES */
+
+  .overlay-label {
+    font-size: 0.48rem;
+  }
+
+
+  .overlay-link {
+    font-size: 0.7rem;
+  }
+
+
+  /* LEGEND */
+
+  .universe-legend {
+    bottom: 2px;
+
+    gap: 9px;
+  }
+
+
+  .legend-item {
+    font-size: 0.55rem;
+  }
+
+
+  /* SPARKLES */
 
   .sparkle-one {
     left: 28%;
@@ -1125,7 +1485,7 @@ const universeItems = ref([
     width: 90px;
     height: 90px;
 
-    top: 255px;
+    top: 250px;
   }
 
 
@@ -1133,7 +1493,7 @@ const universeItems = ref([
     width: 80px;
     height: 80px;
 
-    bottom: 35px;
+    bottom: 40px;
   }
 
 
@@ -1142,7 +1502,14 @@ const universeItems = ref([
     height: 82px;
 
     left: 50%;
-    bottom: 25px;
+    bottom: 35px;
+  }
+
+
+  .universe-legend {
+    transform:
+      translateX(-50%)
+      scale(0.9);
   }
 
 }
