@@ -1,5 +1,5 @@
 <script setup>
-import About from '../components/sections/About.vue'
+import About from '../components/sections/about.vue'
 </script>
 
 <template>
