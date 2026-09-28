@@ -17,7 +17,7 @@ const couaxiaImages = import.meta.glob(
 
 
 const myoImages = import.meta.glob(
-  '../assets/projects/myo/*.{png,jpg,jpeg,webp}',
+  '../assets/projects/Myo/*.{png,jpg,jpeg,webp}',
   {
     eager: true,
     import: 'default'
@@ -44,7 +44,7 @@ const celanyaImages = import.meta.glob(
 
 
 const nymyaImages = import.meta.glob(
-  '../assets/projects/nymya/*.{png,jpg,jpeg,webp}',
+  '../assets/projects/Nymya/*.{png,jpg,jpeg,webp}',
   {
     eager: true,
     import: 'default'
