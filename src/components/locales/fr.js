@@ -1123,4 +1123,456 @@ creations: {
 
 },
 
+terms: {
+
+  hero: {
+    label: 'TERMS OF SERVICE',
+
+    title: {
+      first: 'Conditions de',
+      second: 'commission.'
+    },
+
+    description:
+      "Retrouvez ici les conditions applicables à mes commissions, les droits d'utilisation ainsi que les informations importantes à connaître avant de passer commande.",
+
+    lastUpdate:
+      'Dernière mise à jour :',
+
+    date:
+      'septembre 2026'
+  },
+
+
+  important: {
+    label: 'IMPORTANT',
+
+    title:
+      'Avant de commander',
+
+    description:
+      'En passant commande auprès de Couaxia, vous reconnaissez avoir pris connaissance des présentes conditions ainsi que des informations spécifiques à la commission choisie.'
+  },
+
+
+  introduction: {
+    label: 'CONDITIONS',
+
+    title: {
+      first: 'Quelques règles pour',
+      second: 'bien travailler ensemble.'
+    },
+
+    description:
+      'Ces conditions permettent de définir clairement le fonctionnement de mes commissions et les droits de chacun.'
+  },
+
+
+  sections: {
+
+    orders: {
+      title:
+        'Commandes & paiement',
+
+      paragraphs: {
+        first:
+          'Toutes les commandes sont réalisées et payées via Ko-fi, sauf accord contraire préalable.',
+
+        second:
+          'Pour certaines commissions, notamment les emotes YCH, je demande à être contactée avant de passer commande afin de vérifier ensemble que votre demande peut être réalisée.',
+
+        third:
+          'Le travail commence après réception du paiement et de toutes les informations nécessaires à la réalisation de la commande.'
+      }
+    },
+
+
+    delays: {
+      title:
+        'Délais',
+
+      paragraphs: {
+        first:
+          "Aucun délai précis n'est garanti sauf accord préalable. Je travaille à mon rythme et je vous tiens informé(e) de l'avancement de votre commande.",
+
+        second:
+          'Si vous avez besoin de votre commande avant une date particulière, merci de me contacter avant de commander afin que je puisse vous confirmer si cela est possible.',
+
+        third:
+          "Un retard causé par l'absence d'informations, de références ou de réponse du client peut également repousser la livraison."
+      }
+    },
+
+
+    modifications: {
+      title:
+        'Modifications',
+
+      paragraphs: {
+        first:
+          'Les modifications souhaitées doivent être communiquées le plus clairement possible pendant la réalisation de la commande.',
+
+        second:
+          'Les petites corrections permettant de respecter la demande initiale peuvent être réalisées pendant le processus de création.',
+
+        third:
+          'Une modification importante changeant la demande initiale, le concept ou une partie déjà validée pourra nécessiter un supplément ou une nouvelle commande.'
+      }
+    },
+
+
+    refunds: {
+      title:
+        'Annulations & remboursements',
+
+      paragraphs: {
+        first:
+          "En raison du caractère personnalisé des commissions, les possibilités d'annulation ou de remboursement peuvent dépendre de l'état d'avancement de la commande et des règles applicables à la transaction.",
+
+        second:
+          'Merci de me contacter le plus rapidement possible en cas de problème avec une commande.',
+
+        third:
+          "Aucune disposition des présentes conditions n'a pour objet de supprimer les droits dont vous bénéficiez obligatoirement en vertu de la législation applicable."
+      }
+    },
+
+
+    ych: {
+      title:
+        'Emotes YCH',
+
+      paragraphs: {
+        first:
+          "Certaines de mes commissions d'emotes sont réalisées à partir de bases YCH créées par d'autres artistes.",
+
+        second:
+          "L'achat de la commission correspond à mon travail de personnalisation de la base selon votre personnage, vos couleurs et votre demande. Il ne vous donne aucun droit de propriété sur la base YCH originale.",
+
+        third:
+          'Les bases originales ne sont jamais incluses dans les fichiers livrés et ne doivent pas être revendues, partagées ou redistribuées.'
+      }
+    },
+
+
+    websites: {
+      title:
+        'Sites web personnalisés',
+
+      paragraphs: {
+        first:
+          'Pour une commission de site web personnalisé, le client doit fournir les informations et ressources nécessaires au projet : textes, liens, images, avatar, logo, couleurs, références et autres éléments demandés.',
+
+        second:
+          "Le client doit disposer des droits ou autorisations nécessaires pour utiliser les images, illustrations, logos, polices ou autres ressources qu'il me fournit.",
+
+        third:
+          'Les fonctionnalités, animations, effets et éléments interactifs réalisés dépendent de la formule et de la demande convenue lors de la commande.',
+
+        fourth:
+          "Toute fonctionnalité ou modification importante qui n'était pas prévue dans la demande initiale pourra faire l'objet d'un supplément."
+      }
+    },
+
+
+    rights: {
+      title:
+        'Droits d’utilisation',
+
+      paragraphs: {
+        first:
+          "L'achat d'une commission vous accorde les droits d'utilisation prévus pour la prestation commandée, mais ne constitue pas automatiquement un transfert de propriété intellectuelle sur la création.",
+
+        second:
+          'Vous ne pouvez pas revendiquer la création comme étant entièrement votre propre travail, ni revendre ou redistribuer les fichiers numériques de la commission comme un produit indépendant.',
+
+        third:
+          'Les droits appartenant aux créateurs des ressources tierces utilisées, notamment les bases YCH, restent également applicables.'
+      }
+    },
+
+
+    portfolio: {
+      title:
+        'Portfolio & réseaux sociaux',
+
+      paragraphs: {
+        first:
+          'Je peux présenter une création terminée dans mon portfolio, sur mon site ou sur mes réseaux sociaux afin de montrer mon travail.',
+
+        second:
+          'Je peux également partager des aperçus ou des étapes de création pendant la réalisation.',
+
+        third:
+          "Si votre commande doit rester privée, s'il s'agit d'un cadeau ou si elle ne doit pas être publiée avant une certaine date, merci de me le préciser à l'avance. Je respecterai votre demande."
+      }
+    },
+
+
+    refusal: {
+      title:
+        'Refus d’une commande',
+
+      paragraphs: {
+        first:
+          'Je me réserve le droit de refuser une demande avant son acceptation si elle ne correspond pas à mes compétences, aux services proposés ou à ce que je souhaite réaliser.',
+
+        second:
+          "Une commande ne doit pas être considérée comme acceptée uniquement parce qu'un premier échange a eu lieu."
+      }
+    },
+
+
+    client: {
+      title:
+        'Responsabilité du client',
+
+      paragraphs: {
+        first:
+          "Le client est responsable de l'exactitude des informations, références, textes et fichiers qu'il transmet pour la réalisation de sa commande.",
+
+        second:
+          "Le client doit signaler les erreurs ou modifications souhaitées pendant la phase de création lorsqu'elles peuvent encore être corrigées.",
+
+        third:
+          "Le client est également responsable de disposer des autorisations nécessaires concernant les ressources qu'il me demande d'utiliser."
+      }
+    },
+
+
+    delivery: {
+      title:
+        'Livraison des fichiers',
+
+      paragraphs: {
+        first:
+          "Les commissions sont des produits numériques. Aucun produit physique n'est envoyé sauf si cela est explicitement indiqué dans l'offre.",
+
+        second:
+          'Les fichiers sont livrés dans les formats prévus par la commission. Pour les emotes, cela peut notamment comprendre des fichiers PNG ou GIF selon la demande.',
+
+        third:
+          'Si des dimensions particulières sont nécessaires, elles doivent être précisées pendant la commande.'
+      }
+    },
+
+
+    acceptance: {
+      title:
+        'Acceptation des conditions',
+
+      paragraphs: {
+        first:
+          'En passant commande, vous reconnaissez avoir pris connaissance des présentes conditions ainsi que des informations spécifiques indiquées sur la commission choisie.',
+
+        second:
+          "Ces conditions peuvent être mises à jour afin de tenir compte de l'évolution de mes services. Les conditions applicables à une commande sont celles communiquées au moment de celle-ci."
+      }
+    }
+
+  },
+
+
+  merch: {
+    label:
+      'UTILISATION COMMERCIALE',
+
+    title: {
+      first: 'Licence',
+      second: 'Merchandising.'
+    },
+
+    description:
+      'Vous souhaitez utiliser vos emotes sur des produits que vous allez vendre ? Une licence supplémentaire est nécessaire.',
+
+    percentage:
+      'du prix de la commission',
+
+    card: {
+      title:
+        'Utiliser vos emotes sur votre merch',
+
+      first:
+        "Le tarif standard d'une commission d'emote comprend son utilisation sur vos plateformes de streaming, vos réseaux sociaux et vos espaces communautaires.",
+
+      secondBefore:
+        "Si vous souhaitez utiliser l'emote sur des",
+
+      products:
+        'produits destinés à la vente',
+
+      secondMiddle:
+        ', comme des stickers, vêtements, mugs, porte-clés, prints ou autres produits dérivés, une licence Merchandising correspondant à',
+
+      secondAfter:
+        'du prix total de la commission est nécessaire.',
+
+      third:
+        "Cette licence autorise l'utilisation commerciale de l'emote commandée sur des produits dérivés. Elle ne constitue pas un transfert de propriété intellectuelle et n'autorise pas la revente ou la redistribution des fichiers numériques ou des bases YCH."
+    },
+
+    allowed: {
+      label:
+        'AVEC LA LICENCE',
+
+      title:
+        'Vous pouvez',
+
+      stickers:
+        "Vendre des stickers utilisant l'emote",
+
+      clothes:
+        "L'utiliser sur des vêtements",
+
+      mugs:
+        'Créer des mugs ou porte-clés',
+
+      prints:
+        'Créer des prints et autres produits dérivés'
+    },
+
+    forbidden: {
+      label:
+        'MÊME AVEC LA LICENCE',
+
+      title:
+        'Vous ne pouvez pas',
+
+      digitalFile:
+        "Revendre le fichier numérique de l'emote",
+
+      ychBase:
+        'Redistribuer la base YCH originale',
+
+      claim:
+        'Revendiquer la base comme votre création',
+
+      sources:
+        'Revendre ou partager les fichiers sources'
+    }
+  },
+
+
+  ych: {
+    label:
+      'BASES YCH',
+
+    title: {
+      first: 'Crédits &',
+      second: 'conditions.'
+    },
+
+    common: {
+      personal:
+        'Usage personnel',
+
+      merchandising:
+        'Merchandising',
+
+      modification:
+        'Modification de la base',
+
+      credit:
+        'Crédit demandé :'
+    },
+
+    nicopiyo: {
+      description:
+        'Les bases utilisées autorisent les commissions ainsi que les usages personnels, commerciaux et merchandising.',
+
+      commercial:
+        'Usage commercial / contenu',
+
+      ai:
+        "Utilisation avec l'IA interdite"
+    },
+
+    takiimikiku: {
+      description:
+        'Les bases peuvent être utilisées et modifiées pour des commissions et des usages commerciaux, conformément aux conditions de leur créatrice.',
+
+      commercial:
+        'Usage commercial',
+
+      commissions:
+        'Commissions',
+
+      resale:
+        'Revente ou redistribution de la base interdite'
+    },
+
+    note:
+      'Les conditions imposées par les créateurs des bases YCH restent applicables en complément de mes propres conditions de commission.'
+  },
+
+
+  prices: {
+    label:
+      'RÉCAPITULATIF',
+
+    title: {
+      first: 'Tarifs &',
+      second: 'licence Merch.'
+    },
+
+    descriptionBefore:
+      'Le supplément Merchandising correspond à',
+
+    descriptionStrong:
+      "20 % du prix de la commission d'emote.",
+
+    oneEmote:
+      '1 emote',
+
+    fiveEmotes:
+      '5 emotes',
+
+    table: {
+      commission:
+        'Commission',
+
+      standard:
+        'Tarif standard',
+
+      license:
+        'Licence Merch',
+
+      total:
+        'Total avec Merch'
+    },
+
+    mobileLicense:
+      'Licence Merch +20 %',
+
+    mobileTotal:
+      'Total',
+
+    note: {
+      title:
+        'À quoi correspond la licence Merch ?',
+
+      description:
+        "Elle vous permet d'utiliser l'emote commandée sur des produits destinés à la vente. Elle ne permet pas de revendre ou redistribuer les fichiers numériques ou les bases YCH."
+    }
+  },
+
+
+  cta: {
+    label:
+      'UNE QUESTION ?',
+
+    title: {
+      first: 'Un doute avant de',
+      second: 'commander ?'
+    },
+
+    description:
+      'Si vous avez une question concernant votre projet, son utilisation ou les droits dont vous avez besoin, contactez-moi avant de passer commande.',
+
+    button:
+      'Me contacter'
+  }
+
+},
+
 }

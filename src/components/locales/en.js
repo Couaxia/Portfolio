@@ -1116,4 +1116,456 @@ creations: {
 
 },
 
+terms: {
+
+  hero: {
+    label: 'TERMS OF SERVICE',
+
+    title: {
+      first: 'Commission',
+      second: 'terms.'
+    },
+
+    description:
+      'Here you can find the terms that apply to my commissions, usage rights, and important information to know before placing an order.',
+
+    lastUpdate:
+      'Last updated:',
+
+    date:
+      'September 2026'
+  },
+
+
+  important: {
+    label: 'IMPORTANT',
+
+    title:
+      'Before ordering',
+
+    description:
+      'By placing an order with Couaxia, you acknowledge that you have read these terms as well as the specific information provided for the commission you have chosen.'
+  },
+
+
+  introduction: {
+    label: 'TERMS',
+
+    title: {
+      first: 'A few rules to',
+      second: 'work well together.'
+    },
+
+    description:
+      'These terms clearly define how my commissions work and the rights of everyone involved.'
+  },
+
+
+  sections: {
+
+    orders: {
+      title:
+        'Orders & payment',
+
+      paragraphs: {
+        first:
+          'All orders are placed and paid through Ko-fi unless otherwise agreed in advance.',
+
+        second:
+          'For certain commissions, particularly YCH emotes, I ask that you contact me before placing an order so we can confirm together that your request can be completed.',
+
+        third:
+          'Work begins after payment and all information required to complete the order have been received.'
+      }
+    },
+
+
+    delays: {
+      title:
+        'Turnaround time',
+
+      paragraphs: {
+        first:
+          'No specific turnaround time is guaranteed unless agreed in advance. I work at my own pace and will keep you updated on the progress of your order.',
+
+        second:
+          'If you need your order before a specific date, please contact me before ordering so I can confirm whether this is possible.',
+
+        third:
+          'Delays caused by missing information, references, or responses from the client may also postpone delivery.'
+      }
+    },
+
+
+    modifications: {
+      title:
+        'Revisions',
+
+      paragraphs: {
+        first:
+          'Any requested revisions should be communicated as clearly as possible during the creation process.',
+
+        second:
+          'Small corrections needed to match the original request may be made during the creation process.',
+
+        third:
+          'A major revision that changes the original request, concept, or an already approved part of the work may require an additional fee or a new order.'
+      }
+    },
+
+
+    refunds: {
+      title:
+        'Cancellations & refunds',
+
+      paragraphs: {
+        first:
+          'Due to the personalized nature of commissions, cancellation or refund options may depend on the progress of the order and the rules applicable to the transaction.',
+
+        second:
+          'Please contact me as soon as possible if there is a problem with an order.',
+
+        third:
+          'Nothing in these terms is intended to remove any rights you are legally entitled to under applicable law.'
+      }
+    },
+
+
+    ych: {
+      title:
+        'YCH emotes',
+
+      paragraphs: {
+        first:
+          'Some of my emote commissions are created using YCH bases made by other artists.',
+
+        second:
+          'Purchasing the commission covers my work customizing the base according to your character, colors, and request. It does not grant you ownership of the original YCH base.',
+
+        third:
+          'The original bases are never included in the delivered files and may not be resold, shared, or redistributed.'
+      }
+    },
+
+
+    websites: {
+      title:
+        'Custom websites',
+
+      paragraphs: {
+        first:
+          'For a custom website commission, the client must provide the information and assets required for the project, including text, links, images, avatar, logo, colors, references, and any other requested elements.',
+
+        second:
+          'The client must have the necessary rights or permissions to use any images, illustrations, logos, fonts, or other assets they provide to me.',
+
+        third:
+          'The features, animations, effects, and interactive elements created depend on the package and request agreed upon when the order is placed.',
+
+        fourth:
+          'Any major feature or revision that was not included in the original request may require an additional fee.'
+      }
+    },
+
+
+    rights: {
+      title:
+        'Usage rights',
+
+      paragraphs: {
+        first:
+          'Purchasing a commission grants you the usage rights provided for the service ordered, but does not automatically transfer intellectual property ownership of the creation.',
+
+        second:
+          'You may not claim the creation as entirely your own work, nor resell or redistribute the digital commission files as a standalone product.',
+
+        third:
+          'Rights belonging to the creators of any third-party assets used, including YCH bases, also remain applicable.'
+      }
+    },
+
+
+    portfolio: {
+      title:
+        'Portfolio & social media',
+
+      paragraphs: {
+        first:
+          'I may showcase a completed creation in my portfolio, on my website, or on my social media to present my work.',
+
+        second:
+          'I may also share previews or stages of the creation process while working on the commission.',
+
+        third:
+          'If your order must remain private, is intended as a gift, or must not be published before a certain date, please let me know in advance. I will respect your request.'
+      }
+    },
+
+
+    refusal: {
+      title:
+        'Declining an order',
+
+      paragraphs: {
+        first:
+          'I reserve the right to decline a request before accepting it if it does not match my skills, the services I offer, or the type of work I wish to create.',
+
+        second:
+          'An order should not be considered accepted simply because an initial discussion has taken place.'
+      }
+    },
+
+
+    client: {
+      title:
+        'Client responsibilities',
+
+      paragraphs: {
+        first:
+          'The client is responsible for the accuracy of the information, references, text, and files they provide for their order.',
+
+        second:
+          'The client should report any errors or requested revisions during the creation stage while they can still be corrected.',
+
+        third:
+          'The client is also responsible for having the necessary permissions for any assets they ask me to use.'
+      }
+    },
+
+
+    delivery: {
+      title:
+        'File delivery',
+
+      paragraphs: {
+        first:
+          'Commissions are digital products. No physical product will be shipped unless this is explicitly stated in the offer.',
+
+        second:
+          'Files are delivered in the formats specified for the commission. For emotes, this may include PNG or GIF files depending on the request.',
+
+        third:
+          'If specific dimensions are required, they must be specified when placing the order.'
+      }
+    },
+
+
+    acceptance: {
+      title:
+        'Acceptance of the terms',
+
+      paragraphs: {
+        first:
+          'By placing an order, you acknowledge that you have read these terms as well as the specific information provided for the commission you have chosen.',
+
+        second:
+          'These terms may be updated to reflect changes to my services. The terms applicable to an order are those communicated at the time the order is placed.'
+      }
+    }
+
+  },
+
+
+  merch: {
+    label:
+      'COMMERCIAL USE',
+
+    title: {
+      first: 'Merchandising',
+      second: 'license.'
+    },
+
+    description:
+      'Would you like to use your emotes on products you intend to sell? An additional license is required.',
+
+    percentage:
+      'of the commission price',
+
+    card: {
+      title:
+        'Use your emotes on merchandise',
+
+      first:
+        'The standard price of an emote commission includes use on your streaming platforms, social media, and community spaces.',
+
+      secondBefore:
+        'If you wish to use the emote on',
+
+      products:
+        'products intended for sale',
+
+      secondMiddle:
+        ', such as stickers, clothing, mugs, keychains, prints, or other merchandise, a Merchandising license corresponding to',
+
+      secondAfter:
+        'of the total commission price is required.',
+
+      third:
+        'This license allows commercial use of the commissioned emote on merchandise. It does not transfer intellectual property ownership and does not allow the resale or redistribution of digital files or YCH bases.'
+    },
+
+    allowed: {
+      label:
+        'WITH THE LICENSE',
+
+      title:
+        'You may',
+
+      stickers:
+        'Sell stickers featuring the emote',
+
+      clothes:
+        'Use it on clothing',
+
+      mugs:
+        'Create mugs or keychains',
+
+      prints:
+        'Create prints and other merchandise'
+    },
+
+    forbidden: {
+      label:
+        'EVEN WITH THE LICENSE',
+
+      title:
+        'You may not',
+
+      digitalFile:
+        'Resell the digital emote file',
+
+      ychBase:
+        'Redistribute the original YCH base',
+
+      claim:
+        'Claim the base as your own creation',
+
+      sources:
+        'Resell or share source files'
+    }
+  },
+
+
+  ych: {
+    label:
+      'YCH BASES',
+
+    title: {
+      first: 'Credits &',
+      second: 'terms.'
+    },
+
+    common: {
+      personal:
+        'Personal use',
+
+      merchandising:
+        'Merchandising',
+
+      modification:
+        'Base modifications',
+
+      credit:
+        'Credit required:'
+    },
+
+    nicopiyo: {
+      description:
+        'The bases used allow commissions as well as personal, commercial, and merchandising use.',
+
+      commercial:
+        'Commercial use / content',
+
+      ai:
+        'AI use is prohibited'
+    },
+
+    takiimikiku: {
+      description:
+        "The bases may be used and modified for commissions and commercial purposes in accordance with their creator's terms.",
+
+      commercial:
+        'Commercial use',
+
+      commissions:
+        'Commissions',
+
+      resale:
+        'Reselling or redistributing the base is prohibited'
+    },
+
+    note:
+      'The terms imposed by the creators of the YCH bases remain applicable in addition to my own commission terms.'
+  },
+
+
+  prices: {
+    label:
+      'SUMMARY',
+
+    title: {
+      first: 'Prices &',
+      second: 'Merch license.'
+    },
+
+    descriptionBefore:
+      'The Merchandising surcharge corresponds to',
+
+    descriptionStrong:
+      '20% of the emote commission price.',
+
+    oneEmote:
+      '1 emote',
+
+    fiveEmotes:
+      '5 emotes',
+
+    table: {
+      commission:
+        'Commission',
+
+      standard:
+        'Standard price',
+
+      license:
+        'Merch license',
+
+      total:
+        'Total with Merch'
+    },
+
+    mobileLicense:
+      'Merch license +20%',
+
+    mobileTotal:
+      'Total',
+
+    note: {
+      title:
+        'What does the Merch license cover?',
+
+      description:
+        'It allows you to use the commissioned emote on products intended for sale. It does not allow you to resell or redistribute the digital files or YCH bases.'
+    }
+  },
+
+
+  cta: {
+    label:
+      'ANY QUESTIONS?',
+
+    title: {
+      first: 'Unsure before',
+      second: 'ordering?'
+    },
+
+    description:
+      'If you have any questions about your project, its intended use, or the rights you need, contact me before placing your order.',
+
+    button:
+      'Contact me'
+  }
+
+},
+
 }
