@@ -15,6 +15,7 @@ const couaxiaImages = import.meta.glob(
   }
 )
 
+
 const myoImages = import.meta.glob(
   '../assets/projects/Myo/*.{png,jpg,jpeg,webp}',
   {
@@ -22,13 +23,17 @@ const myoImages = import.meta.glob(
     import: 'default'
   }
 )
-const couaxia_linksImages = import.meta.glob(
+
+
+const couaxiaLinksImages = import.meta.glob(
   '../assets/projects/couaxia_link/*.{png,jpg,jpeg,webp}',
   {
     eager: true,
     import: 'default'
   }
 )
+
+
 const celanyaImages = import.meta.glob(
   '../assets/projects/Celanya/*.{png,jpg,jpeg,webp}',
   {
@@ -36,6 +41,8 @@ const celanyaImages = import.meta.glob(
     import: 'default'
   }
 )
+
+
 const nymyaImages = import.meta.glob(
   '../assets/projects/Nymya/*.{png,jpg,jpeg,webp}',
   {
@@ -49,27 +56,24 @@ const nymyaImages = import.meta.glob(
    IMAGE HELPER
 ========================= */
 
-/*
-  Permet de récupérer une image par son nom.
-
-  Exemple :
-  findImage(couaxiaImages, 'Home.png')
-*/
-
 const findImage = (images, filename) => {
+
   const path = Object.keys(images).find((path) =>
     path.endsWith(`/${filename}`)
   )
 
-  return path ? images[path] : null
+  return path
+    ? images[path]
+    : null
+
 }
 
 
 /* =========================
-   PROJECTS
+   GET PROJECTS
 ========================= */
 
-const projects = [
+export const getProjects = (t) => [
 
   /* =========================
      COUAXIA
@@ -81,17 +85,50 @@ const projects = [
     title: 'Couaxia',
 
     description:
-      'Mon site personnel dédié à mon univers de VTubing. Il regroupe ma présentation, mon histoire, mes réseaux, mes projets ainsi que les artistes ayant participé à la création de mon univers.',
+      t('projects.data.couaxia.description'),
 
     images: [
-      findImage(couaxiaImages, 'Home.png'),
-      findImage(couaxiaImages, 'About.png'),
-      findImage(couaxiaImages, 'Histoire.png'),
-      findImage(couaxiaImages, 'jeux.png'),
-      findImage(couaxiaImages, 'Sondage.png'),
-      findImage(couaxiaImages, 'Twitch.png'),
-      findImage(couaxiaImages, 'Credits.png'),
-      findImage(couaxiaImages, 'Contact.png')
+
+      findImage(
+        couaxiaImages,
+        'Home.png'
+      ),
+
+      findImage(
+        couaxiaImages,
+        'About.png'
+      ),
+
+      findImage(
+        couaxiaImages,
+        'Histoire.png'
+      ),
+
+      findImage(
+        couaxiaImages,
+        'jeux.png'
+      ),
+
+      findImage(
+        couaxiaImages,
+        'Sondage.png'
+      ),
+
+      findImage(
+        couaxiaImages,
+        'Twitch.png'
+      ),
+
+      findImage(
+        couaxiaImages,
+        'Credits.png'
+      ),
+
+      findImage(
+        couaxiaImages,
+        'Contact.png'
+      )
+
     ].filter(Boolean),
 
     technologies: [
@@ -100,7 +137,8 @@ const projects = [
       'JavaScript'
     ],
 
-    demo: 'https://couaxia-hmbf.onrender.com/',
+    demo:
+      'https://couaxia-hmbf.onrender.com/',
 
     github: ''
   },
@@ -116,15 +154,10 @@ const projects = [
     title: 'Myo Faunette',
 
     description:
-      'Une page de liens personnalisée créée autour de l’univers forestier et magique de Myo. Elle regroupe ses réseaux et ses différentes plateformes dans une interface entièrement personnalisée.',
+      t('projects.data.myo.description'),
 
-    /*
-      Pour l'instant, toutes les images présentes
-      dans le dossier Myo seront automatiquement
-      ajoutées au carrousel.
-    */
-
-    images: Object.values(myoImages),
+    images:
+      Object.values(myoImages),
 
     technologies: [
       'HTML',
@@ -132,7 +165,8 @@ const projects = [
       'JavaScript'
     ],
 
-    demo: 'https://myo-faunette.onrender.com/',
+    demo:
+      'https://myo-faunette.onrender.com/',
 
     github: ''
   },
@@ -148,14 +182,10 @@ const projects = [
     title: 'Couaxia link',
 
     description:
-      'Une page de liens personnalisée créée autour de l’univers de Couaxia. Elle regroupe ses réseaux et ses différentes plateformes dans une interface entièrement personnalisée.',
+      t('projects.data.couaxiaLink.description'),
 
-    /*
-      Nous ajouterons son dossier d'images
-      lorsque tu auras les captures.
-    */
-
-   images: Object.values(couaxia_linksImages),
+    images:
+      Object.values(couaxiaLinksImages),
 
     technologies: [
       'JavaScript',
@@ -163,13 +193,15 @@ const projects = [
       'HTML'
     ],
 
-    demo: 'https://links-couaxia.onrender.com/',
+    demo:
+      'https://links-couaxia.onrender.com/',
 
     github: ''
   },
 
-   /* =========================
-     Celanya
+
+  /* =========================
+     CELANYA
   ========================== */
 
   {
@@ -178,15 +210,10 @@ const projects = [
     title: 'Celanya',
 
     description:
-      'Une page de liens personnalisée créée autour de l’univers de La Dragonne Lunaire Celanya. Elle regroupe ses réseaux et ses différentes plateformes dans une interface entièrement personnalisée.',
+      t('projects.data.celanya.description'),
 
-    /*
-      Pour l'instant, toutes les images présentes
-      dans le dossier Celanya seront automatiquement
-      ajoutées au carrousel.
-    */
-
-    images: Object.values(celanyaImages),
+    images:
+      Object.values(celanyaImages),
 
     technologies: [
       'HTML',
@@ -194,12 +221,15 @@ const projects = [
       'JavaScript'
     ],
 
-    demo: 'https://celanya.onrender.com/',
+    demo:
+      'https://celanya.onrender.com/',
 
     github: ''
   },
-/* =========================
-     Nymya
+
+
+  /* =========================
+     NYMYA
   ========================== */
 
   {
@@ -208,15 +238,10 @@ const projects = [
     title: 'Nymya',
 
     description:
-      'Une page de liens personnalisée créée autour de l’univers de la capitaine Nymya. Elle regroupe ses réseaux et ses différentes plateformes dans une interface entièrement personnalisée.',
+      t('projects.data.nymya.description'),
 
-    /*
-      Pour l'instant, toutes les images présentes
-      dans le dossier Celanya seront automatiquement
-      ajoutées au carrousel.
-    */
-
-    images: Object.values(nymyaImages),
+    images:
+      Object.values(nymyaImages),
 
     technologies: [
       'HTML',
@@ -224,17 +249,17 @@ const projects = [
       'JavaScript'
     ],
 
-    demo: 'https://nymya.onrender.com/',
+    demo:
+      'https://nymya.onrender.com/',
 
     github: ''
-  },
-
+  }
 
 ]
 
 
 /* =========================
-   EXPORT
+   DEFAULT EXPORT
 ========================= */
 
-export default projects
+export default getProjects

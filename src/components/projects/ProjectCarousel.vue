@@ -1,7 +1,27 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+
+import {
+  ref,
+  onMounted,
+  onUnmounted
+} from 'vue'
+
+import { useI18n } from 'vue-i18n'
+
+
+/* =========================
+   I18N
+========================= */
+
+const { t } = useI18n()
+
+
+/* =========================
+   PROPS
+========================= */
 
 const props = defineProps({
+
   images: {
     type: Array,
     default: () => []
@@ -11,9 +31,16 @@ const props = defineProps({
     type: String,
     required: true
   }
+
 })
 
+
+/* =========================
+   STATE
+========================= */
+
 const currentIndex = ref(0)
+
 const lightboxOpen = ref(false)
 
 
@@ -22,14 +49,18 @@ const lightboxOpen = ref(false)
 ========================= */
 
 const nextImage = () => {
+
   if (props.images.length <= 1) return
 
   currentIndex.value =
-    (currentIndex.value + 1) % props.images.length
+    (currentIndex.value + 1) %
+    props.images.length
+
 }
 
 
 const previousImage = () => {
+
   if (props.images.length <= 1) return
 
   currentIndex.value =
@@ -38,11 +69,14 @@ const previousImage = () => {
       1 +
       props.images.length
     ) % props.images.length
+
 }
 
 
 const goToImage = (index) => {
+
   currentIndex.value = index
+
 }
 
 
@@ -51,18 +85,22 @@ const goToImage = (index) => {
 ========================= */
 
 const openLightbox = () => {
+
   if (!props.images.length) return
 
   lightboxOpen.value = true
 
   document.body.style.overflow = 'hidden'
+
 }
 
 
 const closeLightbox = () => {
+
   lightboxOpen.value = false
 
   document.body.style.overflow = ''
+
 }
 
 
@@ -71,32 +109,58 @@ const closeLightbox = () => {
 ========================= */
 
 const handleKeyboard = (event) => {
+
   if (!lightboxOpen.value) return
 
+
   if (event.key === 'Escape') {
+
     closeLightbox()
+
   }
+
 
   if (event.key === 'ArrowRight') {
+
     nextImage()
+
   }
 
+
   if (event.key === 'ArrowLeft') {
+
     previousImage()
+
   }
+
 }
 
 
+/* =========================
+   LIFECYCLE
+========================= */
+
 onMounted(() => {
-  window.addEventListener('keydown', handleKeyboard)
+
+  window.addEventListener(
+    'keydown',
+    handleKeyboard
+  )
+
 })
 
 
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeyboard)
+
+  window.removeEventListener(
+    'keydown',
+    handleKeyboard
+  )
 
   document.body.style.overflow = ''
+
 })
+
 </script>
 
 
@@ -108,7 +172,10 @@ onUnmounted(() => {
 
   <div class="carousel">
 
-    <!-- IMAGE -->
+
+    <!-- =========================
+         IMAGE
+    ========================== -->
 
     <div
       v-if="images.length"
@@ -123,7 +190,15 @@ onUnmounted(() => {
         <img
           :key="currentIndex"
           :src="images[currentIndex]"
-          :alt="`${title} - capture ${currentIndex + 1}`"
+          :alt="
+            t(
+              'projects.carousel.imageAlt',
+              {
+                title,
+                number: currentIndex + 1
+              }
+            )
+          "
           class="carousel-image"
           @click="openLightbox"
         >
@@ -133,43 +208,70 @@ onUnmounted(() => {
     </div>
 
 
-    <!-- PLACEHOLDER -->
+    <!-- =========================
+         PLACEHOLDER
+    ========================== -->
 
     <div
       v-else
       class="carousel-placeholder"
     >
+
       <span>
-        Aucune capture disponible
+        {{ $t('projects.carousel.empty') }}
       </span>
+
     </div>
 
 
-    <!-- CONTROLS -->
+    <!-- =========================
+         CONTROLS
+    ========================== -->
 
     <template v-if="images.length > 1">
+
+
+      <!-- PREVIOUS -->
 
       <button
         class="carousel-arrow carousel-arrow-left"
         type="button"
-        :aria-label="`Capture précédente de ${title}`"
+        :aria-label="
+          t(
+            'projects.carousel.previous',
+            {
+              title
+            }
+          )
+        "
         @click="previousImage"
       >
         ‹
       </button>
 
 
+      <!-- NEXT -->
+
       <button
         class="carousel-arrow carousel-arrow-right"
         type="button"
-        :aria-label="`Capture suivante de ${title}`"
+        :aria-label="
+          t(
+            'projects.carousel.next',
+            {
+              title
+            }
+          )
+        "
         @click="nextImage"
       >
         ›
       </button>
 
 
-      <!-- COMPTEUR -->
+      <!-- =========================
+           COUNTER
+      ========================== -->
 
       <div class="carousel-counter">
 
@@ -184,7 +286,9 @@ onUnmounted(() => {
       </div>
 
 
-      <!-- DOTS -->
+      <!-- =========================
+           DOTS
+      ========================== -->
 
       <div class="carousel-dots">
 
@@ -193,8 +297,17 @@ onUnmounted(() => {
           :key="index"
           type="button"
           class="carousel-dot"
-          :class="{ active: index === currentIndex }"
-          :aria-label="`Afficher la capture ${index + 1}`"
+          :class="{
+            active: index === currentIndex
+          }"
+          :aria-label="
+            t(
+              'projects.carousel.show',
+              {
+                number: index + 1
+              }
+            )
+          "
           @click="goToImage(index)"
         ></button>
 
@@ -218,23 +331,39 @@ onUnmounted(() => {
         class="lightbox"
         role="dialog"
         aria-modal="true"
-        :aria-label="`Aperçu du projet ${title}`"
+        :aria-label="
+          t(
+            'projects.carousel.preview',
+            {
+              title
+            }
+          )
+        "
         @click.self="closeLightbox"
       >
 
-        <!-- FERMER -->
+
+        <!-- =========================
+             CLOSE
+        ========================== -->
 
         <button
           class="lightbox-close"
           type="button"
-          aria-label="Fermer l'aperçu"
+          :aria-label="
+            t(
+              'projects.carousel.close'
+            )
+          "
           @click="closeLightbox"
         >
           ×
         </button>
 
 
-        <!-- TITRE -->
+        <!-- =========================
+             TITLE
+        ========================== -->
 
         <div class="lightbox-title">
 
@@ -243,13 +372,17 @@ onUnmounted(() => {
           </span>
 
           <small>
-            {{ currentIndex + 1 }} / {{ images.length }}
+            {{ currentIndex + 1 }}
+            /
+            {{ images.length }}
           </small>
 
         </div>
 
 
-        <!-- IMAGE -->
+        <!-- =========================
+             IMAGE
+        ========================== -->
 
         <div class="lightbox-image-container">
 
@@ -261,7 +394,15 @@ onUnmounted(() => {
             <img
               :key="currentIndex"
               :src="images[currentIndex]"
-              :alt="`${title} - capture ${currentIndex + 1}`"
+              :alt="
+                t(
+                  'projects.carousel.imageAlt',
+                  {
+                    title,
+                    number: currentIndex + 1
+                  }
+                )
+              "
               class="lightbox-image"
             >
 
@@ -270,24 +411,45 @@ onUnmounted(() => {
         </div>
 
 
-        <!-- FLÈCHES -->
+        <!-- =========================
+             ARROWS
+        ========================== -->
 
         <template v-if="images.length > 1">
+
+
+          <!-- PREVIOUS -->
 
           <button
             class="lightbox-arrow lightbox-arrow-left"
             type="button"
-            :aria-label="`Capture précédente de ${title}`"
+            :aria-label="
+              t(
+                'projects.carousel.previous',
+                {
+                  title
+                }
+              )
+            "
             @click="previousImage"
           >
             ‹
           </button>
 
 
+          <!-- NEXT -->
+
           <button
             class="lightbox-arrow lightbox-arrow-right"
             type="button"
-            :aria-label="`Capture suivante de ${title}`"
+            :aria-label="
+              t(
+                'projects.carousel.next',
+                {
+                  title
+                }
+              )
+            "
             @click="nextImage"
           >
             ›
@@ -296,7 +458,9 @@ onUnmounted(() => {
         </template>
 
 
-        <!-- DOTS -->
+        <!-- =========================
+             DOTS
+        ========================== -->
 
         <div
           v-if="images.length > 1"
@@ -308,8 +472,17 @@ onUnmounted(() => {
             :key="index"
             type="button"
             class="lightbox-dot"
-            :class="{ active: index === currentIndex }"
-            :aria-label="`Afficher la capture ${index + 1}`"
+            :class="{
+              active: index === currentIndex
+            }"
+            :aria-label="
+              t(
+                'projects.carousel.show',
+                {
+                  number: index + 1
+                }
+              )
+            "
             @click="goToImage(index)"
           ></button>
 

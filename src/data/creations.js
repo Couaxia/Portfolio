@@ -16,221 +16,364 @@ const creationImages = import.meta.glob(
 ========================= */
 
 const findImage = (filename) => {
+
   const path = Object.keys(creationImages).find((path) =>
     path.endsWith(`/${filename}`)
   )
 
-  return path ? creationImages[path] : null
+  return path
+    ? creationImages[path]
+    : null
+
 }
 
 
 /* =========================
-   CREATIONS
+   GET CREATIONS
 ========================= */
 
-const creations = [
+export const getCreations = (t) => [
 
-  
+  /* =========================
+     01 - COUAXIA HELLO
+  ========================= */
+
   {
     id: 1,
 
-    title: 'YCH Emote Couaxia Hello',
+    title:
+      'YCH Emote Couaxia Hello',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('couaxia_hi.png'),
+    image:
+      findImage('couaxia_hi.png'),
 
     description:
-      'Un emote Bonjour pour mon stream !'
+      t('creations.data.couaxiaHello.description')
   },
-  
+
+
+  /* =========================
+     02 - BABY
+  ========================= */
+
   {
     id: 2,
 
-    title: 'YCH Les pecks de baby',
+    title:
+      'YCH Les pecks de baby',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('Muscle_peck_baby.png'),
+    image:
+      findImage('Muscle_peck_baby.png'),
 
     description:
-      'Bien battie le bébé oizo !'
+      t('creations.data.babyPecks.description')
   },
-  
+
+
+  /* =========================
+     03 - MYO CAFÉ
+  ========================= */
+
   {
     id: 3,
 
-    title: 'YCH Myo_Faunette café',
+    title:
+      'YCH Myo_Faunette café',
 
-    category: 'Illustration',
+    category:
+      t('creations.categories.illustration'),
 
-    image: findImage('myo_cafe_fond.png'),
+    image:
+      findImage('myo_cafe_fond.png'),
 
     description:
-      'Petite pause détente de la Myo.'
+      t('creations.data.myoCafe.description')
   },
-  
+
+
+  /* =========================
+     04 - MYO NOTE
+  ========================= */
+
   {
     id: 4,
 
-    title: 'YCH Myo Note',
+    title:
+      'YCH Myo Note',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('myo_note.png'),
+    image:
+      findImage('myo_note.png'),
 
     description:
-      'Emote de Myo qui prend des notes'
+      t('creations.data.myoNote.description')
   },
 
-   {
+
+  /* =========================
+     05 - COUAXIA WHAOU
+  ========================= */
+
+  {
     id: 5,
 
-    title: 'YCH Couaxia Whaou',
+    title:
+      'YCH Couaxia Whaou',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('whaou.png'),
+    image:
+      findImage('whaou.png'),
 
     description:
-      'Emote couaxia Wahou'
+      t('creations.data.couaxiaWhaou.description')
   },
+
+
+  /* =========================
+     06 - COUAXIA BANNIÈRE
+  ========================= */
 
   {
     id: 6,
 
-    title: 'YCH Bannière couaxia bouche',
+    title:
+      'YCH Bannière Couaxia bouche',
 
-    category: 'Illustration',
+    category:
+      t('creations.categories.illustration'),
 
-    image: findImage('couaxia_bannière_bouche.png'),
+    image:
+      findImage('couaxia_bannière_bouche.png'),
 
     description:
-      'Une petite bannière de la bouche !'
+      t('creations.data.couaxiaBanner.description')
   },
+
+
+  /* =========================
+     07 - GEKKO
+  ========================= */
 
   {
     id: 7,
 
-    title: 'YCH Emote Gekko',
+    title:
+      'YCH Emote Gekko',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('gekko.png'),
+    image:
+      findImage('gekko.png'),
 
     description:
-      'Plusieur emotes de Gekkko (VALORANT) disponible sur ko-fi'
+      t('creations.data.gekko.description')
   },
+
+
+  /* =========================
+     08 - LOUXI
+  ========================= */
+
   {
     id: 8,
 
-    title: 'YCH Emote Louxi',
+    title:
+      'YCH Emote Louxi',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('louxi.png'),
+    image:
+      findImage('louxi.png'),
 
     description:
-      'Une emote donner pour LouxiFR !'
+      t('creations.data.louxi.description')
   },
+
+
+  /* =========================
+     09 - NYMYA
+  ========================= */
+
   {
     id: 9,
 
-    title: 'YCH Bannière bouche Nymya',
+    title:
+      'YCH Bannière bouche Nymya',
 
-    category: 'Illustration',
+    category:
+      t('creations.categories.illustration'),
 
-    image: findImage('Nymya_Bouche.png'),
+    image:
+      findImage('Nymya_Bouche.png'),
 
     description:
-      'Une emote donner pour LouxiFR !'
+      t('creations.data.nymyaBanner.description')
   },
+
+
+  /* =========================
+     10 - PIKANYA
+  ========================= */
+
   {
     id: 10,
 
-    title: 'Pour un heureux gagnant',
+    title:
+      t('creations.data.pikanya.title'),
 
-    category: 'Illustration',
+    category:
+      t('creations.categories.illustration'),
 
-    image: findImage('pikanya.png'),
+    image:
+      findImage('pikanya.png'),
 
     description:
-      'Un pikachu au couleurs de Pikanya, mais avec un petit plus 𐂠 !'
+      t('creations.data.pikanya.description')
   },
+
+
+  /* =========================
+     11 - CELANYA UWU
+  ========================= */
+
   {
     id: 11,
 
-    title: 'YCH Emote Celanya UwU',
+    title:
+      'YCH Emote Celanya UwU',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('UwU_celanya.png'),
+    image:
+      findImage('UwU_celanya.png'),
 
     description:
-      'Un cadeau pour celanya UwU'
+      t('creations.data.celanyaUwu.description')
   },
 
-   {
+
+  /* =========================
+     12 - PEACHY
+  ========================= */
+
+  {
     id: 12,
 
-    title: 'YCH Emote Peachy',
+    title:
+      'YCH Emote Peachy',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('Kawaii_peachy.png'),
+    image:
+      findImage('Kawaii_peachy.png'),
 
     description:
-      'Un cadeau pour Peachy'
+      t('creations.data.peachy.description')
   },
+
+
+  /* =========================
+     13 - COUAXIA WHAT
+  ========================= */
+
   {
     id: 13,
 
-    title: 'YCH Emote Couaxia',
+    title:
+      'YCH Emote Couaxia',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('couaxia_What.png'),
+    image:
+      findImage('couaxia_What.png'),
 
     description:
-      'Un super emotes avec uen petites référence'
+      t('creations.data.couaxiaWhat.description')
   },
+
+
+  /* =========================
+     14 - SAGE
+  ========================= */
+
   {
     id: 14,
 
-    title: 'YCH Emote Sage',
+    title:
+      'YCH Emote Sage',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('Sage_slime.png'),
+    image:
+      findImage('Sage_slime.png'),
 
     description:
-      'Petit emote de Sage (Valorant)'
+      t('creations.data.sage.description')
   },
+
+
+  /* =========================
+     15 - COUAXIA POP
+  ========================= */
 
   {
     id: 15,
 
-    title: 'YCH Emote Couaxia',
+    title:
+      'YCH Emote Couaxia',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('Opop.gif'),
+    image:
+      findImage('Opop.gif'),
 
     description:
-      'Première emote animé POP'
+      t('creations.data.couaxiaPop.description')
   },
+
+
+  /* =========================
+     16 - CELANYA FIRE
+  ========================= */
+
   {
     id: 16,
 
-    title: 'YCH Emote Celanya',
+    title:
+      'YCH Emote Celanya',
 
-    category: 'Emotes',
+    category:
+      t('creations.categories.emotes'),
 
-    image: findImage('Celanya_Fire.gif'),
+    image:
+      findImage('Celanya_Fire.gif'),
 
     description:
-      'Emote animé pour Celanya'
-  },
+      t('creations.data.celanyaFire.description')
+  }
+
 ]
 
-export default creations
+
+/* =========================
+   DEFAULT EXPORT
+========================= */
+
+export default getCreations

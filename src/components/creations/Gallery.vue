@@ -1,14 +1,37 @@
 <script setup>
+
+import { useI18n } from 'vue-i18n'
+
+
+/* =========================
+   I18N
+========================= */
+
+const { t } = useI18n()
+
+
+/* =========================
+   PROPS
+========================= */
+
 defineProps({
+
   creations: {
     type: Array,
     required: true
   }
+
 })
+
+
+/* =========================
+   EMITS
+========================= */
 
 defineEmits([
   'select'
 ])
+
 </script>
 
 
@@ -28,7 +51,7 @@ defineEmits([
     </span>
 
     <p>
-      Les créations arrivent bientôt...
+      {{ $t('creations.gallery.empty') }}
     </p>
 
   </div>
@@ -49,13 +72,23 @@ defineEmits([
       class="creation-card"
       tabindex="0"
       role="button"
-      :aria-label="`Ouvrir ${creation.title}`"
+      :aria-label="
+        t(
+          'creations.gallery.open',
+          {
+            title: creation.title
+          }
+        )
+      "
       @click="$emit('select', creation)"
       @keydown.enter="$emit('select', creation)"
       @keydown.space.prevent="$emit('select', creation)"
     >
 
-      <!-- IMAGE -->
+
+      <!-- =========================
+           IMAGE
+      ========================== -->
 
       <div class="creation-image">
 
@@ -66,13 +99,20 @@ defineEmits([
         >
 
 
-        <!-- OVERLAY -->
+        <!-- =========================
+             OVERLAY
+        ========================== -->
 
         <div class="creation-overlay">
 
           <span class="creation-view">
-            Voir
-            <span>↗</span>
+
+            {{ $t('creations.gallery.view') }}
+
+            <span>
+              ↗
+            </span>
+
           </span>
 
         </div>
@@ -80,7 +120,9 @@ defineEmits([
       </div>
 
 
-      <!-- INFORMATIONS -->
+      <!-- =========================
+           INFORMATIONS
+      ========================== -->
 
       <div class="creation-info">
 

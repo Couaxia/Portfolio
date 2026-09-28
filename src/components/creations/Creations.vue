@@ -1,42 +1,84 @@
 <script setup>
-import { computed, ref } from 'vue'
 
-import creations from '../../data/creations.js'
+import {
+  computed,
+  ref
+} from 'vue'
+
+import { useI18n } from 'vue-i18n'
+
+import { getCreations } from '../../data/creations.js'
 
 import Gallery from './Gallery.vue'
 import LightBox from './LightBox.vue'
 
 
 /* =========================
+   I18N
+========================= */
+
+const { t } = useI18n()
+
+
+/* =========================
+   CREATIONS
+========================= */
+
+const creations = computed(() =>
+  getCreations(t)
+)
+
+
+/* =========================
    FILTERS
 ========================= */
 
-const activeCategory = ref('Tout')
+const activeCategory = ref('all')
 
 
 const categories = computed(() => {
 
-  const creationCategories = creations
+  const creationCategories = creations.value
     .map((creation) => creation.category)
     .filter(Boolean)
 
   return [
-    'Tout',
+    {
+      value: 'all',
+      label: t('creations.categories.all')
+    },
+
     ...new Set(creationCategories)
-  ]
+  ].map((category) => {
+
+    if (
+      typeof category === 'object'
+    ) {
+      return category
+    }
+
+    return {
+      value: category,
+      label: category
+    }
+
+  })
 
 })
 
 
 const filteredCreations = computed(() => {
 
-  if (activeCategory.value === 'Tout') {
-    return creations
+  if (
+    activeCategory.value === 'all'
+  ) {
+    return creations.value
   }
 
-  return creations.filter(
+  return creations.value.filter(
     (creation) =>
-      creation.category === activeCategory.value
+      creation.category ===
+      activeCategory.value
   )
 
 })
@@ -50,19 +92,27 @@ const selectedCreation = ref(null)
 
 
 const openCreation = (creation) => {
-  selectedCreation.value = creation
+
+  selectedCreation.value =
+    creation
+
 }
 
 
 const closeCreation = () => {
-  selectedCreation.value = null
+
+  selectedCreation.value =
+    null
+
 }
+
 </script>
 
 
 <template>
 
   <section class="creations">
+
 
     <!-- =========================
          BACKGROUND
@@ -73,6 +123,7 @@ const closeCreation = () => {
 
     <div class="creations-container container">
 
+
       <!-- =========================
            HEADER
       ========================== -->
@@ -80,20 +131,23 @@ const closeCreation = () => {
       <header class="creations-header">
 
         <p class="section-label">
-          Galerie
+          {{ $t('creations.label') }}
         </p>
 
 
         <h1>
-          Mes
-          <span>créations.</span>
+
+          {{ $t('creations.title.first') }}
+
+          <span>
+            {{ $t('creations.title.second') }}
+          </span>
+
         </h1>
 
 
         <p class="creations-introduction">
-          Un espace dédié à mon univers artistique :
-          illustrations, emotes, designs et autres créations
-          réalisées au fil de mes projets.
+          {{ $t('creations.introduction') }}
         </p>
 
       </header>
@@ -106,20 +160,27 @@ const closeCreation = () => {
       <nav
         v-if="categories.length > 1"
         class="creation-filters"
-        aria-label="Filtrer les créations"
+        :aria-label="$t('creations.filters.ariaLabel')"
       >
 
         <button
           v-for="category in categories"
-          :key="category"
+          :key="category.value"
           type="button"
           class="filter-button"
           :class="{
-            active: activeCategory === category
+            active:
+              activeCategory ===
+              category.value
           }"
-          @click="activeCategory = category"
+          @click="
+            activeCategory =
+              category.value
+          "
         >
-          {{ category }}
+
+          {{ category.label }}
+
         </button>
 
       </nav>

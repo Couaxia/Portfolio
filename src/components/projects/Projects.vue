@@ -1,14 +1,39 @@
 <script setup>
-import projects from '../../data/projects.js'
+
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+import { getProjects } from '../../data/projects.js'
 import ProjectCard from './ProjectCard.vue'
+
+
+/* =========================
+   I18N
+========================= */
+
+const { t } = useI18n()
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+const projects = computed(() =>
+  getProjects(t)
+)
+
 </script>
 
+
 <template>
+
   <section
     id="projects"
     class="projects"
   >
+
     <div class="projects-container container">
+
 
       <!-- =========================
            HEADER
@@ -17,20 +42,27 @@ import ProjectCard from './ProjectCard.vue'
       <header class="projects-header">
 
         <p class="section-label">
-          Portfolio
+          {{ $t('projects.label') }}
         </p>
 
+
         <h1>
-          Mes projets
-          <span>web.</span>
+
+          {{ $t('projects.title.first') }}
+
+          <span>
+            {{ $t('projects.title.second') }}
+          </span>
+
         </h1>
 
+
         <p class="projects-introduction">
-          Quelques projets que j'ai imaginés et développés,
-          de la conception de l'interface jusqu'à leur mise en ligne.
+          {{ $t('projects.introduction') }}
         </p>
 
       </header>
+
 
       <!-- =========================
            PROJECTS
@@ -48,8 +80,11 @@ import ProjectCard from './ProjectCard.vue'
       </div>
 
     </div>
+
   </section>
+
 </template>
+
 
 <style scoped>
 

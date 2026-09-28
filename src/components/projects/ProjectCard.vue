@@ -1,7 +1,10 @@
 <script setup>
+
 import ProjectCarousel from './ProjectCarousel.vue'
 
+
 defineProps({
+
   project: {
     type: Object,
     required: true
@@ -11,14 +14,19 @@ defineProps({
     type: Number,
     required: true
   }
+
 })
+
 </script>
 
+
 <template>
+
   <article
     class="project-card"
     :class="{ reverse: index % 2 !== 0 }"
   >
+
 
     <!-- =========================
          VISUAL / CAROUSEL
@@ -40,24 +48,31 @@ defineProps({
 
     <div class="project-content">
 
+
       <!-- Numéro -->
 
       <span class="project-number">
+
         {{ String(index + 1).padStart(2, '0') }}
+
       </span>
 
 
       <!-- Titre -->
 
       <h2 class="project-title">
+
         {{ project.title }}
+
       </h2>
 
 
       <!-- Description -->
 
       <p class="project-description">
+
         {{ project.description }}
+
       </p>
 
 
@@ -74,7 +89,9 @@ defineProps({
           v-for="technology in project.technologies"
           :key="technology"
         >
+
           {{ technology }}
+
         </li>
 
       </ul>
@@ -89,6 +106,7 @@ defineProps({
         class="project-links"
       >
 
+
         <!-- Site -->
 
         <a
@@ -98,9 +116,13 @@ defineProps({
           rel="noopener noreferrer"
           class="project-link"
         >
+
           <span class="project-link-text">
-            Voir le site
+
+            {{ $t('projects.card.viewWebsite') }}
+
           </span>
+
 
           <span
             class="project-link-arrow"
@@ -108,6 +130,7 @@ defineProps({
           >
             ↗
           </span>
+
         </a>
 
 
@@ -120,9 +143,11 @@ defineProps({
           rel="noopener noreferrer"
           class="project-link"
         >
+
           <span class="project-link-text">
             GitHub
           </span>
+
 
           <span
             class="project-link-arrow"
@@ -130,6 +155,7 @@ defineProps({
           >
             ↗
           </span>
+
         </a>
 
       </div>
@@ -137,7 +163,9 @@ defineProps({
     </div>
 
   </article>
+
 </template>
+
 
 <style scoped>
 

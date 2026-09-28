@@ -1,17 +1,37 @@
 <script setup>
+
 import {
   onMounted,
   onUnmounted
 } from 'vue'
 
+import { useI18n } from 'vue-i18n'
+
+
+/* =========================
+   I18N
+========================= */
+
+const { t } = useI18n()
+
+
+/* =========================
+   PROPS
+========================= */
 
 defineProps({
+
   creation: {
     type: Object,
     required: true
   }
+
 })
 
+
+/* =========================
+   EMITS
+========================= */
 
 const emit = defineEmits([
   'close'
@@ -24,16 +44,23 @@ const emit = defineEmits([
 
 const handleKeyboard = (event) => {
 
-  if (event.key === 'Escape') {
+  if (
+    event.key === 'Escape'
+  ) {
     emit('close')
   }
 
 }
 
 
+/* =========================
+   LIFECYCLE
+========================= */
+
 onMounted(() => {
 
-  document.body.style.overflow = 'hidden'
+  document.body.style.overflow =
+    'hidden'
 
   window.addEventListener(
     'keydown',
@@ -45,7 +72,8 @@ onMounted(() => {
 
 onUnmounted(() => {
 
-  document.body.style.overflow = ''
+  document.body.style.overflow =
+    ''
 
   window.removeEventListener(
     'keydown',
@@ -53,6 +81,7 @@ onUnmounted(() => {
   )
 
 })
+
 </script>
 
 
@@ -69,9 +98,17 @@ onUnmounted(() => {
         class="lightbox"
         role="dialog"
         aria-modal="true"
-        :aria-label="creation.title"
+        :aria-label="
+          t(
+            'creations.lightbox.preview',
+            {
+              title: creation.title
+            }
+          )
+        "
         @click.self="$emit('close')"
       >
+
 
         <!-- =========================
              CLOSE
@@ -80,7 +117,9 @@ onUnmounted(() => {
         <button
           type="button"
           class="lightbox-close"
-          aria-label="Fermer"
+          :aria-label="
+            $t('creations.lightbox.close')
+          "
           @click="$emit('close')"
         >
           ×
@@ -92,6 +131,7 @@ onUnmounted(() => {
         ========================== -->
 
         <div class="lightbox-content">
+
 
           <!-- IMAGE -->
 

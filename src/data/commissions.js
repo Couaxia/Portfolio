@@ -34,17 +34,20 @@ const projectModules = import.meta.glob(
 const getProjectImages = () => {
 
   return Object.entries(projectModules)
-    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+    .sort(
+      ([pathA], [pathB]) =>
+        pathA.localeCompare(pathB)
+    )
     .map(([, image]) => image)
 
 }
 
 
 /* =========================
-   COMMISSIONS
+   GET COMMISSIONS
 ========================= */
 
-const commissions = [
+export const getCommissions = (t) => [
 
   /* =========================================================
      01 — YCH EMOTE
@@ -56,30 +59,60 @@ const commissions = [
 
     title: '[YCH] Emote',
 
-    category: 'Emote',
+    category:
+      t('commissions.data.common.emote'),
 
-    credit: 'Base by takiimikiku',
+    credit:
+      'Base by takiimikiku',
 
     description:
-      'Choisissez jusqu’à 5 emotes parmi les bases proposées et je les personnalise selon votre personnage et vos couleurs.',
+      t(
+        'commissions.data.takiimikiku.description'
+      ),
 
     price: '2 €',
 
-    priceLabel: 'À partir de',
+    priceLabel:
+      t('commissions.card.startingFrom'),
 
     images: [
       takiimikikuBase
     ],
 
     features: [
-      '1 emote : 2 €',
-      '5 emotes : 8 €',
-      'Jusqu’à 5 emotes',
-      'Format PNG ou GIF',
-      'Couleurs personnalisables',
-      'Fond personnalisable',
-      'Dimensions personnalisables',
-      'Fichier numérique'
+
+      t(
+        'commissions.data.takiimikiku.features.oneEmote'
+      ),
+
+      t(
+        'commissions.data.takiimikiku.features.fiveEmotes'
+      ),
+
+      t(
+        'commissions.data.common.features.upToFive'
+      ),
+
+      t(
+        'commissions.data.common.features.pngGif'
+      ),
+
+      t(
+        'commissions.data.common.features.customColors'
+      ),
+
+      t(
+        'commissions.data.common.features.customBackground'
+      ),
+
+      t(
+        'commissions.data.common.features.customSizes'
+      ),
+
+      t(
+        'commissions.data.common.features.digitalFile'
+      )
+
     ],
 
     details: {
@@ -107,24 +140,40 @@ const commissions = [
 
     buyerInstructions: [
 
-      'Me fournir une référence de votre modèle.',
+      t(
+        'commissions.data.common.instructions.modelReference'
+      ),
 
-      'Préciser les emotes choisies parmi les bases disponibles.',
+      t(
+        'commissions.data.common.instructions.selectedEmotes'
+      ),
 
-      'Indiquer les couleurs ou éléments à modifier.',
+      t(
+        'commissions.data.takiimikiku.instructions.modifications'
+      ),
 
-      'Préciser si vous souhaitez un fond particulier.',
+      t(
+        'commissions.data.common.instructions.background'
+      ),
 
-      'Indiquer les dimensions souhaitées si nécessaire.',
+      t(
+        'commissions.data.common.instructions.sizes'
+      ),
 
-      'Préciser le moyen de contact souhaité : Discord, X / Twitter ou Ko-fi.',
+      t(
+        'commissions.data.common.instructions.contact'
+      ),
 
-      'Fournir une adresse e-mail pour l’envoi final.'
+      t(
+        'commissions.data.common.instructions.email'
+      )
 
     ],
 
     notice:
-      'Contactez-moi avant de passer commande afin que nous puissions vérifier ensemble votre demande.',
+      t(
+        'commissions.data.common.contactNotice'
+      ),
 
     link:
       'https://ko-fi.com/c/a2eebb60a2'
@@ -142,16 +191,21 @@ const commissions = [
 
     title: '[YCH] Emote Custom',
 
-    category: 'Emote',
+    category:
+      t('commissions.data.common.emote'),
 
-    credit: 'Base by Nicopiyo',
+    credit:
+      'Base by Nicopiyo',
 
     description:
-      'Choisissez jusqu’à 5 emotes parmi les bases proposées et je les personnalise selon votre personnage, vos couleurs et vos préférences.',
+      t(
+        'commissions.data.nicopiyo.description'
+      ),
 
     price: '3 €',
 
-    priceLabel: 'À partir de',
+    priceLabel:
+      t('commissions.card.startingFrom'),
 
     images: [
       nicopiyoBase1,
@@ -159,14 +213,39 @@ const commissions = [
     ],
 
     features: [
-      '1 emote : 3 €',
-      '5 emotes : 12 €',
-      'Jusqu’à 5 emotes',
-      'Format PNG ou GIF',
-      'Couleurs personnalisables',
-      'Fond personnalisable',
-      'Dimensions personnalisables',
-      'Fichier numérique'
+
+      t(
+        'commissions.data.nicopiyo.features.oneEmote'
+      ),
+
+      t(
+        'commissions.data.nicopiyo.features.fiveEmotes'
+      ),
+
+      t(
+        'commissions.data.common.features.upToFive'
+      ),
+
+      t(
+        'commissions.data.common.features.pngGif'
+      ),
+
+      t(
+        'commissions.data.common.features.customColors'
+      ),
+
+      t(
+        'commissions.data.common.features.customBackground'
+      ),
+
+      t(
+        'commissions.data.common.features.customSizes'
+      ),
+
+      t(
+        'commissions.data.common.features.digitalFile'
+      )
+
     ],
 
     details: {
@@ -194,26 +273,44 @@ const commissions = [
 
     buyerInstructions: [
 
-      'Me fournir une référence de votre modèle.',
+      t(
+        'commissions.data.common.instructions.modelReference'
+      ),
 
-      'Préciser les emotes choisies parmi les bases disponibles.',
+      t(
+        'commissions.data.common.instructions.selectedEmotes'
+      ),
 
-      'Indiquer toutes les modifications souhaitées.',
+      t(
+        'commissions.data.nicopiyo.instructions.modifications'
+      ),
 
-      'Préciser les couleurs à modifier si nécessaire.',
+      t(
+        'commissions.data.nicopiyo.instructions.colors'
+      ),
 
-      'Préciser si vous souhaitez un fond particulier.',
+      t(
+        'commissions.data.common.instructions.background'
+      ),
 
-      'Indiquer les dimensions souhaitées si nécessaire.',
+      t(
+        'commissions.data.common.instructions.sizes'
+      ),
 
-      'Préciser le moyen de contact souhaité : Discord, X / Twitter ou Ko-fi.',
+      t(
+        'commissions.data.common.instructions.contact'
+      ),
 
-      'Fournir une adresse e-mail pour l’envoi final.'
+      t(
+        'commissions.data.common.instructions.email'
+      )
 
     ],
 
     notice:
-      'Contactez-moi avant de passer commande afin que nous puissions vérifier ensemble votre demande.',
+      t(
+        'commissions.data.common.contactNotice'
+      ),
 
     link:
       'https://ko-fi.com/c/1514c7a5ed'
@@ -228,30 +325,66 @@ const commissions = [
   {
     id: 3,
 
-    title: 'Custom Link Website',
+    title:
+      'Custom Link Website',
 
-    category: 'Développement Web',
+    category:
+      t(
+        'commissions.data.website.category'
+      ),
 
-    credit: 'Création par Couaxia',
+    credit:
+      t(
+        'commissions.data.website.credit'
+      ),
 
     description:
-      'Un site de liens personnalisé conçu autour de votre univers, de votre identité visuelle et de votre contenu. Une alternative plus personnelle à Linktree pour les VTubers, streamers, artistes et créateurs.',
+      t(
+        'commissions.data.website.description'
+      ),
 
     price: '8 €',
 
-    priceLabel: 'À partir de',
+    priceLabel:
+      t('commissions.card.startingFrom'),
 
-    images: getProjectImages(),
+    images:
+      getProjectImages(),
 
     features: [
-      'Site de liens personnalisé',
-      'Design adapté à votre univers',
-      'Responsive Mobile & Desktop',
-      'Réseaux sociaux et communautés',
-      'Avatar, logo et visuels',
-      'Couleurs personnalisées',
-      'Animations et effets',
-      'Éléments interactifs'
+
+      t(
+        'commissions.data.website.features.customWebsite'
+      ),
+
+      t(
+        'commissions.data.website.features.customDesign'
+      ),
+
+      t(
+        'commissions.data.website.features.responsive'
+      ),
+
+      t(
+        'commissions.data.website.features.socials'
+      ),
+
+      t(
+        'commissions.data.website.features.visuals'
+      ),
+
+      t(
+        'commissions.data.website.features.colors'
+      ),
+
+      t(
+        'commissions.data.website.features.animations'
+      ),
+
+      t(
+        'commissions.data.website.features.interactions'
+      )
+
     ],
 
     details: {
@@ -270,30 +403,52 @@ const commissions = [
 
     buyerInstructions: [
 
-      'Nom du créateur ou du VTuber.',
+      t(
+        'commissions.data.website.instructions.name'
+      ),
 
-      'Tous les liens à intégrer : Twitch, YouTube, TikTok, Instagram, Discord, Ko-fi, boutique, commissions, etc.',
+      t(
+        'commissions.data.website.instructions.links'
+      ),
 
-      'Avatar ou photo de profil.',
+      t(
+        'commissions.data.website.instructions.avatar'
+      ),
 
-      'Logo si vous en possédez un.',
+      t(
+        'commissions.data.website.instructions.logo'
+      ),
 
-      'Visuels à utiliser : personnage, mascotte, décorations, arrière-plan, etc.',
+      t(
+        'commissions.data.website.instructions.visuals'
+      ),
 
-      'Palette de couleurs ou couleurs préférées.',
+      t(
+        'commissions.data.website.instructions.colors'
+      ),
 
-      'Description de votre thème et de votre univers.',
+      t(
+        'commissions.data.website.instructions.universe'
+      ),
 
-      'Sites ou designs servant de références ou d’inspiration.',
+      t(
+        'commissions.data.website.instructions.references'
+      ),
 
-      'Ordre et nom des différents boutons.',
+      t(
+        'commissions.data.website.instructions.buttons'
+      ),
 
-      'Animations, effets ou interactions souhaités.'
+      t(
+        'commissions.data.website.instructions.animations'
+      )
 
     ],
 
     notice:
-      'Les illustrations et ressources fournies doivent vous appartenir ou vous devez disposer de l’autorisation nécessaire pour les utiliser.',
+      t(
+        'commissions.data.website.notice'
+      ),
 
     link:
       'https://ko-fi.com/c/91ae88e805'
@@ -304,7 +459,7 @@ const commissions = [
 
 
 /* =========================
-   EXPORT
+   DEFAULT EXPORT
 ========================= */
 
-export default commissions
+export default getCommissions

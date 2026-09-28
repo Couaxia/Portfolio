@@ -106,664 +106,1011 @@ export default {
 
   },
 
+
+  /* =========================
+     FOOTER
+  ========================= */
+
   footer: {
 
-  brand: {
-    label: 'Web Developer & Creator',
+    brand: {
+      label: 'Web Developer & Creator',
 
-    description:
-      'Between web development and artistic creation, I bring my ideas and my universe to life.'
-  },
-
-  navigation: {
-    title: 'Navigation'
-  },
-
-  socials: {
-    title: 'Find me'
-  },
-
-  contact: {
-    title: 'Have a project?',
-
-    description:
-      'Have an idea, a collaboration in mind, or simply want to chat?'
-  },
-
-  bottom: {
-    made: 'Designed & developed with',
-    by: 'by Couaxia',
-    backTop: 'Back to top',
-    backTopAria: 'Back to the top of the page'
-  }
-
-},
-
-/* =========================
-   ABOUT
-========================= */
-
-about: {
-
-  label: 'About',
-
-  title: "Hello, I'm",
-
-  imageAlt: 'Illustration of Couaxia',
-
-  paragraphs: {
-
-    first:
-      'Passionate about creativity, I love bringing my ideas to life through both web development and drawing.',
-
-    second:
-      'I create websites, interfaces and various digital projects while developing my own artistic universe.',
-
-    third:
-      'This portfolio brings together these two sides of my work:',
-
-    highlight:
-      'my web projects and my creations.'
-
-  }
-
-},
-
-/* =========================
-   CONTACT
-========================= */
-
-contact: {
-
-  label: 'Contact',
-
-  title: {
-    first: 'An idea,',
-    second: 'a project?'
-  },
-
-  description: {
-    first:
-      'Have a question, a collaboration in mind, or simply want to discuss a project?',
-
-    second:
-      'Feel free to contact me.'
-  },
-
-  email: {
-    label: 'Email',
-
-    description:
-      'For a collaboration, a project or a professional inquiry.'
-  },
-
-  discord: {
-    link: 'Contact me on Discord',
-
-    description:
-      'To chat with me more casually or join my community.'
-  },
-
-  socials: {
-    title: 'Find me elsewhere'
-  },
-
-  form: {
-
-    available: 'Available',
-
-    name: {
-      label: 'Your name / username',
-      placeholder: 'What should I call you?'
+      description:
+        'Between web development and artistic creation, I bring my ideas and my universe to life.'
     },
 
-    email: {
-      label: 'Your email'
+    navigation: {
+      title: 'Navigation'
     },
 
-    subject: {
-      label: 'Subject',
-      placeholder: 'Tell me about your project...'
+    socials: {
+      title: 'Find me'
     },
 
-    message: {
-      label: 'Your message',
-      placeholder: 'Write your message here...'
+    contact: {
+      title: 'Have a project?',
+
+      description:
+        'Have an idea, a collaboration in mind, or simply want to chat?'
     },
 
-    submit: {
-      send: 'Send my message',
-      sending: 'Sending...'
-    },
+    bottom: {
+      made: 'Designed & developed with',
+      by: 'by Couaxia',
+      backTop: 'Back to top',
+      backTopAria: 'Back to the top of the page'
+    }
 
-    messages: {
+  },
 
-      success:
-        'Your message has been sent! I will get back to you as soon as possible. ✨',
 
-      error:
-        'An error occurred while sending your message. You can also contact me directly by email.'
+  /* =========================
+     ABOUT
+  ========================= */
+
+  about: {
+
+    label: 'About',
+
+    title: "Hello, I'm",
+
+    imageAlt: 'Illustration of Couaxia',
+
+    paragraphs: {
+
+      first:
+        'Passionate about creativity, I love bringing my ideas to life through both web development and drawing.',
+
+      second:
+        'I create websites, interfaces and various digital projects while developing my own artistic universe.',
+
+      third:
+        'This portfolio brings together these two sides of my work:',
+
+      highlight:
+        'my web projects and my creations.'
 
     }
 
-  }
-
-},
-
-commissions: {
-
-  /* =========================
-     HERO
-  ========================== */
-
-  hero: {
-    label: 'Commissions',
-
-    title: {
-      first: "Let's bring",
-      second: 'your ideas to life.'
-    },
-
-    description:
-      'Custom emotes, creations for your universe, or a personalized link website: discover the commissions currently available.',
-
-    status:
-      'Commissions open',
-
-    kofi:
-      'View all my commissions on Ko-fi'
   },
 
 
   /* =========================
-     SERVICES
-  ========================== */
+     CONTACT
+  ========================= */
 
-  services: {
-    label:
-      'My services',
+  contact: {
+
+    label: 'Contact',
 
     title: {
-      first: 'Choose your',
-      second: 'commission.'
+      first: 'An idea,',
+      second: 'a project?'
     },
 
     description: {
-      before:
-        'Discover the available services. Some commissions require you to contact me before',
+      first:
+        'Have a question, a collaboration in mind, or simply want to discuss a project?',
 
-      order:
-        'placing an order',
-
-      after:
-        'so we can review your project together.'
-    }
-  },
-
-
-  /* =========================
-     EMPTY
-  ========================== */
-
-  empty: {
-    title:
-      'No commissions available',
-
-    description:
-      'New commissions will be added soon.'
-  },
-
-
-  /* =========================
-     PROCESS
-  ========================== */
-
-  process: {
-    label:
-      'How it works',
-
-    title: {
-      first: 'Your project,',
-      second: 'step by step.'
+      second:
+        'Feel free to contact me.'
     },
 
-    steps: {
+    email: {
+      label: 'Email',
 
-      choose: {
-        title:
-          'Choose',
+      description:
+        'For a collaboration, a project or a professional inquiry.'
+    },
 
-        description:
-          'Explore the available commissions and choose the one that best suits your project.'
+    discord: {
+      link: 'Contact me on Discord',
+
+      description:
+        'To chat with me more casually or join my community.'
+    },
+
+    socials: {
+      title: 'Find me elsewhere'
+    },
+
+    form: {
+
+      available: 'Available',
+
+      name: {
+        label: 'Your name / username',
+        placeholder: 'What should I call you?'
       },
 
-      contact: {
-        title:
-          'Contact me',
-
-        description:
-          'For commissions that require it, contact me before ordering so we can review your project together.'
+      email: {
+        label: 'Your email'
       },
 
-      order: {
-        title:
-          'Order',
-
-        description:
-          'Then place your order directly through Ko-fi and send me the information I need.'
+      subject: {
+        label: 'Subject',
+        placeholder: 'Tell me about your project...'
       },
 
-      creation: {
-        title:
-          'Creation',
+      message: {
+        label: 'Your message',
+        placeholder: 'Write your message here...'
+      },
 
-        description:
-          'I start working on your creation and keep you updated on its progress until the final delivery.'
+      submit: {
+        send: 'Send my message',
+        sending: 'Sending...'
+      },
+
+      messages: {
+
+        success:
+          'Your message has been sent! I will get back to you as soon as possible. ✨',
+
+        error:
+          'An error occurred while sending your message. You can also contact me directly by email.'
+
       }
 
     }
+
   },
 
 
   /* =========================
-     INFORMATION
-  ========================== */
+     COMMISSIONS
+  ========================= */
 
-  information: {
-    label:
-      'Good to know',
-
-    title: {
-      first: 'Before you',
-      second: 'order.'
-    },
+  commissions: {
 
 
-    details: {
-      title:
-        'Describe your project',
+    /* =========================
+       HERO
+    ========================= */
 
-      description:
-        'The more details you provide about your idea, colors, universe and expectations, the better I can create something that fits you.'
-    },
+    hero: {
 
+      label:
+        'Commissions',
 
-    references: {
-      title:
-        'Prepare your references',
+      title: {
+        first: "Let's bring",
+        second: 'your ideas to life.'
+      },
 
       description:
-        'You can provide images, colors, expressions, poses or any other references that may be useful for your order.'
+        'Custom emotes, creations for your universe, or a personalized link website: discover the commissions currently available.',
+
+      status:
+        'Commissions open',
+
+      kofi:
+        'View all my commissions on Ko-fi'
+
     },
 
 
-    contact: {
+    /* =========================
+       SERVICES
+    ========================= */
+
+    services: {
+
+      label:
+        'My services',
+
+      title: {
+        first: 'Choose your',
+        second: 'commission.'
+      },
+
+      description: {
+
+        before:
+          'Discover the available services. Some commissions require you to contact me before',
+
+        order:
+          'placing an order',
+
+        after:
+          'so we can review your project together.'
+
+      }
+
+    },
+
+
+    /* =========================
+       EMPTY
+    ========================= */
+
+    empty: {
+
       title:
-        'Contact before ordering',
+        'No commissions available',
 
       description:
-        'Some commissions require you to contact me before placing an order. This will be clearly stated on the relevant commission.'
+        'New commissions will be added soon.'
+
     },
 
 
-    merchandising: {
-      title:
-        'Merchandising use',
+    /* =========================
+       PROCESS
+    ========================= */
+
+    process: {
+
+      label:
+        'How it works',
+
+      title: {
+        first: 'Your project,',
+        second: 'step by step.'
+      },
+
+      steps: {
+
+        choose: {
+
+          title:
+            'Choose',
+
+          description:
+            'Explore the available commissions and choose the one that best suits your project.'
+
+        },
+
+        contact: {
+
+          title:
+            'Contact me',
+
+          description:
+            'For commissions that require it, contact me before ordering so we can review your project together.'
+
+        },
+
+        order: {
+
+          title:
+            'Order',
+
+          description:
+            'Then place your order directly through Ko-fi and send me the information I need.'
+
+        },
+
+        creation: {
+
+          title:
+            'Creation',
+
+          description:
+            'I start working on your creation and keep you updated on its progress until the final delivery.'
+
+        }
+
+      }
+
+    },
+
+
+    /* =========================
+       INFORMATION
+    ========================= */
+
+    information: {
+
+      label:
+        'Good to know',
+
+      title: {
+        first: 'Before you',
+        second: 'order.'
+      },
+
+
+      details: {
+
+        title:
+          'Describe your project',
+
+        description:
+          'The more details you provide about your idea, colors, universe and expectations, the better I can create something that fits you.'
+
+      },
+
+
+      references: {
+
+        title:
+          'Prepare your references',
+
+        description:
+          'You can provide images, colors, expressions, poses or any other references that may be useful for your order.'
+
+      },
+
+
+      contact: {
+
+        title:
+          'Contact before ordering',
+
+        description:
+          'Some commissions require you to contact me before placing an order. This will be clearly stated on the relevant commission.'
+
+      },
+
+
+      merchandising: {
+
+        title:
+          'Merchandising use',
+
+        before:
+          'If you wish to use a commissioned emote on products intended for sale, an additional Merchandising license of',
+
+        after:
+          'of the total commission price is required.'
+
+      },
+
+
+      kofi:
+        'View my commissions on Ko-fi'
+
+    },
+
+
+    /* =========================
+       TERMS
+    ========================= */
+
+    terms: {
+
+      label:
+        'Commission terms',
+
+      title: {
+        first: 'A few rules',
+        second: 'before we begin.'
+      },
+
+      description:
+        'Before placing an order, please read my commission terms regarding payments, revisions, usage rights, YCH bases and commercial use.',
+
+      tags: {
+
+        payments:
+          'Payments',
+
+        modifications:
+          'Revisions',
+
+        rights:
+          'Usage rights',
+
+        merch:
+          'Merchandising +20%'
+
+      },
+
+      button:
+        'Read the full terms'
+
+    },
+
+
+    /* =========================
+       ORDER NOTICE
+    ========================= */
+
+    orderNotice: {
 
       before:
-        'If you wish to use a commissioned emote on products intended for sale, an additional Merchandising license of',
+        'By placing an order, you confirm that you have read and accepted my',
+
+      link:
+        'commission terms',
 
       after:
-        'of the total commission price is required.'
+        '.'
+
     },
 
 
-    kofi:
-      'View my commissions on Ko-fi'
-  },
+    /* =========================
+       FINAL CTA
+    ========================= */
 
+    cta: {
 
-  /* =========================
-     TERMS
-  ========================== */
+      label:
+        'Your project',
 
-  terms: {
-    label:
-      'Commission terms',
+      title: {
+        first: 'Have an idea',
+        second: 'in mind?'
+      },
 
-    title: {
-      first: 'A few rules',
-      second: 'before we begin.'
-    },
+      description:
+        'Discover my available commissions on Ko-fi and choose the one that best suits your project.',
 
-    description:
-      'Before placing an order, please read my commission terms regarding payments, revisions, usage rights, YCH bases and commercial use.',
+      order:
+        'View my commissions',
 
+      terms:
+        'View the terms'
 
-    tags: {
-      payments:
-        'Payments',
-
-      modifications:
-        'Revisions',
-
-      rights:
-        'Usage rights',
-
-      merch:
-        'Merchandising +20%'
     },
 
 
-    button:
-      'Read the full terms'
-  },
+    /* =========================
+       COMMISSION CARD
+    ========================= */
 
+    card: {
 
-  /* =========================
-     ORDER NOTICE
-  ========================== */
+      commission:
+        'Commission',
 
-  orderNotice: {
-    before:
-      'By placing an order, you confirm that you have read and accepted my',
+      startingFrom:
+        'Starting from',
 
-    link:
-      'commission terms',
+      order:
+        'Order',
 
-    after:
-      '.'
-  },
+      imageAlt:
+        '{title} - preview {number}',
 
+      previousImage:
+        'Previous image of {title}',
 
-  /* =========================
-     FINAL CTA
-  ========================== */
+      nextImage:
+        'Next image of {title}',
 
-  cta: {
-    label:
-      'Your project',
+      showImage:
+        'Show image {number}',
 
-    title: {
-      first: 'Have an idea',
-      second: 'in mind?'
+      orderAria:
+        'Order {title} on Ko-fi'
+
     },
 
-    description:
-      'Discover my available commissions on Ko-fi and choose the one that best suits your project.',
 
-    order:
-      'View my commissions',
+    /* =========================
+       COMMISSION DATA
+    ========================= */
 
-    terms:
-      'View the terms'
+    data: {
+
+
+      /* =========================
+         COMMON
+      ========================= */
+
+      common: {
+
+        emote:
+          'Emote',
+
+        contactNotice:
+          'Please contact me before placing your order so we can review your request together.',
+
+
+        features: {
+
+          upToFive:
+            'Up to 5 emotes',
+
+          pngGif:
+            'PNG or GIF format',
+
+          customColors:
+            'Customizable colors',
+
+          customBackground:
+            'Customizable background',
+
+          customSizes:
+            'Customizable dimensions',
+
+          digitalFile:
+            'Digital file'
+
+        },
+
+
+        instructions: {
+
+          modelReference:
+            'Provide a reference of your model.',
+
+          selectedEmotes:
+            'Specify which emotes you have chosen from the available bases.',
+
+          background:
+            'Specify whether you would like a particular background.',
+
+          sizes:
+            'Specify the required dimensions if necessary.',
+
+          contact:
+            'Specify your preferred contact method: Discord, X / Twitter or Ko-fi.',
+
+          email:
+            'Provide an email address for final delivery.'
+
+        }
+
+      },
+
+
+      /* =========================
+         TAKIIMIKIKU
+      ========================= */
+
+      takiimikiku: {
+
+        description:
+          'Choose up to 5 emotes from the available bases and I will customize them to match your character and colors.',
+
+
+        features: {
+
+          oneEmote:
+            '1 emote: €2',
+
+          fiveEmotes:
+            '5 emotes: €8'
+
+        },
+
+
+        instructions: {
+
+          modifications:
+            'Specify the colors or elements you would like to change.'
+
+        }
+
+      },
+
+
+      /* =========================
+         NICOPIYO
+      ========================= */
+
+      nicopiyo: {
+
+        description:
+          'Choose up to 5 emotes from the available bases and I will customize them to match your character, colors and preferences.',
+
+
+        features: {
+
+          oneEmote:
+            '1 emote: €3',
+
+          fiveEmotes:
+            '5 emotes: €12'
+
+        },
+
+
+        instructions: {
+
+          modifications:
+            'Specify all the modifications you would like.',
+
+          colors:
+            'Specify which colors should be changed if necessary.'
+
+        }
+
+      },
+
+
+      /* =========================
+         CUSTOM LINK WEBSITE
+      ========================= */
+
+      website: {
+
+        category:
+          'Web Development',
+
+        credit:
+          'Created by Couaxia',
+
+        description:
+          'A custom link website designed around your universe, visual identity and content. A more personal alternative to Linktree for VTubers, streamers, artists and creators.',
+
+
+        features: {
+
+          customWebsite:
+            'Custom link website',
+
+          customDesign:
+            'Design tailored to your universe',
+
+          responsive:
+            'Mobile & Desktop responsive',
+
+          socials:
+            'Social networks and communities',
+
+          visuals:
+            'Avatar, logo and visuals',
+
+          colors:
+            'Custom colors',
+
+          animations:
+            'Animations and effects',
+
+          interactions:
+            'Interactive elements'
+
+        },
+
+
+        instructions: {
+
+          name:
+            'Creator or VTuber name.',
+
+          links:
+            'All links to include: Twitch, YouTube, TikTok, Instagram, Discord, Ko-fi, shop, commissions, etc.',
+
+          avatar:
+            'Avatar or profile picture.',
+
+          logo:
+            'Your logo, if you have one.',
+
+          visuals:
+            'Visual assets to use: character, mascot, decorations, background, etc.',
+
+          colors:
+            'Color palette or preferred colors.',
+
+          universe:
+            'A description of your theme and universe.',
+
+          references:
+            'Websites or designs to use as references or inspiration.',
+
+          buttons:
+            'The order and names of the different buttons.',
+
+          animations:
+            'Any desired animations, effects or interactions.'
+
+        },
+
+
+        notice:
+          'Any illustrations and assets you provide must belong to you or you must have the necessary permission to use them.'
+
+      },
+
+    }
+    
+  },
+  projects: {
+
+  label:
+    'Portfolio',
+
+  title: {
+    first: 'My web',
+    second: 'projects.'
   },
 
+  introduction:
+    'A selection of projects I imagined and developed, from interface design to their deployment online.',
 
-  /* =========================
-     COMMISSION CARD
-  ========================== */
 
   card: {
-    commission:
-      'Commission',
 
-    startingFrom:
-      'Starting from',
+    viewWebsite:
+      'View website'
 
-    order:
-      'Order',
+  },
+
+
+  carousel: {
 
     imageAlt:
-      '{title} - preview {number}',
+      '{title} - screenshot {number}',
 
-    previousImage:
-      'Previous image of {title}',
+    empty:
+      'No screenshots available',
 
-    nextImage:
-      'Next image of {title}',
+    previous:
+      'Previous screenshot of {title}',
 
-    showImage:
-      'Show image {number}',
+    next:
+      'Next screenshot of {title}',
 
-    orderAria:
-      'Order {title} on Ko-fi'
+    show:
+      'Show screenshot {number}',
+
+    preview:
+      'Preview of the project {title}',
+
+    close:
+      'Close preview'
+
+  },
+
+
+  data: {
+
+    couaxia: {
+
+      description:
+        'My personal website dedicated to my VTubing universe. It brings together my introduction, story, social networks, projects, and the artists who contributed to the creation of my universe.'
+
+    },
+
+
+    myo: {
+
+      description:
+        'A custom link page created around Myo’s magical forest universe. It brings together her social networks and different platforms in a fully personalized interface.'
+
+    },
+
+
+    couaxiaLink: {
+
+      description:
+        'A custom link page created around Couaxia’s universe. It brings together her social networks and different platforms in a fully personalized interface.'
+
+    },
+
+
+    celanya: {
+
+      description:
+        'A custom link page created around the universe of Celanya, the Lunar Dragon. It brings together her social networks and different platforms in a fully personalized interface.'
+
+    },
+
+
+    nymya: {
+
+      description:
+        'A custom link page created around Captain Nymya’s universe. It brings together her social networks and different platforms in a fully personalized interface.'
+
+    }
+
   }
 
 },
 
-// EN
-card: {
-  commission: 'Commission',
-  startingFrom: 'Starting from',
-  order: 'Order',
-
-  imageAlt:
-    '{title} - preview {number}',
-
-  previousImage:
-    'Previous image of {title}',
-
-  nextImage:
-    'Next image of {title}',
-
-  showImage:
-    'Show image {number}',
-
-  orderAria:
-    'Order {title} on Ko-fi'
-},
-
-data: {
+creations: {
 
   /* =========================
-     COMMON
-  ========================== */
+     HEADER
+  ========================= */
 
-  common: {
+  label:
+    'Gallery',
 
-    emote:
-      'Emote',
+  title: {
+    first: 'My',
+    second: 'creations.'
+  },
 
-    contactNotice:
-      'Please contact me before placing your order so we can review your request together.',
-
-
-    features: {
-
-      upToFive:
-        'Up to 5 emotes',
-
-      pngGif:
-        'PNG or GIF format',
-
-      customColors:
-        'Customizable colors',
-
-      customBackground:
-        'Customizable background',
-
-      customSizes:
-        'Customizable dimensions',
-
-      digitalFile:
-        'Digital file'
-
-    },
+  introduction:
+    'A space dedicated to my artistic universe: illustrations, emotes, designs and other creations made throughout my projects.',
 
 
-    instructions: {
+  /* =========================
+     CATEGORIES
+  ========================= */
 
-      modelReference:
-        'Provide a reference of your model.',
+  categories: {
 
-      selectedEmotes:
-        'Specify which emotes you have chosen from the available bases.',
+    all:
+      'All',
 
-      background:
-        'Specify whether you would like a particular background.',
+    emotes:
+      'Emotes',
 
-      sizes:
-        'Specify the required dimensions if necessary.',
-
-      contact:
-        'Specify your preferred contact method: Discord, X / Twitter or Ko-fi.',
-
-      email:
-        'Provide an email address for final delivery.'
-
-    }
+    illustration:
+      'Illustration'
 
   },
 
 
   /* =========================
-     TAKIIMIKIKU
-  ========================== */
+     FILTERS
+  ========================= */
 
-  takiimikiku: {
+  filters: {
 
-    description:
-      'Choose up to 5 emotes from the available bases and I will customize them to match your character and colors.',
-
-
-    features: {
-
-      oneEmote:
-        '1 emote: €2',
-
-      fiveEmotes:
-        '5 emotes: €8'
-
-    },
-
-
-    instructions: {
-
-      modifications:
-        'Specify the colors or elements you would like to change.'
-
-    }
+    ariaLabel:
+      'Filter creations'
 
   },
 
 
   /* =========================
-     NICOPIYO
-  ========================== */
+     GALLERY
+  ========================= */
 
-  nicopiyo: {
+  gallery: {
 
-    description:
-      'Choose up to 5 emotes from the available bases and I will customize them to match your character, colors and preferences.',
+    empty:
+      'New creations are coming soon...',
 
+    view:
+      'View',
 
-    features: {
-
-      oneEmote:
-        '1 emote: €3',
-
-      fiveEmotes:
-        '5 emotes: €12'
-
-    },
-
-
-    instructions: {
-
-      modifications:
-        'Specify all the modifications you would like.',
-
-      colors:
-        'Specify which colors should be changed if necessary.'
-
-    }
+    open:
+      'Open {title}'
 
   },
 
 
   /* =========================
-     CUSTOM LINK WEBSITE
-  ========================== */
+     LIGHTBOX
+  ========================= */
 
-  website: {
+  lightbox: {
 
-    category:
-      'Web Development',
+    preview:
+      'Preview of {title}',
 
-    credit:
-      'Created by Couaxia',
+    close:
+      'Close'
 
-    description:
-      'A custom link website designed around your universe, visual identity and content. A more personal alternative to Linktree for VTubers, streamers, artists and creators.',
+  },
 
 
-    features: {
+  /* =========================
+     CREATION DATA
+  ========================= */
 
-      customWebsite:
-        'Custom link website',
+  data: {
 
-      customDesign:
-        'Design tailored to your universe',
+    couaxiaHello: {
 
-      responsive:
-        'Mobile & Desktop responsive',
-
-      socials:
-        'Social networks and communities',
-
-      visuals:
-        'Avatar, logo and visuals',
-
-      colors:
-        'Custom colors',
-
-      animations:
-        'Animations and effects',
-
-      interactions:
-        'Interactive elements'
+      description:
+        'A Hello emote for my stream!'
 
     },
 
 
-    instructions: {
+    babyPecks: {
 
-      name:
-        'Creator or VTuber name.',
-
-      links:
-        'All links to include: Twitch, YouTube, TikTok, Instagram, Discord, Ko-fi, shop, commissions, etc.',
-
-      avatar:
-        'Avatar or profile picture.',
-
-      logo:
-        'Your logo, if you have one.',
-
-      visuals:
-        'Visual assets to use: character, mascot, decorations, background, etc.',
-
-      colors:
-        'Color palette or preferred colors.',
-
-      universe:
-        'A description of your theme and universe.',
-
-      references:
-        'Websites or designs to use as references or inspiration.',
-
-      buttons:
-        'The order and names of the different buttons.',
-
-      animations:
-        'Any desired animations, effects or interactions.'
+      description:
+        'Look at those muscles, baby bird!'
 
     },
 
 
-    notice:
-      'Any illustrations and assets you provide must belong to you or you must have the necessary permission to use them.'
+    myoCafe: {
+
+      description:
+        'A little relaxing coffee break for Myo.'
+
+    },
+
+
+    myoNote: {
+
+      description:
+        'An emote of Myo taking notes.'
+
+    },
+
+
+    couaxiaWhaou: {
+
+      description:
+        'A Couaxia Wow emote!'
+
+    },
+
+
+    couaxiaBanner: {
+
+      description:
+        'A little mouth banner!'
+
+    },
+
+
+    gekko: {
+
+      description:
+        'Several Gekko (VALORANT) emotes available on Ko-fi.'
+
+    },
+
+
+    louxi: {
+
+      description:
+        'An emote gifted to LouxiFR!'
+
+    },
+
+
+    nymyaBanner: {
+
+      description:
+        'A custom banner for Nymya!'
+
+    },
+
+
+    pikanya: {
+
+      title:
+        'For a lucky winner',
+
+      description:
+        'A Pikachu inspired by Pikanya’s colors, with a little extra touch 𐂠!'
+
+    },
+
+
+    celanyaUwu: {
+
+      description:
+        'A gift for Celanya UwU.'
+
+    },
+
+
+    peachy: {
+
+      description:
+        'A gift for Peachy.'
+
+    },
+
+
+    couaxiaWhat: {
+
+      description:
+        'A fun emote with a little reference.'
+
+    },
+
+
+    sage: {
+
+      description:
+        'A little Sage (VALORANT) emote.'
+
+    },
+
+
+    couaxiaPop: {
+
+      description:
+        'My first animated POP emote!'
+
+    },
+
+
+    celanyaFire: {
+
+      description:
+        'An animated emote for Celanya.'
+
+    }
 
   }
 
