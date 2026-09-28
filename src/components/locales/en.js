@@ -171,7 +171,13 @@ export default {
       highlight:
         'my web projects and my creations.'
 
-    }
+    },
+     links: {
+
+    global:
+      'All my links'
+
+  }
 
   },
 

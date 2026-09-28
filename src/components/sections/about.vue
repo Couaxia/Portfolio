@@ -13,7 +13,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     class="about"
   >
 
-
     <!-- =========================
          BACKGROUND
     ========================== -->
@@ -196,6 +195,26 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
           </RouterLink>
 
+
+          <!-- GLOBAL LINKS -->
+
+          <a
+            href="https://links-couaxia.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="about-link"
+          >
+
+            <span class="about-link-number">
+              03.
+            </span>
+
+            <span class="about-link-text">
+              {{ $t('about.links.global') }}
+            </span>
+
+          </a>
+
         </div>
 
       </div>
@@ -214,7 +233,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about {
-
   position: relative;
 
   width: 100%;
@@ -228,7 +246,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   background: var(--color-background-soft);
 
   overflow: hidden;
-
 }
 
 
@@ -237,7 +254,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-container {
-
   position: relative;
 
   z-index: 5;
@@ -255,7 +271,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   align-items: center;
 
   gap: clamp(50px, 5vw, 90px);
-
 }
 
 
@@ -264,7 +279,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-visual {
-
   position: relative;
 
   min-width: 0;
@@ -277,7 +291,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   overflow: visible;
 
   perspective: 1200px;
-
 }
 
 
@@ -286,7 +299,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-frame {
-
   position: relative;
 
   width: min(450px, 80%);
@@ -324,7 +336,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   transition:
     transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.6s ease;
-
 }
 
 
@@ -333,7 +344,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-frame:hover {
-
   transform:
     rotate(-2deg)
     rotateY(-5deg)
@@ -343,7 +353,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   box-shadow:
     0 30px 80px
     rgba(177, 64, 255, 0.18);
-
 }
 
 
@@ -352,7 +361,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-frame::before {
-
   content: '';
 
   position: absolute;
@@ -371,12 +379,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     );
 
   pointer-events: none;
-
 }
 
 
 .about-frame::after {
-
   content: '';
 
   position: absolute;
@@ -403,7 +409,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     );
 
   pointer-events: none;
-
 }
 
 
@@ -412,7 +417,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .frame-line {
-
   position: absolute;
 
   width: 100%;
@@ -421,12 +425,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   border-radius: 38px;
 
   pointer-events: none;
-
 }
 
 
 .frame-line-one {
-
   z-index: -2;
 
   left: -25px;
@@ -438,12 +440,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
   transform:
     rotate(2deg);
-
 }
 
 
 .frame-line-two {
-
   z-index: -3;
 
   right: -28px;
@@ -455,7 +455,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
   transform:
     rotate(8deg);
-
 }
 
 
@@ -464,7 +463,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-image-glow {
-
   position: absolute;
 
   z-index: -4;
@@ -492,7 +490,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     translate(-50%, -50%);
 
   pointer-events: none;
-
 }
 
 
@@ -501,7 +498,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .couaxia-character {
-
   position: absolute;
 
   z-index: 5;
@@ -518,7 +514,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   transform-origin: center;
 
   pointer-events: none;
-
 }
 
 
@@ -527,7 +522,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .couaxia-layer {
-
   display: block;
 
   width: 100%;
@@ -540,7 +534,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   backface-visibility: hidden;
 
   will-change: transform;
-
 }
 
 
@@ -549,7 +542,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .couaxia-body {
-
   position: relative;
 
   z-index: 2;
@@ -571,7 +563,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     );
 
   will-change: transform;
-
 }
 
 
@@ -580,7 +571,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .couaxia-foot {
-
   position: absolute;
 
   z-index: 10;
@@ -606,7 +596,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     );
 
   will-change: transform;
-
 }
 
 
@@ -618,58 +607,40 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
   0%,
   100% {
-
     transform:
       translate3d(0, 0, 0)
       rotate(0deg);
-
   }
-
 
   20% {
-
     transform:
       translate3d(0, 0, 0)
       rotate(0deg);
-
   }
 
-
   40% {
-
     transform:
       translate3d(3px, -2px, 0)
       rotate(-0.15deg);
-
   }
 
-
   55% {
-
     transform:
       translate3d(6px, -4px, 0)
       rotate(-0.35deg);
-
   }
 
-
   65% {
-
     transform:
       translate3d(7px, -5px, 0)
       rotate(-0.4deg);
-
   }
 
-
   80% {
-
     transform:
       translate3d(3px, -2px, 0)
       rotate(-0.15deg);
-
   }
-
 }
 
 
@@ -681,58 +652,40 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
   0%,
   100% {
-
     transform:
       translate3d(0, 0, 0)
       rotate(0deg);
-
   }
-
 
   20% {
-
     transform:
       translate3d(0, 0, 0)
       rotate(0deg);
-
   }
 
-
   40% {
-
     transform:
       translate3d(3px, -2px, 0)
       rotate(-0.8deg);
-
   }
 
-
   55% {
-
     transform:
       translate3d(6px, -4px, 0)
       rotate(-1.7deg);
-
   }
 
-
   65% {
-
     transform:
       translate3d(7px, -5px, 0)
       rotate(-2deg);
-
   }
 
-
   80% {
-
     transform:
       translate3d(3px, -2px, 0)
       rotate(-0.5deg);
-
   }
-
 }
 
 
@@ -741,7 +694,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .decoration {
-
   position: absolute;
 
   z-index: 15;
@@ -757,24 +709,20 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     4s
     ease-in-out
     infinite;
-
 }
 
 
 .decoration-one {
-
   top: -40px;
   left: 35px;
 
   font-size: 3rem;
 
   color: #ff76cf;
-
 }
 
 
 .decoration-two {
-
   right: -65px;
   top: 145px;
 
@@ -783,12 +731,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   color: #ffffff;
 
   animation-delay: -1.3s;
-
 }
 
 
 .decoration-three {
-
   left: -55px;
   bottom: 100px;
 
@@ -797,12 +743,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   color: #f69ad7;
 
   animation-delay: -2.1s;
-
 }
 
 
 .decoration-four {
-
   right: 40px;
   top: 85px;
 
@@ -811,7 +755,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   color: #ff91dc;
 
   animation-delay: -0.7s;
-
 }
 
 
@@ -823,24 +766,18 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
   0%,
   100% {
-
     transform:
       translateY(0)
       rotate(0deg)
       scale(1);
-
   }
 
-
   50% {
-
     transform:
       translateY(-10px)
       rotate(8deg)
       scale(1.08);
-
   }
-
 }
 
 
@@ -849,7 +786,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-content {
-
   position: relative;
 
   z-index: 10;
@@ -858,7 +794,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   min-width: 0;
 
   max-width: 650px;
-
 }
 
 
@@ -867,7 +802,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .section-label {
-
   position: relative;
 
   display: inline-flex;
@@ -885,12 +819,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   letter-spacing: 0.3em;
 
   text-transform: uppercase;
-
 }
 
 
 .section-label::before {
-
   content: '';
 
   width: 48px;
@@ -902,7 +834,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
       var(--color-purple),
       var(--color-pink)
     );
-
 }
 
 
@@ -911,7 +842,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-title {
-
   margin-bottom: 42px;
 
   color: var(--color-white);
@@ -928,12 +858,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   line-height: 0.98;
 
   letter-spacing: -0.04em;
-
 }
 
 
 .about-title span {
-
   display: block;
 
   width: fit-content;
@@ -952,7 +880,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   -webkit-background-clip: text;
 
   color: transparent;
-
 }
 
 
@@ -961,7 +888,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-text {
-
   display: flex;
   flex-direction: column;
 
@@ -974,16 +900,13 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   font-size: 1rem;
 
   line-height: 1.85;
-
 }
 
 
 .about-text strong {
-
   color: var(--color-white);
 
   font-weight: 600;
-
 }
 
 
@@ -992,22 +915,19 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-links {
-
   display: flex;
   flex-wrap: wrap;
 
-  gap: 70px;
+  gap: 45px;
 
   margin-top: 48px;
-
 }
 
 
 .about-link {
-
   position: relative;
 
-  min-width: 190px;
+  min-width: 150px;
 
   display: flex;
   align-items: center;
@@ -1021,28 +941,24 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   font-size: 0.95rem;
   font-weight: 600;
 
+  text-decoration: none;
 }
 
 
 .about-link-number {
-
   color: var(--color-pink);
 
   font-size: 1.2rem;
   font-weight: 700;
-
 }
 
 
 .about-link-text {
-
   color: var(--color-white);
-
 }
 
 
 .about-link::after {
-
   content: '';
 
   position: absolute;
@@ -1068,15 +984,12 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   transition:
     transform
     var(--transition-normal);
-
 }
 
 
 .about-link:hover::after {
-
   transform:
     scaleX(1);
-
 }
 
 
@@ -1085,7 +998,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .about-glow {
-
   position: absolute;
 
   border-radius: 50%;
@@ -1093,12 +1005,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   filter: blur(130px);
 
   pointer-events: none;
-
 }
 
 
 .about-glow-left {
-
   width: 650px;
   height: 650px;
 
@@ -1107,12 +1017,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
   background:
     rgba(143, 76, 255, 0.17);
-
 }
 
 
 .about-glow-right {
-
   width: 600px;
   height: 600px;
 
@@ -1121,7 +1029,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
   background:
     rgba(255, 79, 184, 0.11);
-
 }
 
 
@@ -1130,7 +1037,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 ================================================== */
 
 .background-orbit {
-
   position: absolute;
 
   z-index: 0;
@@ -1138,12 +1044,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   border-radius: 50%;
 
   pointer-events: none;
-
 }
 
 
 .background-orbit-one {
-
   width: 900px;
   height: 900px;
 
@@ -1156,12 +1060,10 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
   transform:
     rotate(-20deg);
-
 }
 
 
 .background-orbit-two {
-
   width: 1000px;
   height: 550px;
 
@@ -1174,7 +1076,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
   transform:
     rotate(12deg);
-
 }
 
 
@@ -1185,7 +1086,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 @media (max-width: 1450px) {
 
   .about-container {
-
     width: min(calc(100% - 60px), 1300px);
 
     grid-template-columns:
@@ -1193,62 +1093,47 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
       minmax(0, 1.1fr);
 
     gap: 60px;
-
   }
 
 
   .about-visual {
-
     min-height: 550px;
-
   }
 
 
   .about-frame {
-
     width: 400px;
     height: 450px;
-
   }
 
 
   .couaxia-character {
-
     width: 620px;
-
   }
 
 
   .about-title {
-
     font-size:
       clamp(
         3.4rem,
         5vw,
         4.8rem
       );
-
   }
 
 
   .about-text {
-
     font-size: 0.97rem;
-
   }
 
 
   .about-links {
-
-    gap: 45px;
-
+    gap: 35px;
   }
 
 
   .about-link {
-
-    min-width: 160px;
-
+    min-width: 145px;
   }
 
 }
@@ -1261,87 +1146,67 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 @media (max-width: 1100px) {
 
   .about {
-
     padding:
       110px
       0
       90px;
-
   }
 
 
   .about-container {
-
     width: min(calc(100% - 50px), 850px);
 
     grid-template-columns: 1fr;
 
     gap: 75px;
-
   }
 
 
   .about-visual {
-
     min-height: 570px;
-
   }
 
 
   .about-frame {
-
     width: 420px;
     height: 470px;
-
   }
 
 
   .couaxia-character {
-
     width: 650px;
 
     left: 48%;
     top: 51%;
-
   }
 
 
   .about-content {
-
     max-width: 680px;
 
     margin-inline: auto;
 
     text-align: center;
-
   }
 
 
   .section-label {
-
     justify-content: center;
-
   }
 
 
   .about-title span {
-
     margin-inline: auto;
-
   }
 
 
   .about-text {
-
     margin-inline: auto;
-
   }
 
 
   .about-links {
-
     justify-content: center;
-
   }
 
 }
@@ -1354,37 +1219,30 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 @media (max-width: 600px) {
 
   .about {
-
     min-height: auto;
 
     padding:
       100px
       0
       70px;
-
   }
 
 
   .about-container {
-
     width: min(calc(100% - 32px), 500px);
 
     gap: 55px;
-
   }
 
 
   .about-visual {
-
     width: 100%;
 
     min-height: 430px;
-
   }
 
 
   .about-frame {
-
     width: min(320px, 80vw);
     height: 360px;
 
@@ -1392,101 +1250,79 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
     transform:
       rotate(-4deg);
-
   }
 
 
   .about-frame:hover {
-
     transform:
       rotate(-4deg);
-
   }
 
 
   .frame-line {
-
     border-radius: 27px;
-
   }
 
 
   .frame-line-one {
-
     left: -16px;
     top: 14px;
-
   }
 
 
   .frame-line-two {
-
     right: -17px;
     top: 17px;
-
   }
 
 
   .couaxia-character {
-
     width: 510px;
 
     left: 48%;
     top: 51%;
-
   }
 
 
   .about-image-glow {
-
     width: 410px;
     height: 410px;
-
   }
 
 
   .decoration-one {
-
     top: -28px;
     left: 25px;
 
     font-size: 2.3rem;
-
   }
 
 
   .decoration-two {
-
     right: -38px;
     top: 105px;
 
     font-size: 2.2rem;
-
   }
 
 
   .decoration-three {
-
     left: -30px;
     bottom: 70px;
 
     font-size: 1.6rem;
-
   }
 
 
   .decoration-four {
-
     right: 25px;
     top: 65px;
 
     font-size: 1.2rem;
-
   }
 
 
   .about-title {
-
     margin-bottom: 32px;
 
     font-size:
@@ -1495,19 +1331,15 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
         14vw,
         4rem
       );
-
   }
 
 
   .about-text {
-
     font-size: 0.95rem;
-
   }
 
 
   .about-links {
-
     flex-direction: column;
 
     align-items: center;
@@ -1515,14 +1347,11 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     gap: 28px;
 
     margin-top: 40px;
-
   }
 
 
   .about-link {
-
     width: 190px;
-
   }
 
 }
@@ -1535,31 +1364,23 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 @media (max-width: 400px) {
 
   .about-visual {
-
     min-height: 380px;
-
   }
 
 
   .about-frame {
-
     width: 280px;
     height: 315px;
-
   }
 
 
   .couaxia-character {
-
     width: 445px;
-
   }
 
 
   .about-title {
-
     font-size: 2.7rem;
-
   }
 
 }
