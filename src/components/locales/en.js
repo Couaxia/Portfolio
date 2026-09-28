@@ -151,35 +151,136 @@ export default {
 
   about: {
 
-    label: 'About',
+  label:
+    'About',
 
-    title: "Hello, I'm",
+  title:
+    "Hello, I'm",
 
-    imageAlt: 'Illustration of Couaxia',
+  imageAlt:
+    'Illustration of Couaxia',
 
-    paragraphs: {
+  paragraphs: {
 
-      first:
-        'Passionate about creativity, I love bringing my ideas to life through both web development and drawing.',
+    first:
+      'Passionate about creativity, I love bringing my ideas to life through both web development and drawing.',
 
-      second:
-        'I create websites, interfaces and various digital projects while developing my own artistic universe.',
+    second:
+      'I create websites, interfaces and various digital projects while developing my own artistic universe.',
 
-      third:
-        'This portfolio brings together these two sides of my work:',
+    third:
+      'This portfolio brings together these two sides of my work:',
 
-      highlight:
-        'my web projects and my creations.'
+    highlight:
+      'my web projects and my creations.'
 
-    },
-     links: {
+  },
+
+  links: {
 
     global:
       'All my links'
 
-  }
+  },
+
+  behind: {
+
+    label:
+      'A little more about me',
+
+    title: {
+
+      first:
+        'Behind',
+
+      second:
+        'Couaxia.'
+
+    },
+
+    paragraphs: {
+
+      first:
+        'Couaxia was born from my desire to create my own universe and bring several of my passions together.',
+
+      second:
+        'I am a developer, creator and VTuber. I enjoy spending hours imagining a web interface just as much as drawing a new emote or bringing a new idea to life.',
+
+      third:
+        'Through this portfolio, I bring together the creations, projects and little pieces of my universe that mean the most to me.'
+
+    }
 
   },
+
+  passions: {
+
+    label:
+      'A few things about me',
+
+    center: {
+
+      title:
+        'Developer, creator & VTuber',
+
+      description:
+        'I love turning my ideas into projects, creations and universes.'
+
+    },
+
+    gaming: {
+
+      title:
+        'Video games',
+
+      description:
+        'Play, discover & share'
+
+    },
+
+    drawing: {
+
+      title:
+        'Drawing',
+
+      description:
+        'Imagine & create'
+
+    },
+
+    development: {
+
+      title:
+        'Development',
+
+      description:
+        'Bring my ideas to life'
+
+    },
+
+    vtubing: {
+
+      title:
+        'VTubing',
+
+      description:
+        'Bring Couaxia to life'
+
+    },
+
+    universe: {
+
+      title:
+        'Worldbuilding',
+
+      description:
+        'Imagine worlds & stories'
+
+    }
+
+  }
+
+},
 
 
   /* =========================

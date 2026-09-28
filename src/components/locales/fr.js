@@ -151,35 +151,136 @@ export default {
 
   about: {
 
-    label: 'À propos',
+  label:
+    'À propos',
 
-    title: "Hello, moi c'est",
+  title:
+    "Hello, moi c'est",
 
-    imageAlt: 'Illustration de Couaxia',
+  imageAlt:
+    'Illustration de Couaxia',
 
-    paragraphs: {
+  paragraphs: {
 
-      first:
-        "Passionnée par la création, j'aime donner vie à mes idées aussi bien à travers le développement web que le dessin.",
+    first:
+      "Passionnée par la création, j'aime donner vie à mes idées aussi bien à travers le développement web que le dessin.",
 
-      second:
-        "Je crée des sites internet, des interfaces et différents projets numériques tout en développant mon propre univers artistique.",
+    second:
+      "Je crée des sites internet, des interfaces et différents projets numériques tout en développant mon propre univers artistique.",
 
-      third:
-        'Ce portfolio rassemble ces deux facettes :',
+    third:
+      'Ce portfolio rassemble ces deux facettes :',
 
-      highlight:
-        'mes projets web et mes créations.'
+    highlight:
+      'mes projets web et mes créations.'
 
-    },
-    links: {
+  },
+
+  links: {
 
     global:
       'Tous mes liens'
 
-  }
+  },
+
+  behind: {
+
+    label:
+      'Un peu plus sur moi',
+
+    title: {
+
+      first:
+        'Derrière',
+
+      second:
+        'Couaxia.'
+
+    },
+
+    paragraphs: {
+
+      first:
+        "Couaxia est née de mon envie de créer mon propre univers et de réunir plusieurs de mes passions.",
+
+      second:
+        "Je suis développeuse, créatrice et VTubeuse. J'aime autant passer plusieurs heures à imaginer une interface web que dessiner un nouvel emote ou donner vie à une nouvelle idée.",
+
+      third:
+        "À travers ce portfolio, je rassemble les créations, les projets et les petits bouts d'univers qui me tiennent à cœur."
+
+    }
 
   },
+
+  passions: {
+
+    label:
+      'Quelques trucs sur moi',
+
+    center: {
+
+      title:
+        'Développeuse, créatrice & VTubeuse',
+
+      description:
+        "J'aime transformer mes idées en projets, en créations et en univers."
+
+    },
+
+    gaming: {
+
+      title:
+        'Jeux vidéo',
+
+      description:
+        'Jouer, découvrir & partager'
+
+    },
+
+    drawing: {
+
+      title:
+        'Dessin',
+
+      description:
+        'Imaginer & créer'
+
+    },
+
+    development: {
+
+      title:
+        'Développement',
+
+      description:
+        'Donner vie à mes idées'
+
+    },
+
+    vtubing: {
+
+      title:
+        'VTubing',
+
+      description:
+        'Faire vivre Couaxia'
+
+    },
+
+    universe: {
+
+      title:
+        "Création d'univers",
+
+      description:
+        'Imaginer des mondes & des histoires'
+
+    }
+
+  }
+
+},
 
 
   /* =========================

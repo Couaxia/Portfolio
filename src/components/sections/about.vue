@@ -24,8 +24,11 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     <div class="background-orbit background-orbit-two"></div>
 
 
-    <div class="about-container">
+    <!-- ==================================================
+         PARTIE PRINCIPALE
+    =================================================== -->
 
+    <div class="about-container">
 
       <!-- =========================
            ILLUSTRATION
@@ -34,7 +37,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
       <div class="about-visual">
 
         <div class="about-frame">
-
 
           <!-- CADRES DÉCORATIFS -->
 
@@ -52,7 +54,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
           ========================== -->
 
           <div class="couaxia-character">
-
 
             <!-- CORPS -->
 
@@ -107,7 +108,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
       <div class="about-content">
 
-
         <!-- LABEL -->
 
         <p class="section-label">
@@ -158,7 +158,6 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
         ========================== -->
 
         <div class="about-links">
-
 
           <!-- PROJECTS -->
 
@@ -221,6 +220,272 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
     </div>
 
+
+    <!-- ==================================================
+         DERRIÈRE COUAXIA
+    =================================================== -->
+
+    <div class="behind-container">
+
+      <div class="behind-introduction">
+
+        <p class="section-label behind-section-label">
+          {{ $t('about.behind.label') }}
+        </p>
+
+
+        <h3 class="behind-title">
+
+          {{ $t('about.behind.title.first') }}
+
+          <span>
+            {{ $t('about.behind.title.second') }}
+          </span>
+
+        </h3>
+
+
+        <div class="behind-text">
+
+          <p>
+            {{ $t('about.behind.paragraphs.first') }}
+          </p>
+
+          <p>
+            {{ $t('about.behind.paragraphs.second') }}
+          </p>
+
+          <p>
+            {{ $t('about.behind.paragraphs.third') }}
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           PASSIONS TITLE
+      ========================== -->
+
+      <div class="passions-heading">
+
+        <span>
+          ✦
+        </span>
+
+        <p>
+          {{ $t('about.passions.label') }}
+        </p>
+
+        <span>
+          ✦
+        </span>
+
+      </div>
+
+
+      <!-- =========================
+           CONSTELLATION
+      ========================== -->
+
+      <div class="passions-universe">
+
+
+        <!-- ORBITES -->
+
+        <div class="passion-orbit passion-orbit-one"></div>
+
+        <div class="passion-orbit passion-orbit-two"></div>
+
+        <div class="passion-orbit passion-orbit-three"></div>
+
+
+        <!-- PETITES ÉTOILES -->
+
+        <span class="passion-star passion-star-one">
+          ✦
+        </span>
+
+        <span class="passion-star passion-star-two">
+          ✧
+        </span>
+
+        <span class="passion-star passion-star-three">
+          ✦
+        </span>
+
+        <span class="passion-star passion-star-four">
+          ✧
+        </span>
+
+        <span class="passion-star passion-star-five">
+          ✦
+        </span>
+
+
+        <!-- =========================
+             CENTRE
+        ========================== -->
+
+        <div class="passion-center">
+
+          <div class="passion-center-glow"></div>
+
+          <div class="passion-center-ring"></div>
+
+
+          <div class="passion-center-content">
+
+            <span class="center-symbol">
+              ✦
+            </span>
+
+            <span class="center-name">
+              COUAXIA
+            </span>
+
+            <h4>
+              {{ $t('about.passions.center.title') }}
+            </h4>
+
+            <p>
+              {{ $t('about.passions.center.description') }}
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             CRÉATION D'UNIVERS
+        ========================== -->
+
+        <article class="passion-item passion-world">
+
+          <span class="passion-icon">
+            🌌
+          </span>
+
+          <div class="passion-item-content">
+
+            <h4>
+              {{ $t('about.passions.universe.title') }}
+            </h4>
+
+            <p>
+              {{ $t('about.passions.universe.description') }}
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- =========================
+             DESSIN
+        ========================== -->
+
+        <article class="passion-item passion-drawing">
+
+          <span class="passion-icon">
+            🎨
+          </span>
+
+          <div class="passion-item-content">
+
+            <h4>
+              {{ $t('about.passions.drawing.title') }}
+            </h4>
+
+            <p>
+              {{ $t('about.passions.drawing.description') }}
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- =========================
+             DÉVELOPPEMENT
+        ========================== -->
+
+        <article class="passion-item passion-development">
+
+          <span class="passion-icon">
+            💻
+          </span>
+
+          <div class="passion-item-content">
+
+            <h4>
+              {{ $t('about.passions.development.title') }}
+            </h4>
+
+            <p>
+              {{ $t('about.passions.development.description') }}
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- =========================
+             JEUX VIDÉO
+        ========================== -->
+
+        <article class="passion-item passion-gaming">
+
+          <span class="passion-icon">
+            🎮
+          </span>
+
+          <div class="passion-item-content">
+
+            <h4>
+              {{ $t('about.passions.gaming.title') }}
+            </h4>
+
+            <p>
+              {{ $t('about.passions.gaming.description') }}
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- =========================
+             VTUBING
+        ========================== -->
+
+        <article class="passion-item passion-vtubing">
+
+          <span class="passion-icon">
+            🐙
+          </span>
+
+          <div class="passion-item-content">
+
+            <h4>
+              {{ $t('about.passions.vtubing.title') }}
+            </h4>
+
+            <p>
+              {{ $t('about.passions.vtubing.description') }}
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
   </section>
 
 </template>
@@ -238,10 +503,7 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
   width: 100%;
   min-height: calc(100vh - 80px);
 
-  display: flex;
-  align-items: center;
-
-  padding: 110px 0 90px;
+  padding: 110px 0 100px;
 
   background: var(--color-background-soft);
 
@@ -641,6 +903,7 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
       translate3d(3px, -2px, 0)
       rotate(-0.15deg);
   }
+
 }
 
 
@@ -686,6 +949,7 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
       translate3d(3px, -2px, 0)
       rotate(-0.5deg);
   }
+
 }
 
 
@@ -778,6 +1042,7 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
       rotate(8deg)
       scale(1.08);
   }
+
 }
 
 
@@ -990,6 +1255,677 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 .about-link:hover::after {
   transform:
     scaleX(1);
+}
+
+
+/* ==================================================
+   DERRIÈRE COUAXIA
+================================================== */
+
+.behind-container {
+  position: relative;
+
+  z-index: 5;
+
+  width: min(calc(100% - 80px), 1250px);
+
+  margin:
+    120px
+    auto
+    0;
+
+  padding-top: 100px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.behind-introduction {
+  max-width: 780px;
+
+  margin-inline: auto;
+
+  text-align: center;
+}
+
+
+.behind-section-label {
+  justify-content: center;
+}
+
+
+.behind-title {
+  margin-bottom: 40px;
+
+  color: var(--color-white);
+
+  font-size:
+    clamp(
+      3rem,
+      5vw,
+      4.8rem
+    );
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+
+.behind-title span {
+  background:
+    linear-gradient(
+      90deg,
+      #ff8dd4,
+      #ff4fb8,
+      #8f4cff
+    );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+
+.behind-text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 22px;
+
+  color: var(--color-text-muted);
+
+  font-size: 1rem;
+
+  line-height: 1.85;
+}
+
+
+/* ==================================================
+   PASSIONS HEADING
+================================================== */
+
+.passions-heading {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  margin:
+    100px
+    0
+    35px;
+}
+
+
+.passions-heading p {
+  color: var(--color-pink-soft);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+}
+
+
+.passions-heading span {
+  color: var(--color-pink);
+
+  font-size: 0.7rem;
+
+  text-shadow:
+    0 0 12px
+    rgba(255, 79, 184, 0.8);
+}
+
+
+/* ==================================================
+   PASSIONS UNIVERSE
+================================================== */
+
+.passions-universe {
+  position: relative;
+
+  width: min(100%, 1050px);
+  height: 720px;
+
+  margin-inline: auto;
+}
+
+
+/* ==================================================
+   ORBITS
+================================================== */
+
+.passion-orbit {
+  position: absolute;
+
+  z-index: 1;
+
+  left: 50%;
+  top: 50%;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.passion-orbit-one {
+  width: 390px;
+  height: 390px;
+
+  border:
+    1px solid
+    rgba(255, 155, 215, 0.13);
+
+  transform:
+    translate(-50%, -50%);
+}
+
+
+.passion-orbit-two {
+  width: 650px;
+  height: 420px;
+
+  border:
+    1px dashed
+    rgba(143, 76, 255, 0.16);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-17deg);
+}
+
+
+.passion-orbit-three {
+  width: 850px;
+  height: 540px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.045);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(14deg);
+}
+
+
+/* ==================================================
+   CENTER
+================================================== */
+
+.passion-center {
+  position: absolute;
+
+  z-index: 10;
+
+  left: 50%;
+  top: 50%;
+
+  width: 280px;
+  height: 280px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform:
+    translate(-50%, -50%);
+}
+
+
+.passion-center::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  border:
+    1px solid
+    rgba(255, 155, 215, 0.36);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 34% 28%,
+      rgba(255, 155, 215, 0.19),
+      rgba(143, 76, 255, 0.09) 45%,
+      rgba(15, 9, 20, 0.96) 76%
+    );
+
+  box-shadow:
+    0 0 55px
+    rgba(255, 79, 184, 0.16),
+    inset
+    0 0 45px
+    rgba(143, 76, 255, 0.09);
+}
+
+
+.passion-center-glow {
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 79, 184, 0.15),
+      rgba(143, 76, 255, 0.06) 45%,
+      transparent 70%
+    );
+
+  filter: blur(32px);
+
+  animation:
+    center-pulse
+    4s
+    ease-in-out
+    infinite;
+
+  pointer-events: none;
+}
+
+
+.passion-center-ring {
+  position: absolute;
+
+  width: 335px;
+  height: 110px;
+
+  border:
+    1px solid
+    rgba(255, 155, 215, 0.18);
+
+  border-radius: 50%;
+
+  transform:
+    rotate(-13deg);
+
+  pointer-events: none;
+}
+
+
+.passion-center-content {
+  position: relative;
+
+  z-index: 4;
+
+  width: 220px;
+
+  text-align: center;
+}
+
+
+.center-symbol {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--color-pink);
+
+  font-size: 0.85rem;
+
+  text-shadow:
+    0 0 14px
+    rgba(255, 79, 184, 0.85);
+}
+
+
+.center-name {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--color-pink-soft);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  letter-spacing: 0.3em;
+}
+
+
+.passion-center h4 {
+  margin-bottom: 13px;
+
+  color: var(--color-white);
+
+  font-size: 1.12rem;
+
+  line-height: 1.35;
+}
+
+
+.passion-center p {
+  color: var(--color-text-muted);
+
+  font-size: 0.73rem;
+
+  line-height: 1.6;
+}
+
+
+/* ==================================================
+   PASSION ITEMS
+================================================== */
+
+.passion-item {
+  position: absolute;
+
+  z-index: 12;
+
+  width: 190px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 10px;
+
+  text-align: center;
+
+  animation:
+    passion-float
+    5s
+    ease-in-out
+    infinite;
+}
+
+
+.passion-item::before {
+  content: '';
+
+  position: absolute;
+
+  z-index: -1;
+
+  left: 50%;
+  top: 20px;
+
+  width: 95px;
+  height: 95px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 79, 184, 0.07);
+
+  filter: blur(32px);
+
+  transform:
+    translateX(-50%);
+
+  transition:
+    background
+    var(--transition-normal);
+}
+
+
+.passion-item:hover::before {
+  background:
+    rgba(255, 79, 184, 0.17);
+}
+
+
+.passion-icon {
+  width: 68px;
+  height: 68px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 155, 215, 0.2);
+
+  border-radius: 50%;
+
+  background:
+    rgba(33, 21, 43, 0.76);
+
+  backdrop-filter: blur(10px);
+
+  font-size: 1.65rem;
+
+  box-shadow:
+    0 8px 25px
+    rgba(0, 0, 0, 0.2);
+
+  transition:
+    transform
+    var(--transition-normal),
+    border-color
+    var(--transition-normal),
+    box-shadow
+    var(--transition-normal);
+}
+
+
+.passion-item:hover .passion-icon {
+  border-color:
+    rgba(255, 155, 215, 0.55);
+
+  transform:
+    translateY(-5px)
+    scale(1.08);
+
+  box-shadow:
+    0 12px 35px
+    rgba(255, 79, 184, 0.15);
+}
+
+
+.passion-item h4 {
+  color: var(--color-white);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+
+.passion-item p {
+  margin-top: 4px;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.7rem;
+
+  line-height: 1.5;
+}
+
+
+/* ==================================================
+   PASSION POSITIONS
+================================================== */
+
+.passion-world {
+  left: 50%;
+  top: 20px;
+
+  transform:
+    translateX(-50%);
+
+  animation-delay: -1s;
+}
+
+
+.passion-drawing {
+  left: 40px;
+  top: 185px;
+
+  animation-delay: -2s;
+}
+
+
+.passion-development {
+  right: 40px;
+  top: 185px;
+
+  animation-delay: -3s;
+}
+
+
+.passion-gaming {
+  left: 125px;
+  bottom: 60px;
+
+  animation-delay: -4s;
+}
+
+
+.passion-vtubing {
+  right: 125px;
+  bottom: 60px;
+
+  animation-delay: -1.5s;
+}
+
+
+/* ==================================================
+   STARS
+================================================== */
+
+.passion-star {
+  position: absolute;
+
+  z-index: 3;
+
+  color: var(--color-pink-soft);
+
+  pointer-events: none;
+
+  text-shadow:
+    0 0 12px
+    currentColor;
+
+  animation:
+    passion-twinkle
+    3s
+    ease-in-out
+    infinite;
+}
+
+
+.passion-star-one {
+  left: 25%;
+  top: 15%;
+
+  font-size: 0.8rem;
+}
+
+
+.passion-star-two {
+  right: 24%;
+  top: 27%;
+
+  font-size: 1rem;
+
+  animation-delay: -1s;
+}
+
+
+.passion-star-three {
+  left: 27%;
+  bottom: 25%;
+
+  font-size: 0.65rem;
+
+  animation-delay: -2s;
+}
+
+
+.passion-star-four {
+  right: 27%;
+  bottom: 17%;
+
+  font-size: 0.85rem;
+
+  animation-delay: -0.5s;
+}
+
+
+.passion-star-five {
+  left: 49%;
+  bottom: 9%;
+
+  font-size: 0.6rem;
+
+  animation-delay: -1.8s;
+}
+
+
+/* ==================================================
+   PASSION ANIMATIONS
+================================================== */
+
+@keyframes passion-float {
+
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+
+}
+
+
+@keyframes passion-twinkle {
+
+  0%,
+  100% {
+    opacity: 0.25;
+
+    scale: 0.85;
+  }
+
+  50% {
+    opacity: 1;
+
+    scale: 1.15;
+  }
+
+}
+
+
+@keyframes center-pulse {
+
+  0%,
+  100% {
+    opacity: 0.6;
+
+    transform:
+      scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.05);
+  }
+
 }
 
 
@@ -1209,6 +2145,45 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     justify-content: center;
   }
 
+
+  .behind-container {
+    width: min(calc(100% - 50px), 850px);
+
+    margin-top: 100px;
+  }
+
+
+  .passions-universe {
+    width: 780px;
+
+    max-width: 100%;
+  }
+
+
+  .passion-drawing {
+    left: 0;
+  }
+
+
+  .passion-development {
+    right: 0;
+  }
+
+
+  .passion-gaming {
+    left: 55px;
+  }
+
+
+  .passion-vtubing {
+    right: 55px;
+  }
+
+
+  .passion-orbit-three {
+    width: 700px;
+  }
+
 }
 
 
@@ -1354,12 +2329,185 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
     width: 190px;
   }
 
+
+  /* =========================
+     BEHIND
+  ========================== */
+
+  .behind-container {
+    width: min(calc(100% - 32px), 500px);
+
+    margin-top: 85px;
+
+    padding-top: 75px;
+  }
+
+
+  .behind-title {
+    margin-bottom: 32px;
+
+    font-size:
+      clamp(
+        2.7rem,
+        12vw,
+        4rem
+      );
+  }
+
+
+  .behind-text {
+    font-size: 0.95rem;
+  }
+
+
+  .passions-heading {
+    margin:
+      75px
+      0
+      45px;
+  }
+
+
+  /* =========================
+     MOBILE CONSTELLATION
+  ========================== */
+
+  .passions-universe {
+    width: 100%;
+    height: auto;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+  }
+
+
+  .passion-orbit,
+  .passion-star {
+    display: none;
+  }
+
+
+  .passion-center {
+    position: relative;
+
+    left: auto;
+    top: auto;
+
+    grid-column: 1 / -1;
+
+    width: 260px;
+    height: 260px;
+
+    margin:
+      0
+      auto
+      35px;
+
+    transform: none;
+  }
+
+
+  .passion-center-ring {
+    width: 300px;
+  }
+
+
+  .passion-item {
+    position: relative;
+
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+
+    width: 100%;
+    min-height: 165px;
+
+    display: flex;
+
+    padding:
+      22px
+      14px;
+
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.07);
+
+    border-radius: 22px;
+
+    background:
+      rgba(255, 255, 255, 0.018);
+
+    animation:
+      mobile-passion-float
+      5s
+      ease-in-out
+      infinite;
+
+    transform: none;
+  }
+
+
+  .passion-world {
+    grid-column: 1 / -1;
+
+    width: min(240px, 100%);
+
+    margin-inline: auto;
+  }
+
+
+  .passion-item p {
+    max-width: 155px;
+  }
+
 }
 
 
 /* ==================================================
    SMALL MOBILE
 ================================================== */
+
+@media (max-width: 450px) {
+
+  .passions-universe {
+    grid-template-columns: 1fr;
+  }
+
+
+  .passion-center {
+    width: 235px;
+    height: 235px;
+  }
+
+
+  .passion-center-content {
+    width: 185px;
+  }
+
+
+  .passion-center-ring {
+    width: 260px;
+  }
+
+
+  .passion-world {
+    grid-column: auto;
+
+    width: 100%;
+  }
+
+
+  .passion-item {
+    min-height: 150px;
+  }
+
+}
+
 
 @media (max-width: 400px) {
 
@@ -1381,6 +2529,26 @@ import couaxiaFoot from '../../assets/images/about/feet.png'
 
   .about-title {
     font-size: 2.7rem;
+  }
+
+}
+
+
+/* ==================================================
+   MOBILE PASSION ANIMATION
+================================================== */
+
+@keyframes mobile-passion-float {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-4px);
   }
 
 }
